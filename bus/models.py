@@ -27,7 +27,7 @@ class Passenger(models.Model):
 
 
     def __str__(self):
-        return self.reg_num
+        return self.register_number
 
     class Meta:
         verbose_name = 'Passenger'
