@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'base',
     'bus',
+    'authentication',
 ]
 
 MIDDLEWARE = [

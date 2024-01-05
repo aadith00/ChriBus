@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import home,bookings
+from .views import signup,booking
 
 
 urlpatterns = [
-    path('', home),
-    path('booking', bookings)
+    path('', booking),
+    path('signup.html', signup),
 ]
