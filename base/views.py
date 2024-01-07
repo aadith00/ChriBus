@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 
@@ -79,8 +79,13 @@ def signup(request):
             )
             user = authenticate(request, username=username, password=password)
             login(request, user)
+            return redirect('/?signup=successfull')
+    
+    context = {
+        'errors' : errors
+    }
 
-    return render (request, "signup.html")
+    return render (request, "signup.html", context)
 
 def booking(request):
     return render (request, "booking.html")
