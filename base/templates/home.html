@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chribus</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+  <section>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #002038;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: "Dancing Script", cursive;
+        line-height: 1.6;
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+
+      h2,
+      h3,
+      a {
+        color: #021121;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+
+
+      .logo {
+        margin: 0;
+        font-size: 1.45em;
+      }
+
+      .main-nav {
+        margin-top: 5px;
+
+      }
+
+      .logo a,
+      .main-nav a {
+        padding: 10px 15px;
+        text-transform: capitalize;
+        text-align: center;
+        display: block;
+      }
+
+      .main-nav a {
+        color: #34495e;
+        font-size: .99em;
+      }
+
+      .main-nav a:hover {
+        color: black;
+      }
+
+      .christ{
+        margin-top: 25px;
+      }
+
+      .header {
+        padding-top: .5em;
+        padding-bottom: .5em;
+        border: 1px solid #a2a2a2;
+        background-color: #f4f4f4;
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+      }
+
+
+      /* ================================= 
+  Media Queries
+==================================== */
+
+
+
+
+      @media (min-width: 769px) {
+
+        .header,
+        .main-nav {
+          display: flex;
+        }
+
+        .header {
+          flex-direction: column;
+          align-items: center;
+
+          .header {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1150px;
+          }
+        }
+
+      }
+
+      @media (min-width: 1025px) {
+        .header {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <header class="header">
+      <h1 class="logo"><a href="#">CHRIBUS</a></h1>
+      <ul class="main-nav">
+        <li><a href="home.html">Account</a></li>
+        <li><a href="bookings.html">Bus Tickets</a></li>
+        <li><a href="#">Rentals</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </header>
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <section>
+      <style>
+        .christ {
+          width: 300px;
+        }
+      </style>
+      <img class="christ" src="https://lavasa.christuniversity.in/images/logo.png" alt="loh">
+    </section>
+    <!-------FORM----->
+
+   <section>
+    <style>
+      :root {
+    /* COLORS */
+    --white: #e9e9e9;
+    --gray: #333;
+    --blue: #0367a6;
+    --lightblue: #008997;
+  
+    /* RADII */
+    --button-radius: 0.7rem;
+  
+    /* SIZES */
+    --max-width: 758px;
+    --max-height: 420px;
+  
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  
+  body {
+    align-items: center;
+    background-color: #002038;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    height: 100vh;
+    place-items: center;
+  }
+  
+  .form__title {
+    font-weight: 300;
+    margin: 0;
+    margin-bottom: 1.25rem;
+  }
+  
+  .link {
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+    text-decoration: none;
+  }
+  
+  .container {
+    background-color: var(--white);
+    border-radius: var(--button-radius);
+    margin-top: 50px;
+    box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
+      0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
+    height: var(--max-height);
+    max-width: var(--max-width);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  
+  .container__form {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .container--signin {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+  }
+  
+  .container.right-panel-active .container--signin {
+    transform: translateX(100%);
+  }
+  
+  .container--signup {
+    left: 0;
+    opacity: 0;
+    width: 50%;
+    z-index: 1;
+  }
+  
+  .container.right-panel-active .container--signup {
+    animation: show 0.6s;
+    opacity: 1;
+    transform: translateX(100%);
+    z-index: 5;
+  }
+  
+  .container__overlay {
+    height: 100%;
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transition: transform 0.6s ease-in-out;
+    width: 50%;
+    z-index: 100;
+  }
+  
+  .container.right-panel-active .container__overlay {
+    transform: translateX(-100%);
+  }
+  
+  .overlay {
+    background-color: var(--lightblue);
+    background: url("https://pluspng.com/img-png/png-tour-bus-big-image-png-2400.png");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    left: -100%;
+    position: relative;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    width: 200%;
+  }
+  
+  .container.right-panel-active .overlay {
+    transform: translateX(50%);
+  }
+  
+  .overlay__panel {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    width: 50%;
+  }
+  
+  .overlay--left {
+    transform: translateX(-20%);
+  }
+  
+  .container.right-panel-active .overlay--left {
+    transform: translateX(0);
+  }
+  
+  .overlay--right {
+    right: 0;
+    transform: translateX(0);
+  }
+  
+  .container.right-panel-active .overlay--right {
+    transform: translateX(20%);
+  }
+  
+  .btn {
+    background-color: var(--blue);
+    background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
+    border-radius: 20px;
+    border: 1px solid var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    padding: 0.9rem 4rem;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+  }
+  
+  .form > .btn {
+    margin-top: 1.5rem;
+  }
+  
+  .btn:active {
+    transform: scale(0.95);
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .form {
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 3rem;
+    height: 100%;
+    text-align: center;
+  }
+  
+  .input {
+    background-color: #fff;
+    border: none;
+    padding: 0.9rem 0.9rem;
+    margin: 0.5rem 0;
+    width: 100%;
+  }
+  
+  @keyframes show {
+    0%,
+    49.99% {
+      opacity: 0;
+      z-index: 1;
+    }
+  
+    50%,
+    100% {
+      opacity: 1;
+      z-index: 5;
+    }
+  }
+  
+  </style>
+  <div class="container right-panel-active">
+    <!-- Sign Up -->
+    <div class="container__form container--signup">
+      <form action="#" class="form" id="form1">
+        <h2 class="form__title">Sign Up</h2>
+              <input type="email" placeholder="Email" class="input" />
+        <input type="text" placeholder="Register Number" class="input" />
+              <input type="password" placeholder="Password" class="input" />
+        <input type="password" placeholder="Confirm Password" class="input" />
+        <button class="btn">Sign Up</button>
+      </form>
+    </div>
+  
+    <!-- Sign In -->
+    <div class="container__form container--signin">
+      <form action="#" class="form" id="form2">
+        <h2 class="form__title">Sign In</h2>
+        <input type="text" placeholder="Register Number" class="input" />
+        <input type="password" placeholder="Password" class="input" />
+        <a href="#" class="link">Forgot your password?</a>
+        <button class="btn">Sign In</button>
+      </form>
+    </div>
+  
+    <!-- Overlay -->
+    <div class="container__overlay">
+      <div class="overlay">
+        <div class="overlay__panel overlay--left">
+          <button class="btn" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay__panel overlay--right">
+          <button class="btn" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+      const signInBtn = document.getElementById("signIn");
+  const signUpBtn = document.getElementById("signUp");
+  const fistForm = document.getElementById("form1");
+  const secondForm = document.getElementById("form2");
+  const container = document.querySelector(".container");
+  
+  signInBtn.addEventListener("click", () => {
+    container.classList.remove("right-panel-active");
+  });
+  
+  signUpBtn.addEventListener("click", () => {
+    container.classList.add("right-panel-active");
+  });
+  
+  fistForm.addEventListener("submit", (e) => e.preventDefault());
+  secondForm.addEventListener("submit", (e) => e.preventDefault());
+  
+  </script>
+
+  </section>
+  <!--------About--------->
+  <section class="about">
+    <style>
+      .about {
+        margin-top: 250px;
+        margin-left: 50px;
+        color: #ccc
+      }
+
+      .about-us {
+        margin-top: 100px;
+        margin-right: 900px;
+        margin-left: 0;
+        font-size: medium;
+        justify-content: space-between;
+      }
+      .about-img{
+        border-radius: 100px;
+        width:45%;
+        margin-left: 700px;
+        margin-bottom: 500px;
+        justify-content: space-between;
+      }
+    </style>
+    <h1>
+      ABOUT
+    </h1>
+    <div>
+      <p class="about-us">
+        CHRIST (Deemed to be University) was born out of the educational vision of St Kuriakose Elias Chavara, an
+        educationalist and social reformer of the nineteenth century in South India.The campus is located in Lavasa a
+        small hill-station which is 60-70 kms away from the city of Pune.Due to which it is quite difficult to travel
+        from Lavasa to Pune.But our esteemed institution offers a weekend bus service every week to Pune so the students
+        can purchase or buy any required things.To optimize this we have created a web application so the students are
+        able to book the tickets every week.
+      </p>
+      <div>
+      <img class="about-img" src="https://lavasa.christuniversity.in/uploads/studentlife/large/Untitled%20design%20(31)_20201231051930..png" alt="$$$">
+    </div>
+    </div>
+  </section>
+</body>
+
+</html>
