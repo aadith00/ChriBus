@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Rental</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .search-section {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .featured-vehicles {
+            margin: 20px 0;
+        }
+
+        .vehicle-card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .vehicle-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .vehicle-card-body {
+            padding: 15px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#">Vehicle Rental</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Section -->
+    <div class="container search-section">
+        <h2>Find Your Ride</h2>
+        <form id="searchForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="vehicleType">Select Vehicle Type:</label>
+                    <select id="vehicleType" name="vehicleType" class="form-control">
+                        <option value="car">Car</option>
+                        <option value="bike">Bike</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="location">Enter Location:</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="City, Country">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="searchVehicles()">Search</button>
+        </form>
+    </div>
+
+    <!-- Featured Vehicles Section -->
+    <div class="container featured-vehicles">
+        <h2>Featured Vehicles</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="vehicle-card">
+                    <img src="brezza.webp" alt="Car Model 1">
+                    <div class="vehicle-card-body">
+                        <h5 class="card-title">Car Model 1</h5>
+                        <p class="card-text">Car Type</p>
+                        <button class="btn btn-success" onclick="showContactInfo('Car model1 owner mobile number:9102843651')">Contact</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="vehicle-card">
+                    <img src="xuv700-exterior-right-front-three-quarter-3.webp" alt="Car Model 2">
+                    <div class="vehicle-card-body">
+                        <h5 class="card-title">Car Model 2</h5>
+                        <p class="card-text">Car Type</p>
+                        <button class="btn btn-success" onclick="showContactInfo('car model2 owner mobile number:9234567810')">Contact</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="vehicle-card">
+                    <img src="63809_2022_Royal_Enfield_Hunter_350_468x263.jpg" alt="Bike Model 1">
+                    <div class="vehicle-card-body">
+                        <h5 class="card-title">Bike Model 1</h5>
+                        <p class="card-text">Bike Type</p>
+                        <button class="btn btn-success" onclick="showContactInfo(' Bike Model 1 owner mobile number:7899065541')">Contact</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Vehicle Rental</p>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JavaScript -->
+    <script>
+        function searchVehicles() {
+            // Implement your search logic here
+            // For now, let's simulate loading results
+            const resultsSection = document.getElementById('results');
+            resultsSection.innerHTML = '<p>Loading results...</p>';
+
+            setTimeout(() => {
+                // Simulated results (replace with actual results)
+                const vehicles = [
+                    { model: 'Car Model 1', type: 'Car', image: 'car1.jpg' },
+                    { model: 'Car Model 2', type: 'Car', image: 'car2.jpg' },
+                    { model: 'Bike Model 1', type: 'Bike', image: 'bike1.jpg' },
+                ];
+
+                resultsSection.innerHTML = '';
+                vehicles.forEach(vehicle => {
+                    const card = document.createElement('div');
+                    card.classList.add('vehicle-card');
+                    card.innerHTML = `
+                        <img src="${vehicle.image}" alt="${vehicle.model}">
+                        <div class="vehicle-card-body">
+                            <h5 class="card-title">${vehicle.model}</h5>
+                            <p class="card-text">${vehicle.type}</p>
+                            <button class="btn btn-success" onclick="showContactInfo('Contact info for ${vehicle.model}')">Contact</button>
+                        </div>
+                    `;
+                    resultsSection.appendChild(card);
+                });
+            }, 1500); // Simulated delay for loading results
+        }
+
+        function showContactInfo(info) {
+            alert(info); // Replace with your actual contact info display logic
+        }
+    </script>
+</body>
+</html>
