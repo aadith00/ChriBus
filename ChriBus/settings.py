@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'base',
     'bus',
     'authentication',
+    'rentals',
 ]
 
 MIDDLEWARE = [
