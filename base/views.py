@@ -3,9 +3,6 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login
 
 
-
-
-
 def home(request):
 
     ##    import pdb;                  This is used to pause the page for sometime and 
