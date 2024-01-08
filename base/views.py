@@ -6,13 +6,13 @@ from django.contrib.auth import authenticate,login
 
 
 
-def signup(request):
+def home(request):
 
     ##    import pdb;                  This is used to pause the page for sometime and 
     ##    pdb.set_trace()              examine the request object so as to check if there are any errors.
 
+    errors = {}
     if request.method == 'POST':
-        errors = {}
 
         first_name = request.POST['first_name'].strip()
         last_name = request.POST['last_name'].strip()
@@ -82,10 +82,10 @@ def signup(request):
             return redirect('/?signup=successfull')
     
     context = {
-        'errors' : errors
+        'errors' : errors,
     }
 
-    return render (request, "signup.html", context)
+    return render (request, "home.html", context)
 
 def booking(request):
     return render (request, "booking.html")
