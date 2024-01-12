@@ -92,7 +92,7 @@
         }
 
 
-        /* ================================= 
+        /* =================================
   Media Queries
 ==================================== */
 
@@ -151,82 +151,75 @@
 <!--------Form------->
 <section>
     <style>
-
-
-        section {
-            padding: 20px;
-        }
-
-        .search-form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            flex:50%;
-        }
-
+      section {
+        padding: 20px;
+      }
+ 
+      .search-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+ 
+      .search-form label {
+        display: inline-block; /* Display labels inline for horizontal arrangement */
+        margin-bottom: 5px;
+        font-weight: bold;
+        width: 20%; /* Adjust width for label balance */
+        text-align: right; /* Align labels to the right */
+      }
+ 
+      .search-form input {
+        width: 70%; /* Adjust width for input field */
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+ 
+      .search-form button {
+        width: 100%;
+        margin-top: 15px;
+      }
+ 
+      /* Media query for smaller screens */
+      @media (max-width: 768px) {
         .search-form label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
+          width: 100%;
+          text-align: left; /* Align labels to left on smaller screens */
         }
-
-        .search-form input,
-        .search-form select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 16px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
+ 
+        .search-form input {
+          width: 100%;
         }
-
-        .search-form button {
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .search-form button:hover {
-            background-color: #c0392b;
-        }
+      }
+      .input-group{
+        justify-content:space-around;
+      }
     </style>
+ 
     <section class="search-form">
-        <h2>Search for Buses</h2>
-        <form action="#" method="get">
-            <label for="from">From:</label>
-            <input type="text" id="from" name="from" placeholder="Enter departure city" required>
-
-            <label for="to">To:</label>
-            <input type="text" id="to" name="to" placeholder="Enter destination city" required>
-
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>" required>
-
-            <label for="passengers">Passengers:</label>
-            <select id="passengers" name="passengers" required>
-                <option value="1">1 Passenger</option>
-                <option value="2">2 Passengers</option>
-                <option value="3">3 Passengers</option>
-                <!-- Add more options as needed -->
-            </select>
-
-            <label for="bus-type">Bus Type:</label>
-            <select id="bus-type" name="bus-type" required>
-                <option value="all">All Types</option>
-                <option value="sleeper">Sleeper</option>
-                <option value="seater">Seater</option>
-                <!-- Add more options as needed -->
-            </select>
-
-            <button type="submit">Search Buses</button>
-        </form>
+      <h2>Search for Buses</h2>
+      <form action="#" method="get">
+        <div class="input-group">
+          <label for="from">From:</label>
+          <input type="text" id="from" name="from" placeholder="Enter departure city" required>
+        </div>
+ 
+        <div class="input-group">
+          <label for="to">To:</label>
+          <input type="text" id="to" name="to" placeholder="Enter destination city" required>
+        </div>
+ 
+        <button type="submit">Search Buses</button>
+      </form>
     </section>
-</section>
+  </section>
     <!------Bookings----->
     <section>
         <style>
