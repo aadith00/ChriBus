@@ -24,7 +24,7 @@
             position: relative;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             min-height: 100vh;
@@ -134,7 +134,7 @@
         <h1 class="logo"><a href="#">CHRIBUS</a></h1>
         <ul class="main-nav">
             <li><a href="home">Account</a></li>
-            <li><a href="bookings">Bus Tickets</a></li>
+            <li><a href="booking">Bus Tickets</a></li>
             <li><a href="rentals">Rentals</a></li>
             <li><a href="support">Support</a></li>
         </ul>
@@ -148,78 +148,84 @@
         </style>
         <img class="christ" src="https://lavasa.christuniversity.in/images/logo.png" alt="loh">
     </section>
-<!--------Form------->
-<section>
-    <style>
-      section {
-        padding: 20px;
-      }
- 
-      .search-form {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-      }
- 
-      .search-form label {
-        display: inline-block; /* Display labels inline for horizontal arrangement */
-        margin-bottom: 5px;
-        font-weight: bold;
-        width: 20%; /* Adjust width for label balance */
-        text-align: right; /* Align labels to the right */
-      }
- 
-      .search-form input {
-        width: 70%; /* Adjust width for input field */
-        margin-bottom: 10px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
- 
-      .search-form button {
-        width: 100%;
-        margin-top: 15px;
-      }
- 
-      /* Media query for smaller screens */
-      @media (max-width: 768px) {
-        .search-form label {
-          width: 100%;
-          text-align: left; /* Align labels to left on smaller screens */
-        }
- 
-        .search-form input {
-          width: 100%;
-        }
-      }
-      .input-group{
-        justify-content:space-around;
-      }
-    </style>
- 
-    <section class="search-form">
-      <h2>Search for Buses</h2>
-      <form action="#" method="get">
-        <div class="input-group">
-          <label for="from">From:</label>
-          <input type="text" id="from" name="from" placeholder="Enter departure city" required>
-        </div>
- 
-        <div class="input-group">
-          <label for="to">To:</label>
-          <input type="text" id="to" name="to" placeholder="Enter destination city" required>
-        </div>
- 
-        <button type="submit">Search Buses</button>
-      </form>
+    <!--------Form------->
+    <section>
+        <style>
+            section {
+                padding: 20px;
+            }
+
+            .search-form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .search-form label {
+                display: inline-block;
+                /* Display labels inline for horizontal arrangement */
+                margin-bottom: 5px;
+                font-weight: bold;
+                width: 20%;
+                /* Adjust width for label balance */
+                text-align: right;
+                /* Align labels to the right */
+            }
+
+            .search-form input {
+                width: 70%;
+                /* Adjust width for input field */
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .search-form button {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            /* Media query for smaller screens */
+            @media (max-width: 768px) {
+                .search-form label {
+                    width: 100%;
+                    text-align: left;
+                    /* Align labels to left on smaller screens */
+                }
+
+                .search-form input {
+                    width: 100%;
+                }
+            }
+
+            .input-group {
+                justify-content: space-around;
+            }
+        </style>
+
+        <section class="search-form">
+            <h2>Search for Buses</h2>
+            <form action="#" method="get">
+                <div class="input-group">
+                    <label for="from">From:</label>
+                    <input type="text" id="from" name="from" placeholder="Enter departure city" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="to">To:</label>
+                    <input type="text" id="to" name="to" placeholder="Enter destination city" required>
+                </div>
+
+                <button type="submit">Search Buses</button>
+            </form>
+        </section>
     </section>
-  </section>
     <!------Bookings----->
     <section>
         <style>
