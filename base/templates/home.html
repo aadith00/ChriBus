@@ -372,18 +372,41 @@
       <div class="container right-panel-active">
 
         <!-- Sign Up -->
-        
+
         <div class="container__form container--signup">
 
-          <form action="" class="form" id="form1">
+          <form action="" method="POST" class="form" id="form1">
+
+            {% csrf_token %}
+
             <h2 class="form__title">Sign Up</h2>
-            <input type="email" placeholder="Email" class="input"/>
-            <input type="text" placeholder="Username" class="input"/>
-            <input type="text" placeholder="Register Number" class="input"/>
-            <input type="password" placeholder="Password" class="input"/>
-            <input type="password" placeholder="Confirm Password" class="input"/>
-            <button class="btn">Sign Up</button>
+
+            <div>
+              <input required type="text" value="{{ request.POST.register }}" placeholder="Register Number" name="email"
+                class="input" />
+              <small class="form-text text-danger"> {{ errors.email }} </small>
+            </div>
+
+            <div>
+              <input required type="email" value="{{ request.POST.email }}" placeholder="Email" name="email"
+                class="input" />
+              <small class="form-text text-danger"> {{ errors.email }} </small>
+            </div>
+
+            <div>
+              <input required type="password" placeholder="Password" name="password" class="input" />
+              <small class="form-text text-danger"> {{ errors.password }} </small>
+            </div>
+
+            <div>
+              <input required type="password" placeholder="Confirm Password" name="cnfpassword" class="input" />
+              <small class="form-text text-danger"> {{ errors.cnfpassword }} </small>
+            </div>
+
+            <input type="submit" class="btn btn-success btn-lg mt-2" value="Sign Up">
+
           </form>
+
         </div>
 
         <!-- Sign In -->
@@ -482,10 +505,10 @@
       </div>
     </section>
 
-    
+
     <!-----RENTALS------->
-    
-    
+
+
     <section style="display: flex; align-items: center;">
       <style>
         .rentals {
@@ -525,7 +548,7 @@
 
 
     <!--------Services------->
-    
+
 
     <section></section>
     <style>
@@ -617,7 +640,7 @@
     </div>
   </section>
 
-  
+
   <!---------footer--->
   <section>
 
