@@ -135,7 +135,7 @@
       crossorigin="anonymous"></script>
     <header class="header">
       <h1 class="logo"><a href="#">CHRIBUS</a></h1>
-      <ul class="main-nav">
+        <ul class="main-nav">
         <li><a href="home">Account</a></li>
         <li><a href="booking">Bus Tickets</a></li>
         <li><a href="rentals">Rentals</a></li>
@@ -375,16 +375,16 @@
 
         <div class="container__form container--signup">
 
-          <form action="" method="POST" class="form" id="form1">
+          <form method="POST" class="form" id="form1">
 
             {% csrf_token %}
 
             <h2 class="form__title">Sign Up</h2>
 
             <div>
-              <input required type="text" value="{{ request.POST.register }}" placeholder="Register Number" name="email"
+              <input required type="text" value="{{ request.POST.register_number }}" placeholder="Register Number" name="register_number"
                 class="input" />
-              <small class="form-text text-danger"> {{ errors.email }} </small>
+              <small class="form-text text-danger"> {{ errors.register_number }} </small>
             </div>
 
             <div>
@@ -399,11 +399,11 @@
             </div>
 
             <div>
-              <input required type="password" placeholder="Confirm Password" name="cnfpassword" class="input" />
+              <input required type="password" placeholder="Confirm Password" name="cnfpass" class="input" />
               <small class="form-text text-danger"> {{ errors.cnfpassword }} </small>
             </div>
 
-            <input type="submit" class="btn btn-success btn-lg mt-2" value="Sign Up">
+            <button type="submit" class="btn btn-success btn-lg mt-2" >Sign Up</button>
 
           </form>
 
@@ -411,7 +411,7 @@
 
         <!-- Sign In -->
         <div class="container__form container--signin">
-          <form action="#" class="form" id="form2">
+          <form class="form" id="form2">
             <h2 class="form__title">Sign In</h2>
             <input type="text" placeholder="Register Number" class="input" />
             <input type="password" placeholder="Password" class="input" />
@@ -447,9 +447,6 @@
         signUpBtn.addEventListener("click", () => {
           container.classList.add("right-panel-active");
         });
-
-        fistForm.addEventListener("submit", (e) => e.preventDefault());
-        secondForm.addEventListener("submit", (e) => e.preventDefault());
 
       </script>
 

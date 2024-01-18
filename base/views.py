@@ -18,7 +18,7 @@ def home(request):
         # department = request.POST['department'].strip()
         # username = request.POST['username'].strip()
         password = request.POST['password'].strip()
-        cnfpass = request.POST['cnfpasssword'].strip()
+        cnfpass = request.POST['cnfpass'].strip()
 
     # ## Validation for first name
     #     if not first_name:
@@ -32,7 +32,7 @@ def home(request):
         if not register_number:
             errors['register_number'] = 'Register number is required.'
         else:
-            is_used = User.objects.filter(register_number='register_number').exists()
+            is_used = User.objects.filter(username='register_number').exists()
             if is_used:
                 errors['register_number'] = 'Register number already exits.'
 
@@ -73,7 +73,7 @@ def home(request):
             user = User.objects.create_user(
                 # first_name = first_name,
                 # last_name = last_name,
-                register_number = register_number,
+                username = register_number,
                 email = email,
                 # department = department,
                 # username = username,
@@ -81,7 +81,7 @@ def home(request):
             )
             user = authenticate(request, username=register_number, password=password)
             login(request, user)
-            return redirect('/?signup=successfull')
+            return redirect('booking.html')
     
     context = {
         'errors' : errors
