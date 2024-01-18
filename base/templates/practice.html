@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Search Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-form label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .search-form input {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      width: 200px;
+    }
+
+    .search-form select {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-sizing: border-box;
+      width: 200px;
+    }
+
+    .search-form button {
+      background-color: #f15b26;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Media query for smaller screens */
+    @media (max-width: 768px) {
+      .search-form {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .search-form label {
+        margin-bottom: 5px;
+      }
+
+      .search-form input,
+      .search-form select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="search-form">
+    <label for="from">From:</label>
+    <input type="text" id="from" name="from" placeholder="Enter departure city" required>
+
+    <label for="to">To:</label>
+    <input type="text" id="to" name="to" placeholder="Enter destination city" required>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date">
+
+    <button type="submit">Search Buses</button>
+  </section>
+</body>
+</html>
