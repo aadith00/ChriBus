@@ -18,17 +18,17 @@ class Bus(models.Model):
         verbose_name_plural = 'Buses'
 
 
-class Passenger(models.Model):
-    register_number = models.CharField(max_length=20)
-    ticket_number = models.IntegerField()
-    programme = models.CharField(max_length=50)
-    passenger_name = models.CharField(max_length=50)
-    destination = models.CharField(max_length=50)
+# class Passenger(models.Model):
+#     register_number = models.CharField(max_length=20)
+#     ticket_number = models.IntegerField()
+#     programme = models.CharField(max_length=50)
+#     passenger_name = models.CharField(max_length=50)
+#     destination = models.CharField(max_length=50)
 
 
-    def __str__(self):
-        return self.register_number
+#     def __str__(self):
+#         return self.register_number
 
-    class Meta:
-        verbose_name = 'Passenger'
-        verbose_name_plural = 'Passengers'
+#     class Meta:
+#         verbose_name = 'Passenger'
+#         verbose_name_plural = 'Passengers'
