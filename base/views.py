@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate
 
 
 def home(request):
@@ -16,7 +16,7 @@ def home(request):
         register_number = request.POST['register_number'].strip()
         email = request.POST['email'].strip()
         # department = request.POST['department'].strip()
-        # username = request.POST['username'].strip()
+        username = request.POST['username'].strip()
         password = request.POST['password'].strip()
         cnfpass = request.POST['cnfpass'].strip()
 
@@ -48,13 +48,13 @@ def home(request):
     #     if not department:
     #         errors['department'] = 'Deaprtment is required.'
 
-    # ## Validation for username
-    #     if not username:
-    #         errors['username'] = 'Username field is required.'
-    #     else:
-    #         is_used = User.objects.filter(username='username').exists()
-    #         if is_used:
-    #             errors['username'] = 'This username is already taken.'
+    ## Validation for username
+        if not username:
+            errors['username'] = 'Username field is required.'
+        else:
+            is_used = User.objects.filter(username='username').exists()
+            if is_used:
+                errors['username'] = 'This username is already taken.'
 
     ## Validation for password
         if not password:
@@ -80,8 +80,8 @@ def home(request):
                 password = password,
             )
             user = authenticate(request, username=register_number, password=password)
-            login(request, user)
-            return redirect('booking.html')
+            user.save()
+            return redirect("/booking")
     
     context = {
         'errors' : errors

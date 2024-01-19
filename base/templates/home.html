@@ -388,6 +388,12 @@
             </div>
 
             <div>
+              <input required type="text" value="{{ request.POST.username }}" placeholder="Username" name="username"
+                class="input" />
+              <small class="form-text text-danger"> {{ errors.username }} </small>
+            </div>
+
+            <div>
               <input required type="email" value="{{ request.POST.email }}" placeholder="Email" name="email"
                 class="input" />
               <small class="form-text text-danger"> {{ errors.email }} </small>
@@ -403,7 +409,7 @@
               <small class="form-text text-danger"> {{ errors.cnfpassword }} </small>
             </div>
 
-            <button type="submit" class="btn btn-success btn-lg mt-2" >Sign Up</button>
+            <button type="submit" class="btn btn-success btn-lg mt-2"> Sign Up </button>
 
           </form>
 
