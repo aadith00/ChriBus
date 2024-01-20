@@ -417,13 +417,27 @@
 
         <!-- Sign In -->
         <div class="container__form container--signin">
-          <form class="form" id="form2">
+
+          <form method="POST" class="form" id="form2">
+
+            {% csrf_token %}
+
             <h2 class="form__title">Sign In</h2>
-            <input type="text" placeholder="Register Number" class="input" />
-            <input type="password" placeholder="Password" class="input" />
-            <a href="#" class="link">Forgot your password?</a>
+            
+            <div>
+              <input required type="text" value="{{ request.POST.register_number }}" placeholder="Register Number" name="register_number"
+                class="input" />
+              <small class="form-text text-danger"> {{ errors.register_number }} </small>
+            </div>
+
+            <div>
+              <input required type="password" placeholder="Password" name="password" class="input" />
+              <small class="form-text text-danger"> {{ errors.password }} </small>
+            </div>
+
             <button class="btn">Sign In</button>
           </form>
+
         </div>
 
         <!-- Overlay -->
