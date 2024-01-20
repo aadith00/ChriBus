@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 
 
-def home(request):
+def register(request):
 
     ##    import pdb;                  This is used to pause the page for sometime and 
     ##    pdb.set_trace()              examine the request object so as to check if there are any errors.
@@ -79,7 +80,7 @@ def home(request):
                 # username = username,
                 password = password,
             )
-            user = authenticate(request, username=register_number, password=password)
+            
             user.save()
             return redirect("/booking")
     
@@ -89,5 +90,23 @@ def home(request):
 
     return render (request, "home.html", context) ## Add context argument as well after they complete.
 
+
 def booking(request):
     return render (request, "booking.html")
+
+
+def login(request):
+    
+    if request.method == 'POST':
+        register_number =request.POST['register_number']
+        password = request.POST['password']
+
+        user = authenticate(request, username=register_number, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect("/booking")
+        
+        else:
+            messages.info(request, "Invalid Credntials")
+            return redirect("/home")
