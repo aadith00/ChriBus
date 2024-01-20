@@ -108,5 +108,4 @@ def login(request):
             return redirect("/booking")
         
         else:
-            messages.info(request, "Invalid Credntials")
             return redirect("/home")
