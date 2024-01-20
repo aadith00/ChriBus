@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'ChriBus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Chribus',
+        'NAME': 'localhost',
         'USER': 'postgres',
-        'PASSWORD': '1234',
+        'PASSWORD': 'Christuniversity@2023',
         'HOST': 'localhost'
     }
 }
