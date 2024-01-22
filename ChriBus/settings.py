@@ -31,12 +31,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+
+    ## Installed Apps for Dashboards
+
+    'django_light',
+    'admin_soft.apps.AdminSoftDashboardConfig',
+    'admin_tools_stats',
+    'django_nvd3',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Installed Apps
 
     'base',
     'bus',
@@ -81,9 +91,9 @@ WSGI_APPLICATION = 'ChriBus.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'localhost',
+        'NAME': 'Chribus',
         'USER': 'postgres',
-        'PASSWORD': 'Christuniversity@2023',
+        'PASSWORD': '1234',
         'HOST': 'localhost'
     }
 }

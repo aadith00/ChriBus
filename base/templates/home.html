@@ -139,19 +139,19 @@
 
         {% if user.is_authenticated %}
 
-          <li>Hello, {{ user.username }}</li>
-          <li><a href="logout">Logout</a></li>
-          <li><a href="home">Home</a></li>
-          <li><a href="booking">Book Tickets</a></li>
-          <li><a href="rentals">Rentals</a></li>
-          <li><a href="support">Support</a></li>
+        <li>Hello, {{ user.username }}</li>
+        <li><a href="home">Home</a></li>
+        <li><a href="booking">Book Tickets</a></li>
+        <li><a href="rentals">Rentals</a></li>
+        <li><a href="support">Support</a></li>
+        <li><a href="logout">Logout</a></li>
 
         {% else %}
 
-          <li><a href="home">Home</a></li>
-          <li><a href="booking">Book Tickets</a></li>
-          <li><a href="rentals">Rentals</a></li>
-          <li><a href="support">Support</a></li>
+        <li><a href="home">Home</a></li>
+        <li><a href="booking">Book Tickets</a></li>
+        <li><a href="rentals">Rentals</a></li>
+        <li><a href="support">Support</a></li>
 
         {% endif %}
 
@@ -431,6 +431,7 @@
         </div>
 
         <!-- Sign In -->
+
         <div class="container__form container--signin">
 
           <form method="POST" class="form" id="form2">
@@ -486,7 +487,10 @@
       </script>
 
     </section>
+
+
     <!--------About--------->
+    
     <section class="weekend">
       <style>
         .weekend {

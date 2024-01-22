@@ -8,26 +8,26 @@ def admin_login(request):
     
     try:
         if request.user.is_authenticated:
-            return redirect('/dashboard/')
+            return redirect('/dashboard')
         
-        # messages. info(request, 'Account not found')
+        # messages.info(request, 'Account not found')
         
         if request.method == 'POST':
-            username = request.POST.get('username')
+            register_number = request.POST.get('register_number')
             password = request.POST.get('password')
-            user_obj= User.objects.filter(username = username)
+            user_obj = User.objects.filter(username = register_number)
 
             if not user_obj.exists():
                 messages.info(request, 'Account not found')
                 return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
-            user_obj = authenticate(username = username , password = password)
+            user_obj = authenticate(username = register_number , password = password)
 
             if user_obj and user_obj.is_superuser:
                 login(request , user_obj)
-                return redirect('/dashboard/')
+                return redirect('/dashboard')
 
-            messages. info(request, 'Invalid password')
+            messages.info(request, 'Invalid password')
             return redirect('/')
 
         return render(request, 'admin_login.html')
