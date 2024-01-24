@@ -2,6 +2,7 @@ from django.db import models
 
 class Bus(models.Model):
     num_plate = models.CharField(primary_key=True,unique=True,max_length=50)  ## Primary Key
+    image = models.ImageField(upload_to='pics', default='NULL')
     total_seats = models.IntegerField()
     booked_seats = models.IntegerField()
     driver_id = models.CharField(unique=True,max_length=50)
