@@ -1,3 +1,5 @@
+<!------index.html--------->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,27 +9,137 @@
     <title>Vehicle Rental</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <section>
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Arial', sans-serif;
+      
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #002038;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+
+      h2,
+      h3,
+      a {
+        color: #021121;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+
+
+      .logo {
+        margin: 0;
+        font-size: 1.45em;
+      }
+
+      .main-nav {
+        margin-top: 5px;
+
+      }
+
+      .logo a,
+      .main-nav a {
+        padding: 10px 15px;
+        text-transform: capitalize;
+        text-align: center;
+        display: block;
+      }
+
+      .main-nav a {
+        color: #34495e;
+        font-size: .99em;
+      }
+
+      .main-nav a:hover {
+        color: black;
+      }
+
+      .christ{
+        margin-top: 25px;
+      }
+
+      .header {
+        padding-top: .5em;
+        padding-bottom: .5em;
+        border: 1px solid #a2a2a2;
+        background-color: #f4f4f4;
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+      }
+
+
+      /* ================================= 
+  Media Queries
+==================================== */
+
+
+
+
+      @media (min-width: 769px) {
+
+        .header,
+        .main-nav {
+          display: flex;
         }
 
-        .navbar {
-            background-color: #343a40;
-            color: white;
+        .header {
+          flex-direction: column;
+          align-items: center;
+
+          .header {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1150px;
+          }
         }
 
+      }
+
+      @media (min-width: 1025px) {
+        .header {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+
+      }
         .search-section {
             background-color: #ffffff;
             padding: 20px;
-            margin: 20px 0;
+            margin-top:100px;
             border-radius: 10px;
+            margin-left:200px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         .featured-vehicles {
-            margin: 20px 0;
+            margin-top:100px;
         }
 
         .vehicle-card {
@@ -35,6 +147,7 @@
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 20px;
+            color:white;
         }
 
         .vehicle-card img {
@@ -45,24 +158,13 @@
 
         .vehicle-card-body {
             padding: 15px;
+            
         }
 
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
+        .footer{
+            background-color: #ffffff;
 
-
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .about-section {
+        .about-section {
                 text-align: center;
                 max-width: 600px;
                 padding: 20px;
@@ -137,32 +239,29 @@
                 }
             }
         }
+        .container-about-section{
+          color:white;
+          margin-top: 100px;
+        }
+        .heading1{
+            color:white;
+        }
+
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-</head>
-
-<body>
-
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="#">Vehicle Rental</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="register">Bok Tickets</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="support">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <header class="header">
+    <h1 class="logo"><a href="#">CHRIBUS</a></h1>
+    <ul class="main-nav">
+      <li><a href="home.html">Account</a></li>
+      <li><a href="bookings.html">Bus Tickets</a></li>
+      <li><a href="rentals">Rentals</a></li>
+      <li><a href="#">Support</a></li>
+    </ul>
+  </header>
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+</section>
 
     <!-- Search Section -->
     <div class="container search-section">
@@ -187,7 +286,7 @@
 
     <!-- Featured Vehicles Section -->
     <div class="container featured-vehicles">
-        <h2>Featured Vehicles</h2>
+        <h2 class="heading1">Featured Vehicles</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="vehicle-card">
@@ -196,14 +295,14 @@
                     <div class="vehicle-card-body">
                         <h5 class="card-title">Car Model 1</h5>
                         <p class="card-text">Car Type</p>
-                        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseExample-1" aria-expanded="false" aria-controls="collapseExample-1">
                             contact
 
                         </button>
 
                         <div class="collapse" id="collapseExample-1">
-                            <div class="card card-body">
+                            <div class="card-body">
                                 car owner name:VIKASH,<br>
                                 contact number:9102843652<br>
                                 Email id:fgghjj@gmail.com
@@ -226,7 +325,7 @@
                         </button>
 
                         <div class="collapse" id="collapseExample-2">
-                            <div class="card card-body">
+                            <div class="card-body">
                                 car owner name:Vedant,<br>
                                 contact number:9102843652<br>
                                 Email id:vedant.nehal@hdfcbank.com
@@ -249,7 +348,7 @@
                         </button>
 
                         <div class="collapse" id="collapseExample">
-                            <div class="card card-body">
+                            <div class="card-body">
                                 car owner name:Ajay,<br>
                                 contact number:9102843655<br>
                                 Email id:Ajay.nehal@hdfcbank.com
@@ -260,31 +359,158 @@
             </div>
         </div>
     </div>
+    <!-----About-------->
+    <style>
+    .heading2 {
+      color: white;
+      margin-left: 200px;
+      margin-top: 120px;
+    }
 
-    
-    <div class="container about-section">
-        <h2>About Us</h2><br>
-        <p>
-            Welcome to Vehicle Rental, your go-to destination for convenient and reliable vehicle rentals.
-            We strive to provide top-notch service, offering a wide range of cars and bikes for your travel needs.
-            Whether you're planning a road trip or just need a vehicle for a short duration, we've got you covered.
-        </p><br>
-        <p>
-            Our mission is to make your journey comfortable and enjoyable. With a fleet of well-maintained vehicles
-            and a commitment to customer satisfaction, we aim to exceed your expectations.
-        </p><br>
-        <p>
-            In collaboration with Christ University Lavasa, we have been serving the transportation needs of students,
-            faculty, and visitors since our inception in 2018. Christ University Lavasa, established in the year 2018,
-            is a vibrant educational institution committed to providing quality education in a picturesque and serene
-            environment in Lavasa, Maharashtra.
-        </p><br>
+    .about-para {
+      margin-left: 200px;
+      margin-right: 400px;
+      margin-bottom: 20px; /* Adjusted margin-bottom value */
+    }
+
+    .rent-keys {
+    position: absolute;
+    top: 1000px;
+    left: 1100px;
+    width: 300px;
+   
+}
+
+
+
+    .container-about-section {
+      align-items: normal;
+      margin-bottom: 20px; /* Added margin-bottom for the container */
+    }
+</style>
+
+    </style>
+    <div class="container-about-section">
+        <h2 class="heading2">About Us</h2><br>
+        <p class="about-para">
+            Welcome to Vehicle Rental, your go-to destination for convenient and reliable vehicle rentals.<br>
+            We strive to provide top-notch service, offering a wide range of cars and bikes for your travel needs.<br>
+            Whether you're planning a road trip or just need a vehicle for a short duration, we've got you covered.<br>
+            Our mission is to make your journey comfortable and enjoyable. With a fleet of well-maintained vehicles<br>
+            and a commitment to customer satisfaction, we aim to exceed your expectations.<br>
+            In collaboration with Christ University Lavasa, we have been serving the transportation needs of students,<br>
+            faculty, and visitors since our inception in 2018. Christ University Lavasa, established in the year 2018,<br>
+            is a vibrant educational institution committed to providing quality education in a picturesque and serene<br>
+            environment in Lavasa, Maharashtra.<br>
+        </p>
+        <img  class="rent-keys" src="https://rgcarhiretour.com/images/about/Car-Rental-icon.png" alt="keys">
     </div>
 
+
     <!-- Footer -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
     <footer>
-        <p>&copy; 2024 Vehicle Rental</p>
+        <style>
+            body {
+                margin: 0;
+                overflow-x: hidden;
+            }
+    
+            .footer {
+                background: #000;
+                padding: 30px 0px;
+                font-family: 'Play', sans-serif;
+                text-align: center;
+            }
+    
+            .footer .row {
+                width: 100%;
+                margin: 1% 0%;
+                padding: 0.6% 0%;
+                color: gray;
+                font-size: 0.8em;
+                display: flex;
+                justify-content: center; /* Center the icons horizontally */
+                align-items: center; /* Center the icons vertically */
+            }
+    
+            .footer .row a {
+                text-decoration: none;
+                color: gray;
+                transition: 0.5s;
+                margin: 0 15px; /* Adjusted margin for spacing between icons */
+            }
+    
+            .footer .row a:hover {
+                color: #fff;
+            }
+    
+            .footer .row ul {
+                width: 100%;
+            }
+    
+            .footer .row ul li {
+                display: inline-block;
+                margin: 0px 30px;
+            }
+    
+            .footer .row a i {
+                font-size: 2em;
+                margin: 0% 1%;
+            }
+    
+            @media (max-width: 720px) {
+                .footer {
+                    text-align: left;
+                    padding: 5%;
+                }
+    
+                .footer .row {
+                    flex-direction: column; /* Stack icons vertically on small screens */
+                    align-items: flex-start;
+                }
+    
+                .footer .row a {
+                    margin: 10px 0;
+                }
+    
+                .footer .row a i {
+                    margin: 0% 3%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <footer>
+            <div class="footer">
+                <div class="row">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-youtube"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </div>
+            
+    
+    <div class="row">
+    <ul>
+    <li><a href="#">Contact us</a></li>
+    <li><a href="#">Our Services</a></li>
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms & Conditions</a></li>
+    <li><a href="#">Career</a></li>
+    </ul>
+    </div>
+    
+    <div class="row">
+    INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh 
+    </div>
+    </div>
     </footer>
+    
+    
 
     <!-- Your custom JavaScript -->
     <script>
