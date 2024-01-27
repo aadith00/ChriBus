@@ -148,7 +148,9 @@
         </style>
         <img class="christ" src="https://lavasa.christuniversity.in/images/logo.png" alt="loh">
     </section>
+
     <!--------Form------->
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -173,7 +175,7 @@
             font-weight: bold;
             margin-right: 20px;
             margin-top: 100px;
-            
+
         }
 
         .search-form input {
@@ -225,21 +227,30 @@
     </head>
 
     <body>
+
         <section class="search-form">
             <div class="form-border">
                 <h2>Search for buses</h2>
-                <label for="from">From:</label>
-                <input type="text" id="from" name="from" placeholder="Enter departure city" required>
-
-                <label for="to">To:</label>
-                <input type="text" id="to" name="to" placeholder="Enter destination city" required>
-
-                <label for="date">Date:</label>
-                <input type="date" id="date" name="date">
-
-                <button type="submit">Search Buses</button>
+                <form method="post" action="{% url 'search_buses' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Search Buses</button>
+                </form>
+                {% if available_buses %}
+                <div>
+                    <h3>Available Buses:</h3>
+                    <ul>
+                        {% for bus in available_buses %}
+                        <li>{{ bus.departure_city }} to {{ bus.destination_city }} - {{ bus.departure_date }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
             </div>
+
+            
         </section>
+
         <!-------About-------->
 
         <section>
@@ -295,15 +306,10 @@
 
 
         <!------Bookings----->
+        
         <section>
             <style>
                 @import url("https://fonts.googleapis.com/css?family=Dancing+Script");
-
-                /**
- * index.scss
- * - Add any styles you want here!
- */
-
 
                 .credit-section {
                     position: absolute;
@@ -1473,11 +1479,6 @@
             </div>
         </section>
         <script>
-            /**
-     * index.js
-     * - All our useful JS goes here, awesome!
-     */
-
             var scene = $('#scene').get(0);
             var parallaxInstance = new Parallax(scene, {
                 relativeInput: true,

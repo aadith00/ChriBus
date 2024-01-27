@@ -3,15 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
 
-def sigin_home(request):
-    return render(request, "home.html")
-
-
-def booking(request):
-    return render (request, "booking.html")
-
-
-def register(request):
+def user_register(request):
 
     ##    import pdb;                  This is used to pause the page for sometime and 
     ##    pdb.set_trace()              examine the request object so as to check if there are any errors.
@@ -24,7 +16,7 @@ def register(request):
         register_number = request.POST['register_number'].strip()
         email = request.POST['email'].strip()
         # department = request.POST['department'].strip()
-        username = request.POST['username'].strip()
+        username = request.POST['register_number'].strip()
         password = request.POST['password'].strip()
         cnfpass = request.POST['cnfpass'].strip()
 
@@ -82,7 +74,6 @@ def register(request):
                 # first_name = first_name,
                 # last_name = last_name,
                 username = register_number,
-                email = email,
                 password = password,
             )
             
@@ -96,19 +87,29 @@ def register(request):
     return render (request, "register.html", context)
 
 
-def login(request):
+def user_login(request):
     
     if request.method == 'POST':
-        register_number =request.POST['register_number']
+        register_number = request.POST['register_number']
         password = request.POST['password']
 
         user = authenticate(request, username=register_number, password=password)
 
         if user is not None:
             login(request, user)
-            return redirect("/home")
+            return redirect('/home')
         
+        else:
+            error_message = "Invalid username or password."
+            return render(request, 'register.html', {'error_message': error_message})
         
-def logout(request):
+
+def sigin_home(request):
+    return render(request, "home.html")
+
+
+def user_logout(request):
     logout(request)
     return redirect('/register')
+
+

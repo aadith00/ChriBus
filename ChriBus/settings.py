@@ -21,7 +21,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    ## 'admin_soft',
+    'admin_soft',
 
     'admin_tools_stats',
     'django_nvd3',
@@ -137,7 +137,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'register'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

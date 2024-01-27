@@ -1,20 +1,13 @@
 from django.urls import path
-from .views import sigin_home, booking, register, login, logout
+from .views import sigin_home, user_register, user_login, user_logout
 
 
 urlpatterns = [
-    # path('', register),
-    # path('home',register),
-    # path('register', register),
-    # path('login', login),
-    # path('booking', booking),
-    # path('home', logout)
-
-    path('', register),
+    
+    path('', user_register),
+    path('register', user_register),
+    path('login', user_login),
     path('home', sigin_home),
-    path('register', register),
-    path('login', login),
-    path('booking', booking),
-    path('home', logout)
+    path('logout', user_logout),
 
 ]

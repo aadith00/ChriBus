@@ -1,4 +1,4 @@
 from django.contrib import admin
-from bus.models import Bus
+from .models import bus
 
-admin.site.register(Bus)
+admin.site.register(bus)

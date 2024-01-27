@@ -1,8 +1,11 @@
 from django.db import models
 
-class Bus(models.Model):
+class bus(models.Model):
     num_plate = models.CharField(primary_key=True,unique=True,max_length=50)  ## Primary Key
-    image = models.ImageField(upload_to='pics', default='NULL')
+    departure_city = models.CharField(max_length=100, default=None)
+    destination_city = models.CharField(max_length=100, default=None)
+    departure_date = models.DateTimeField(default=None)
+    image = models.ImageField(upload_to='pics', default=None)
     total_seats = models.IntegerField()
     booked_seats = models.IntegerField()
     driver_id = models.CharField(unique=True,max_length=50)
@@ -12,7 +15,7 @@ class Bus(models.Model):
 
 
     def __str__(self):
-        return self.num_plate
+        return f"{self.departure_city} to {self.destination_city} - {self.departure_date}"
 
     class Meta:
         verbose_name = 'Bus'
