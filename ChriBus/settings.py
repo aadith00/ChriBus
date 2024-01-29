@@ -22,6 +22,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'admin_soft',
+    'djangobower',
 
     'admin_tools_stats',
     'django_nvd3',
@@ -132,6 +133,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_FINDERS = (
+    'djangobower.finders.BowerFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
+)
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -144,3 +150,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+BOWER_COMPONENTS_ROOT = os.path.join(PROJECT_ROOT, 'components')

@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
+
+def home(request):
+    return render(request, 'home.html')
 
 def user_register(request):
 
@@ -79,7 +83,7 @@ def user_register(request):
             
             user.save()
             login(request,user)
-            return redirect("home")
+            return redirect("/home")
     
     context = {
         'errors' : errors
@@ -98,15 +102,13 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return render('home')
         
         else:
             error_message = "Invalid username or password."
             return render(request, 'register.html', {'error_message': error_message})
         
-
-def sigin_home(request):
-    return render(request, "home.html")
+    return render (request, 'register.html')
 
 
 def user_logout(request):
