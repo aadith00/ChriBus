@@ -1,8 +1,8 @@
-from django.urls import path,include
-from .views import rentals, support, register
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('rentals', rentals),
-    path('register', register),
-    path('support', support),
+    path('',views.index,name='rentals'),
+    path('upload',views.upload,name='upload'),
+    path('support/',views.contact,name='support'),
 ]
