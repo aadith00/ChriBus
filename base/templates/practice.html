@@ -1,140 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bus Details</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .navbar {
-            background-color: #007bff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .navbar-brand {
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #007bff;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 36px;
-            animation: bounceInDown 0.5s ease-in-out;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #dee2e6;
-            transition: background-color 0.3s ease;
-        }
-        th {
-            background-color: #007bff;
-            font-weight: bold;
-            color: #fff;
-            font-size: 18px;
-            text-transform: uppercase;
-        }
-        td {
-            font-size: 16px;
-            color: #555;
-        }
-        tr:hover {
-            background-color: #f0f0f0;
-        }
-        .bus-image {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            animation: zoomIn 0.5s ease-in-out;
-            margin-bottom: 20px;
-        }
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .book-ticket-btn {
-            display: block;
-            margin: 0 auto;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            font-size: 18px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-        .book-ticket-btn:hover {
-            background-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="navbar">
-        <a href="#" class="navbar-brand">Bus Details</a>
-    </div>
-    <div class="container">
-        <h1>Welcome Aboard!</h1>
-        {% if bus.image %}
-            <img src="{{ bus.image.url }}" alt="Bus Image" class="bus-image">
-        {% endif %}
-        <table>
-            <tr>
-                <th>Departure City</th>
-                <td>{{ bus.departure_city }}</td>
-            </tr>
-            <tr>
-                <th>Destination City</th>
-                <td>{{ bus.destination_city }}</td>
-            </tr>
-            <tr>
-                <th>Departure Date</th>
-                <td>{{ bus.departure_date }}</td>
-            </tr>
-            <!-- Add more details about the bus as needed -->
-        </table>
-        <a href="#" class="book-ticket-btn">Book Ticket</a>
-        <p style="text-align: center; margin-top: 30px; font-size: 18px; color: #888;">Thank you for choosing us for your journey! Have a pleasant trip.</p>
-    </div>
-</body>
-</html>
+
+       <!-- Footer -->
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       <style>
+           body {
+               margin: 0;
+               overflow-x: hidden;
+           }
+   
+           .footer {
+               background: #000;
+               padding: 30px 0px;
+               font-family: 'Play', sans-serif;
+               text-align: center;
+           }
+   
+           .footer .row {
+               width: 100%;
+               margin: 1% 0%;
+               padding: 0.6% 0%;
+               color: gray;
+               font-size: 0.8em;
+               display: flex;
+               justify-content: center;
+               /* Center the icons horizontally */
+               align-items: center;
+               /* Center the icons vertically */
+           }
+   
+           .footer .row a {
+               text-decoration: none;
+               color: gray;
+               transition: 0.5s;
+               margin: 0 15px;
+               /* Adjusted margin for spacing between icons */
+           }
+   
+           .footer .row a:hover {
+               color: #fff;
+           }
+   
+           .footer .row ul {
+               width: 100%;
+           }
+   
+           .footer .row ul li {
+               display: inline-block;
+               margin: 0px 30px;
+           }
+   
+           .footer .row a i {
+               font-size: 2em;
+               margin: 0% 1%;
+           }
+   
+           @media (max-width: 720px) {
+               .footer {
+                   text-align: left;
+                   padding: 5%;
+               }
+   
+               .footer .row {
+                   flex-direction: column;
+                   /* Stack icons vertically on small screens */
+                   align-items: flex-start;
+               }
+   
+               .footer .row a {
+                   margin: 10px 0;
+               }
+   
+               .footer .row a i {
+                   margin: 0% 3%;
+               }
+           }
+       </style>
+   </head>
+   
+   <body>
+       <footer>
+           <div class="footer">
+               <div class="row">
+                   <a href="#"><i class="fa fa-facebook"></i></a>
+                   <a href="#"><i class="fa fa-instagram"></i></a>
+                   <a href="#"><i class="fa fa-youtube"></i></a>
+                   <a href="#"><i class="fa fa-twitter"></i></a>
+               </div>
+   
+               <div class="row">
+                   <ul>
+                       <li><a href="#">Contact us</a></li>
+                       <li><a href="#">Our Services</a></li>
+                       <li><a href="#">Privacy Policy</a></li>
+                       <li><a href="#">Terms & Conditions</a></li>
+                       <li><a href="#">Career</a></li>
+                   </ul>
+               </div>
+   
+               <div class="row">
+                   INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
+               </div>
+           </div>
+       </footer>
+               </body>
+             </html>
