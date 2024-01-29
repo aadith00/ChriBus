@@ -12,9 +12,9 @@ urlpatterns = [
     path('admin_tools_stats/', include('admin_tools_stats.urls')),
 
     path('', include('base.urls')),
-    path('', include('bus.urls')),
-    path('', include('rentals.urls')),
-    path('', include('admin_soft.urls')),
+    path('bus/', include('bus.urls')),
+    path('rentals/', include('rentals.urls')),
+    path('admin_soft/', include('admin_soft.urls')),
 
 ]
 

@@ -78,7 +78,8 @@ def user_register(request):
             )
             
             user.save()
-            return redirect("/home")
+            login(request,user)
+            return redirect("home")
     
     context = {
         'errors' : errors
@@ -97,7 +98,7 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('/home')
+            return redirect('home')
         
         else:
             error_message = "Invalid username or password."
@@ -111,5 +112,4 @@ def sigin_home(request):
 def user_logout(request):
     logout(request)
     return redirect('/register')
-
 
