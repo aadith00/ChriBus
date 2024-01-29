@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import bus
+from .models import Bus, Booking
 
-admin.site.register(bus)
+admin.site.register(Bus)
+admin.site.register(Booking)
