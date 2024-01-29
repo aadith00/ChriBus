@@ -59,6 +59,9 @@
             color: #fff;
             text-decoration: none;
         }
+        .main-nav ul li a:hover {
+            color: #ffcc00; /* Change the color on hover */
+          }
 
         /* Table styles */
         .table {
@@ -193,11 +196,12 @@
             <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="register">Register</a></li>
-                    <li><a href="booking">Book Tickets</a></li>
-                    <li><a href="rentals">Rentals</a></li>
-                    <li><a href="support">Support</a></li>
-                    <li><a href="login">Login</a></li>
+                    <li><a href="register">REGISTER</a></li>
+                    <li><a href="booking">BOOK TICKETS</a></li>
+                    <li><a href="rentals">RENTALS</a></li>
+                    \<li><a href="login">RENT-OUT</a></li>
+                    <li><a href="support">SUPPORT</a></li>
+                    <li><a href="login">LOGIN</a></li>
                 </ul>
             </nav>
         </div>
@@ -238,8 +242,53 @@
             <h5>NUMBER OF SEATS AVAILABLE:</h5>
         </div>
         <!-- Book Now button -->
-        <center><button> BOOK NOW!!
-        </button></center>
+        <div>
+            <center><button id="generateTicketBtn">BOOK NOW!!</button></center>
+          </div>
+        
+          <script>
+            const generateTicketBtn = document.getElementById('generateTicketBtn');
+        
+            generateTicketBtn.addEventListener('click', generateTicketPDF);
+        
+            function generateTicketPDF() {
+              const ticketDetails = {
+                StudentName: "Vikas",
+                Reg_No: "23122142",
+                DepartureCity: "Lavasa",
+                Destination: "Pune",
+                Departure_date: "27/01/24"
+              };
+        
+              const doc = new jsPDF();
+        
+              doc.text(`Your Ticket`, 10, 10);
+              doc.text(`Name: ${ticketDetails.StudentName}`, 10, 20);
+              doc.text(`Register Number: ${ticketDetails.Reg_No}`, 10, 30);
+              doc.text(`Departure City: ${ticketDetails.DepartureCity}`, 10, 40);
+              doc.text(`Destination: ${ticketDetails.Destination}`, 10, 50);
+              doc.text(`Departure Date: ${ticketDetails.Departure_date}`, 10, 60);
+        
+              try {
+                doc.save('ticket.pdf')
+                  .then(() => {
+                    const link = document.createElement('a');
+                    link.href = 'ticket.pdf';
+                    link.download = 'ticket.pdf';
+                    link.click();
+                  });
+              } catch (error) {
+                console.error("Error generating PDF:", error);
+                // Handle error gracefully, e.g., display an error message to the user
+              }
+            }
+          </script>
+          
+
+</body>
+
+</html>
+        </div>
     </div>
 <!-----Footer------->
     <link rel="preconnect" href="https://fonts.gstatic.com">

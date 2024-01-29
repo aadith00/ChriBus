@@ -16,121 +16,63 @@
             }
 
             body {
-                background: #002038;
+                background: #ffffff;
                 width: 100%;
                 height: 100vh;
                 margin: 0;
                 padding: 0;
                 position: relative;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
                 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
                 line-height: 1.6;
                 margin: 0;
                 min-height: 100vh;
+                color:black;
             }
-
-            ul {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-            }
-
-
-            h2,
-            h3,
-            a {
-                color: #021121;
-            }
-
-            a {
+            .navbar {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between; /* Adjusted to display logo on the left and nav on the right */
+                align-items: center;
+              }
+          
+              .header {
+                background-color: #002038;
+                color: #fff;
+                padding: 20px 0;
+              }
+          
+              .logo a {
+                color: #fff;
+                font-size: 24px;
                 text-decoration: none;
-            }
-
-
-
-            .logo {
-                margin: 0;
-                font-size: 1.45em;
-            }
-
-            .main-nav {
-                margin-top: 5px;
-
-            }
-
-            .logo a,
-            .main-nav a {
-                padding: 10px 15px;
-                text-transform: capitalize;
-                text-align: center;
-                display: block;
-            }
-
-            .main-nav a {
-                color: #34495e;
-                font-size: .99em;
-            }
-
-            .main-nav a:hover {
-                color: black;
-            }
-
-            .christ {
-                margin-top: 25px;
-            }
-
-            .header {
-                padding-top: .5em;
-                padding-bottom: .5em;
-                border: 1px solid #a2a2a2;
-                background-color: #f4f4f4;
-                -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
-                -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
-                box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-                border-radius: 5px;
-            }
-
-
-            /* ================================= 
-  Media Queries
-==================================== */
-
-
-
-
-            @media (min-width: 769px) {
-
-                .header,
-                .main-nav {
-                    display: flex;
-                }
-
-                .header {
-                    flex-direction: column;
-                    align-items: center;
-
-                    .header {
-                        width: 80%;
-                        margin: 0 auto;
-                        max-width: 1150px;
-                    }
-                }
-
-            }
-
-            @media (min-width: 1025px) {
-                .header {
-                    flex-direction: row;
-                    justify-content: space-between;
-                }
-
-            }
+              }
+          
+              .main-nav ul {
+                list-style: none;
+                display: flex;
+                align-items: center;
+              }
+          
+              .main-nav ul li {
+                margin-left: 20px;
+              }
+          
+              .main-nav ul li:first-child {
+                margin-left: 0; /* Remove margin for the first child (logo) */
+              }
+          
+              .main-nav ul li a {
+                color: #fff;
+                text-decoration: none;
+              }
+              .main-nav ul li a:hover {
+                color: #ffcc00; /* Change the color on hover */
+              }
 
             .search-section {
-                background-color: #ffffff;
+                background-color: #3879d3;
                 padding: 20px;
                 margin-top: 100px;
                 border-radius: 10px;
@@ -143,11 +85,11 @@
             }
 
             .vehicle-card {
-                border: 1px solid #dee2e6;
+                border: 1px solid #000000;
                 border-radius: 10px;
                 overflow: hidden;
                 margin-bottom: 20px;
-                color: white;
+                color: rgb(0, 0, 0);
             }
 
             .vehicle-card img {
@@ -162,13 +104,13 @@
             }
 
             .footer {
-                background-color: #ffffff;
+                background-color: #000000;
 
                 .about-section {
                     text-align: center;
                     max-width: 600px;
                     padding: 20px;
-                    border: 1px solid #ccc;
+                    border: 1px solid #b30000;
                     border-radius: 8px;
                     background-color: #fff;
                 }
@@ -186,10 +128,10 @@
                     font-size: 16px;
                     line-height: 2em;
                     height: 2em;
-                    background-color: #26ae90;
+                    background-color: #009c7a;
                     border-radius: 6px;
                     padding: 0 1em;
-                    color: #eee;
+                    color: #000000;
                     text-align: center;
                     -webkit-font-smoothing: antialiased;
                 }
@@ -240,29 +182,43 @@
                 }
             }
 
+            .btn-primary{
+                background-color: #002937;
+                border-radius: 80px;
+                width:100px;
+            }
+
             .container-about-section {
-                color: white;
+                color: rgb(0, 0, 0);
                 margin-top: 100px;
             }
 
             .heading1 {
-                color: white;
+                color: rgb(0, 0, 0);
             }
         </style>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-        <header class="header">
-            <h1 class="logo"><a href="#">CHRIBUS</a></h1>
-            <ul class="main-nav">
-                <li><a href="home">Account</a></li>
-                <li><a href="booking">Bus Tickets</a></li>
-                <li><a href="rentals">Rentals</a></li>
-                <li><a href="support">Support</a></li>
+    </head>
+    
+    <body>
+    
+      <header class="header">
+        <div class="navbar">
+          <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
+          <nav class="main-nav">
+            <ul>
+                <li><a href="register">REGISTER</a></li>
+                <li><a href="booking">BOOK TICKETS</a></li>
+                <li><a href="rentals">RENTALS</a></li>
+                <li><a href="login">RENT-OUT</a></li>
+                <li><a href="support">SUPPORT</a></li>
+                <li><a href="login">LOGIN</a></li>
             </ul>
-        </header>
-        <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-    </section>
+          </nav>
+        </div>
+      </header>
+    </body>
+    </html>
+  </header>
 
     <!-- Search Section -->
     <div class="container search-section">
@@ -281,7 +237,7 @@
                     <input type="text" class="form-control" id="location" name="location" placeholder="City, Country">
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" onclick="searchVehicles()">Search</button>
+            <button type="button" class="btn-primary" onclick="searchVehicles()">Search</button>
         </form>
     </div>
 
@@ -366,7 +322,7 @@
     <!-----About-------->
     <style>
         .heading2 {
-            color: white;
+            color: rgb(0, 0, 0);
             margin-left: 200px;
             margin-top: 120px;
         }
@@ -379,10 +335,8 @@
         }
 
         .rent-keys {
-            position: absolute;
-            top: 1000px;
-            left: 1100px;
             width: 300px;
+            margin-right: 100px;
 
         }
 
@@ -391,24 +345,25 @@
         .container-about-section {
             align-items: normal;
             margin-bottom: 20px;
+            display: flex;
             /* Added margin-bottom for the container */
         }
     </style>
+    <h2 class="heading2">About Us</h2><br>
     <div class="container-about-section">
-        <h2 class="heading2">About Us</h2><br>
         <p class="about-para">
-            Welcome to Vehicle Rental, your go-to destination for convenient and reliable vehicle rentals.<br>
-            We strive to provide top-notch service, offering a wide range of cars and bikes for your travel needs.<br>
-            Whether you're planning a road trip or just need a vehicle for a short duration, we've got you covered.<br>
-            Our mission is to make your journey comfortable and enjoyable. With a fleet of well-maintained vehicles<br>
-            and a commitment to customer satisfaction, we aim to exceed your expectations.<br>
+            Welcome to Vehicle Rental, your go-to destination for convenient and reliable vehicle rentals.
+            We strive to provide top-notch service, offering a wide range of cars and bikes for your travel needs.
+            Whether you're planning a road trip or just need a vehicle for a short duration, we've got you covered.
+            Our mission is to make your journey comfortable and enjoyable. With a fleet of well-maintained vehicles
+            and a commitment to customer satisfaction, we aim to exceed your expectations.
             In collaboration with Christ University Lavasa, we have been serving the transportation needs of
-            students,<br>
+            students,
             faculty, and visitors since our inception in 2018. Christ University Lavasa, established in the year
-            2018,<br>
+            2018,
             is a vibrant educational institution committed to providing quality education in a picturesque and
-            serene<br>
-            environment in Lavasa, Maharashtra.<br>
+            serene
+            environment in Lavasa, Maharashtra.
         </p>
         <img class="rent-keys" src="https://rgcarhiretour.com/images/about/Car-Rental-icon.png" alt="keys">
     </div>
