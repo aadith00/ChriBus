@@ -212,13 +212,29 @@
     .about h2 {
       font-size: 30px;
       margin-bottom: 30px;
+      color: #007bff; /* Added a color */
     }
   
     .chribus {
       width: 90%;
       border-radius: 40px;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    .chribus:hover {
+      transform: scale(1.1); /* Zoom in effect on hover */
+    }
+  
+    .about p {
+      font-size: 18px;
+      color: #555;
+    }
+  
+    .about p:hover {
+      color: #007bff; /* Change text color on hover */
     }
   </style>
+  
   
   <section class="about">
     <div class="container">
@@ -298,20 +314,20 @@
       <div class="col-md-4">
         <div class="feature-item">
           <i class="fa-solid fa-magnifying-glass-chart"></i>
-          <h3>Rentals</h3>
+          <h3>RENTALS</h3>
           <div class="feature-content">
             <p>Rent vehicles through our web application on an hourly basis or day basis based on the user's requirements.</p><br>
-            <a href="rentals">Rent Vehicles</a>
+            <a href="rentals">RENT VEHICLES</a>
           </div>
         </div>
       </div>
       <div class="col-md-4">
         <div class="feature-item">
           <i class="fa-solid fa-magnifying-glass-chart"></i>
-          <h3>Vehicle Owner</h3>
+          <h3>VEHICLE OWNER</h3>
           <div class="feature-content">
             <p>If you are a vehicle owner and you want to make some money, you can rent out vehicles through our web application.</p><br>
-            <a href="rentals">Rent-Out</a>
+            <a href="rentals">RENT-OUT</a>
           </div>
         </div>
       </div>
@@ -321,19 +337,111 @@
 
 
 <!-------Footer-------->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <center><p>&copy; 2024 Chribus. All rights reserved.</p></center>
-      </div>
-    </div>
-  </footer>
+<!-----Footer------->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        margin: 0;
+        overflow-x: hidden;
+    }
 
-  <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-gdZGzXazVLkaRKc/YB9E5XF3zgT5uJzw/SOGtkO6zbwEWfFgkR0xnmli4vXkpzCJ"
-    crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    .footer {
+        background: #000;
+        padding: 30px 0px;
+        font-family: 'Play', sans-serif;
+        text-align: center;
+    }
+
+    .footer .row {
+        width: 100%;
+        margin: 1% 0%;
+        padding: 0.6% 0%;
+        color: gray;
+        font-size: 0.8em;
+        display: flex;
+        justify-content: center;
+        /* Center the icons horizontally */
+        align-items: center;
+        /* Center the icons vertically */
+    }
+
+    .footer .row a {
+        text-decoration: none;
+        color: gray;
+        transition: 0.5s;
+        margin: 0 15px;
+        /* Adjusted margin for spacing between icons */
+    }
+
+    .footer .row a:hover {
+        color: #fff;
+    }
+
+    .footer .row ul {
+        width: 100%;
+    }
+
+    .footer .row ul li {
+        display: inline-block;
+        margin: 0px 30px;
+    }
+
+    .footer .row a i {
+        font-size: 2em;
+        margin: 0% 1%;
+    }
+
+    @media (max-width: 720px) {
+        .footer {
+            text-align: left;
+            padding: 5%;
+        }
+
+        .footer .row {
+            flex-direction: column;
+            /* Stack icons vertically on small screens */
+            align-items: flex-start;
+        }
+
+        .footer .column a {
+            margin: 10px 0;
+            width:100px;
+        }
+
+        .footer .column a i {
+            margin: 0% 3%;
+            align-items: flex-start;
+        }
+    }
+</style>
+</head>
+
+<body>
+<footer>
+    <div class="footer">
+        <div class="column">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+        </div>
+
+        <div class="row">
+            <ul>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Career</a></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
+        </div>
+    </div>
+</footer>
 </body>
 
 </html>
