@@ -183,12 +183,27 @@
           <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
           <nav class="main-nav">
             <ul>
-              <li><a href="register">REGISTER</a></li>
+
+              {% if user.is_authenticated %}
+
+              <li><a href="#">Hello, {{ user.username }}</a></li>
               <li><a href="booking">BOOK TICKETS</a></li>
               <li><a href="rentals">RENTALS</a></li>
               <li><a href="login">RENT-OUT</a></li>
               <li><a href="support">SUPPORT</a></li>
-              <li><a href="login">LOGIN</a></li>
+              <li><a href="logout">LOGOUT</a></li>
+
+              {% else %}
+
+              <li><a href="home">HOME</a></li>
+              <li><a href="booking">BOOK TICKETS</a></li>
+              <li><a href="rentals">RENTALS</a></li>
+              <li><a href="login">RENT-OUT</a></li>
+              <li><a href="support">SUPPORT</a></li>
+              <li><a href="login">ACCOUNT</a></li>
+
+              {% endif %}
+
             </ul>
           </nav>
         </div>
@@ -196,8 +211,12 @@
     </body>
     </html>
   </header>
+
+
 <!-----Hero------>
-  <section class="hero">
+  
+
+<section class="hero">
     <div class="container">
       <div class="hero-content">
         <h1>Welcome to Chribus</h1>

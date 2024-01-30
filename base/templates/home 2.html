@@ -1,259 +1,510 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Chribus</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    integrity="sha512-suiYf3TznmiWqHiFwv8FAm6UnqLzLdBwIzOPkhHO1P6oVLE1QVYRy2a28v95z62Sko6YY/yNhxPjFm8ZiPY54Q=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <head>
-      <style>
-        /* Reset CSS */
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-    
-        body {
-          font-family: Arial, sans-serif;
-          background-color: #f4f4f4;
-        }
-    
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
+</head>
+
+<body>
+  <section>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #002038;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+
+      h2,
+      h3,
+      a {
+        color: #021121;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+
+
+      .logo {
+        margin: 0;
+        font-size: 1.45em;
+      }
+
+      .main-nav {
+        margin-top: 5px;
+
+      }
+
+      .logo a,
+      .main-nav a {
+        padding: 10px 15px;
+        text-transform: capitalize;
+        text-align: center;
+        display: block;
+      }
+
+      .main-nav a {
+        color: #34495e;
+        font-size: .99em;
+      }
+
+      .main-nav a:hover {
+        color: black;
+      }
+
+      .christ {
+        margin-top: 25px;
+      }
+
+      .header {
+        padding-top: .5em;
+        padding-bottom: .5em;
+        border: 1px solid #a2a2a2;
+        background-color: #f4f4f4;
+        -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+      }
+
+
+      /* ================================= 
+  Media Queries
+==================================== */
+
+
+
+
+      @media (min-width: 769px) {
+
+        .header,
+        .main-nav {
           display: flex;
-          justify-content: space-between; /* Adjusted to display logo on the left and nav on the right */
-          align-items: center;
         }
-    
+
         .header {
-          background-color: #002038;
-          color: #fff;
-          padding: 20px 0;
-        }
-    
-        .logo a {
-          color: #fff;
-          font-size: 24px;
-          text-decoration: none;
-        }
-    
-        .main-nav ul {
-          list-style: none;
-          display: flex;
+          flex-direction: column;
           align-items: center;
-        }
-    
-        .main-nav ul li {
-          margin-left: 20px;
-        }
-    
-        .main-nav ul li:first-child {
-          margin-left: 0; /* Remove margin for the first child (logo) */
-        }
-    
-        .main-nav ul li a {
-          color: #fff;
-          text-decoration: none;
-        }
-    
-        .hero {
-          padding: 100px 0;
-          background-color: #0367a6;
-          color: #fff;
-          text-align: center;
-        }
-    
-        .hero h1 {
-          font-size: 36px;
-          margin-bottom: 20px;
-          animation: slideInLeft 1s ease;
-        }
-    
-        .hero p {
-          font-size: 18px;
-          margin-bottom: 30px;
-          animation: slideInRight 1s ease;
-        }
-    
-        .btn {
-          display: inline-block;
-          background-color: #fff;
-          color: #0367a6;
-          padding: 10px 20px;
-          text-decoration: none;
-          border-radius: 5px;
-          transition: background-color 0.3s ease;
-          animation: fadeInUp 1s ease;
-        }
-    
-        .btn:hover {
-          background-color: #ccc;
-        }
-    
-        .about {
-          padding: 100px 0;
-        }
-    
-        .about h2 {
-          font-size: 30px;
-          margin-bottom: 30px;
-        }
-    
-        .features {
-          padding: 100px 0;
-        }
-    
-        .features h2 {
-          font-size: 30px;
-          margin-bottom: 30px;
-        }
-    
-        .feature-item {
-          text-align: center;
-          margin-bottom: 30px;
-          animation: zoomIn 1s ease;
-        }
-    
-        .feature-item i {
-          font-size: 36px;
-          color: #0367a6;
-          margin-bottom: 20px;
-        }
-    
-        .footer {
-          background-color: #002038;
-          color: #fff;
-          padding: 30px 0;
-          text-align: center;
-        }
-    
-        .social-links {
-          list-style: none;
-          padding: 0;
-          margin-top: 20px;
-        }
-    
-        .social-links li {
-          display: inline-block;
-          margin-right: 10px;
-        }
-    
-        .social-links li a {
-          color: #fff;
-          font-size: 20px;
-        }
-    
-        /* Keyframe animations */
-        @keyframes slideInLeft {
-          from {
-            transform: translateX(-100%);
-            opacity: 0;
-          }
-    
-          to {
-            transform: translateX(0);
-            opacity: 1;
+
+          .header {
+            width: 80%;
+            margin: 0 auto;
+            max-width: 1150px;
           }
         }
-    
-        @keyframes slideInRight {
-          from {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-    
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
+
+      }
+
+      @media (min-width: 1025px) {
+        .header {
+          flex-direction: row;
+          justify-content: space-between;
         }
-    
-        @keyframes fadeInUp {
-          from {
-            transform: translateY(50px);
-            opacity: 0;
-          }
-    
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-    
-        @keyframes zoomIn {
-          from {
-            transform: scale(0);
-            opacity: 0;
-          }
-    
-          to {
-            transform: scale(1);
-            opacity: 1;
-          }
+
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+    <header class="header">
+      <h1 class="logo"><a href="#">CHRIBUS</a></h1>
+      <ul class="main-nav">
+
+        {% if user.is_authenticated %}
+
+        <li><a href="#">Hello, {{ user.username }}</a></li>
+        <li><a href="booking">Book Tickets</a></li>
+        <li><a href="rentals">Rentals</a></li>
+        <li><a href="support">Support</a></li>
+        <li><a href="logout">Logout</a></li>
+
+        {% else %}
+
+        <li><a href="register">Register</a></li>
+        <li><a href="booking">Book Tickets</a></li>
+        <li><a href="rentals">Rentals</a></li>
+        <li><a href="support">Support</a></li>
+
+        {% endif %}
+
+      </ul>
+    </header>
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <section>
+      <style>
+        .christ {
+          width: 300px;
         }
       </style>
-    </head>
-    
-    <body>
-    
-      <header class="header">
-        <div class="container">
-          <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
-          <nav class="main-nav">
-            <ul>
-              <li><a href="register">Register</a></li>
-              <li><a href="booking">Book Tickets</a></li>
-              <li><a href="rentals">Rentals</a></li>
-              <li><a href="support">Support</a></li>
-              <li><a href="login">Login</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-    </body>
-    </html>
+      <img class="christ" src="https://lavasa.christuniversity.in/images/logo.png" alt="loh">
+    </section>
 
-  <section class="content-section">
-    <div class="container">
-      <img class="christ" src="https://lavasa.christuniversity.in/images/logo.png" alt="Chribus Logo">
-      <h1>Welcome to Chribus</h1>
-      <p>Book your tickets now and experience hassle-free travel with Chribus.</p>
-    </div>
-  </section>
 
-  <section class="services-section">
-    <div class="container">
-      <h1 class="services-title">Our Services</h1>
-      <div class="services-list">
-        <div class="service-item">
-          <i class="fas fa-bus"></i>
-          <h2>Weekend Bus Services</h2>
-          <p>Travel conveniently between Lavasa and Pune with our weekend bus services.</p>
-          <a href="booking">Book Now</a>
+    <!--------About--------->
+
+    <section class="weekend">
+      <style>
+        .weekend {
+          margin-top: 250px;
+          margin-left: 50px;
+          color: #ccc;
+        }
+
+        .bus-content {
+          /* New class for overall content */
+          display: flex;
+          /* Apply flexbox for positioning */
+          align-items: center;
+          /* Vertically align elements */
+        }
+
+        .weekend-bus {
+          margin-top: 30px;
+          font-size: larger;
+          width: 55%;
+          /* Adjust width as needed */
+        }
+
+        .chribus-img {
+          border-radius: 100px;
+          width: 40%;
+          /* Adjust width as needed */
+          margin-left: auto;
+          /* Push image to the right */
+          margin-bottom: 50px;
+        }
+      </style>
+
+      <h1>WEEKEND BUS SERVICES</h1>
+      <div class="bus-content">
+        <p class="weekend-bus">
+          CHRIST (Deemed to be University) campus is located in Lavasa a small hill-station which is 60-70 kms away from
+          the city of Pune.Due to which it is quite difficult to travel
+          from Lavasa to Pune.But our esteemed institution offers a weekend bus service every week to Pune so the
+          students
+          can purchase or buy any required things.To optimize this we have created a web application so the students are
+          able to book the tickets every week.
+
+        </p>
+        <img class="chribus-img"
+          src="https://lavasa.christuniversity.in/uploads/studentlife/large/Untitled%20design%20(31)_20201231051930..png"
+          alt="$$$">
+      </div>
+    </section>
+
+
+    <!-----RENTALS------->
+
+
+    <section style="display: flex; align-items: center;">
+      <style>
+        .rentals {
+          color: #fff;
+          margin-top: 150px;
+          margin-right: 100px;
+          /* Adjust the margin to your preference */
+          width: 55%;
+          /* Adjust the width of the paragraph */
+        }
+
+        .paragraph {
+          color: #ccc;
+          font-size: larger;
+        }
+
+        .rental-img {
+          margin-top: 0;
+          width: 40%;
+          margin-bottom: 50px;
+        }
+      </style>
+
+      <div class="rental-img">
+        <img src="https://cdn4.iconfinder.com/data/icons/traveling-liconica-color/128/rent-car-service-vehicle-512.png"
+          alt="car">
+      </div>
+
+      <div class="rentals">
+        <h1 class="heading1">RENTAL</h1>
+        <p class="paragraph">Now we can do more than just book bus tickets, Rent out some of your friends' vehicles
+          through our Chribus app. Through our web application, you guys can also rent vehicles and also rent out
+          vehicles if you have a vehicle for a reasonable cost. Through this manner, you can also earn a decent amount
+          of money.</p>
+      </div>
+    </section>
+
+
+    <!--------Services------->
+
+
+    <section></section>
+    <style>
+      #services {
+        padding: 100px;
+      }
+
+      .subtitle {
+        color: #ccc;
+      }
+
+      .services-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 40px;
+        margin-top: 50px;
+      }
+
+      .services-list div {
+        background: rgba(41, 255, 177, 0.4);
+        padding: 40px;
+        font-size: 13px;
+        font-weight: 300;
+        border-radius: 10px;
+        transition: background 0.5s, transform 0.5s;
+      }
+
+      .services-list div i {
+        font-size: 50px;
+        margin-bottom: 30px;
+      }
+
+      .services-list div h2 {
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 15px;
+      }
+
+      .services-list div a {
+        text-decoration: none;
+        color: aliceblue;
+        font-size: 12px;
+        margin-top: 20px;
+        display: inline-block;
+      }
+
+      .services-list div:hover {
+        background: #ff004f;
+        transform: translateY(-10px);
+      }
+    </style>
+    <div id="services">
+      <div class="services-box">
+        <center>
+          <h1 class="subtitle">OUR SERVICES</h1>
+        </center>
+        <div class="services-list">
+          <div>
+            <i class="fa-solid fa-laptop-code"></i>
+            <h2>WEEKEND BUS SERVICES</h2>
+            <p>Our University is located in Lavasa which is 60-70 kms away from the city of Pune, due to which it is
+              quiete difficult to go to the city to get something.A solution to this was done by our university to
+              provide a weekend bus facility every week so that the students are able to travel to the city to get some
+              things or can travel to the city to catch a train or a flight for free of cost. <br>
+              <a href="booking">BOOK TICKETS</a>
+            </p>
+          </div>
+          <div>
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <h2>RENTALS</h2>
+            <p>
+              Hi, I am a professional Data Analyst and I have created multiple projects for various
+              businesses to help them make important decisions to maximize their profits.<br>
+              <a href="https://www.datacamp.com/blog/what-does-data-analyst-do">Learn more</a>
+            </p>
+          </div>
+          <div>
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            <h2>DATA ANALYST</h2>
+            <p>
+              Hi, I am a professional Data Analyst and I have created multiple projects for various
+              businesses to help them make important decisions to maximize their profits.<br>
+              <a href="https://www.datacamp.com/blog/what-does-data-analyst-do">Learn more</a>
+            </p>
+          </div>
         </div>
-        <div class="service-item">
-          <i class="fas fa-car"></i>
-          <h2>Rentals</h2>
-          <p>Rent vehicles or rent out your vehicle with ease through our rental services.</p>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-bg">
-      <div class="footer-bg-one"></div>
-      <div class="footer-bg-two"></div>
-    </div>
-  </footer>
+
+  <!---------footer--->
+
+
+  <section>
+
+    <style>
+      .new_footer_top {
+        padding: 120px 0px 270px;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .new_footer_area .footer_bottom {
+        padding-top: 5px;
+        padding-bottom: 50px;
+      }
+
+      .footer_bottom {
+        font-size: 14px;
+        font-weight: 300;
+        line-height: 20px;
+        color: #7f88a6;
+        padding: 27px 0px;
+      }
+
+      .new_footer_top .f_widget.about-widget .f_list li a:hover {
+        color: #5e2ced;
+      }
+
+      .new_footer_top .f_widget.about-widget .f_list li {
+        margin-bottom: 11px;
+      }
+
+      .f_widget.about-widget .f_list li:last-child {
+        margin-bottom: 0px;
+      }
+
+      .f_widget.about-widget .f_list li {
+        margin-bottom: 15px;
+      }
+
+      .f_widget.about-widget .f_list {
+        margin-bottom: 0px;
+      }
+
+      .new_footer_top .f_social_icon a {
+        width: 44px;
+        height: 44px;
+        line-height: 43px;
+        background: transparent;
+        border: 1px solid #e2e2eb;
+        font-size: 24px;
+      }
+
+
+      .new_footer_top .f-title {
+        margin-bottom: 30px;
+        color: #263b5e;
+      }
+
+      .f_600 {
+        font-weight: 600;
+      }
+
+      .f_size_18 {
+        font-size: 18px;
+      }
+
+      .new_footer_top .f_widget.about-widget .f_list li a {
+        color: #6a7695;
+      }
+
+
+      .new_footer_top .footer_bg {
+        position: absolute;
+        bottom: 0;
+        background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigB8iI5tb8WSVBuVUGc9UjjB8O0708X7Fdic_4O1LT4CmLHoiwhanLXiRhe82yw0R7LgACQ2IhZaTY0hhmGi0gYp_Ynb49CVzfmXtYHUVKgXXpWvJ_oYT8cB4vzsnJLe3iCwuzj-w6PeYq_JaHmy_CoGoa6nw0FBo-2xLdOPvsLTh_fmYH2xhkaZ-OGQ/s16000/footer_bg.png") no-repeat scroll center 0;
+        width: 100%;
+        height: 266px;
+      }
+
+      .new_footer_top .footer_bg .footer_bg_one {
+        background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEia0PYPxwT5ifToyP3SNZeQWfJEWrUENYA5IXM6sN5vLwAKvaJS1pQVu8mOFFUa_ET4JuHNTFAxKURFerJYHDUWXLXl1vDofYXuij45JZelYOjEFoCOn7E6Vxu0fwV7ACPzArcno1rYuVxGB7JY6G7__e4_KZW4lTYIaHSLVaVLzklZBLZnQw047oq5-Q/s16000/volks.gif") no-repeat center center;
+        width: 330px;
+        height: 105px;
+        background-size: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 30%;
+        -webkit-animation: myfirst 22s linear infinite;
+        animation: myfirst 22s linear infinite;
+      }
+
+      .new_footer_top .footer_bg .footer_bg_two {
+        background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyLGwEUVwPK6Vi8xXMymsc-ZXVwLWyXhogZxbcXQYSY55REw_0D4VTQnsVzCrL7nsyjd0P7RVOI5NKJbQ75koZIalD8mqbMquP20fL3DxsWngKkOLOzoOf9sMuxlbyfkIBTsDw5WFUj-YJiI50yzgVjF8cZPHhEjkOP_PRTQXDHEq8AyWpBiJdN9SfQA/s16000/cyclist.gif") no-repeat center center;
+        width: 88px;
+        height: 100px;
+        background-size: 100%;
+        bottom: 0;
+        left: 38%;
+        position: absolute;
+        -webkit-animation: myfirst 30s linear infinite;
+        animation: myfirst 30s linear infinite;
+      }
+
+
+
+      @-moz-keyframes myfirst {
+        0% {
+          left: -25%;
+        }
+
+        100% {
+          left: 100%;
+        }
+      }
+
+      @-webkit-keyframes myfirst {
+        0% {
+          left: -25%;
+        }
+
+        100% {
+          left: 100%;
+        }
+      }
+
+      @keyframes myfirst {
+        0% {
+          left: -25%;
+        }
+
+        100% {
+          left: 100%;
+        }
+      }
+
+      /*footer End*/
+    </style>
+
+    <footer class="new_footer_area bg_color">
+      <div class="new_footer_top">
+        <div class="footer_bg">
+          <div class="footer_bg_one"></div>
+          <div class="footer_bg_two"></div>
+        </div>
+      </div>
+      </div>
+    </footer>
+  </section>
 </body>
 
 </html>

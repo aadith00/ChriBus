@@ -102,7 +102,7 @@ def user_login(request):
 
         if user is not None:
             login(request, user)
-            return render('home')
+            return render(request, 'home.html')
         
         else:
             error_message = "Invalid username or password."

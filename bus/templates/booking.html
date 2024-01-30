@@ -7,195 +7,228 @@
   <title>Chribus</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <head>
-      <style>
-        /* Reset CSS */
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-    
-        body {
-          font-family: Arial, sans-serif;
-          background-color: #f4f4f4;
-        }
-    
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 20px;
-          display: flex;
-          justify-content: space-between; /* Adjusted to display logo on the left and nav on the right */
-          align-items: center;
-        }
-    
-        .header {
-          background-color: #002038;
-          color: #fff;
-          padding: 20px 0;
-        }
-    
-        .logo a {
-          color: #fff;
-          font-size: 24px;
-          text-decoration: none;
-        }
-    
-        .main-nav ul {
-          list-style: none;
-          display: flex;
-          align-items: center;
-        }
-    
-        .main-nav ul li {
-          margin-left: 20px;
-        }
-    
-        .main-nav ul li:first-child {
-          margin-left: 0; /* Remove margin for the first child (logo) */
-        }
-    
-        .main-nav ul li a {
-          color: #fff;
-          text-decoration: none;
-        }
-      </style>
-    </head>
-    
-    <body>
-    
-      <header class="header">
-        <div class="container">
-          <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
-          <nav class="main-nav">
-            <ul>
-              <li><a href="register">Register</a></li>
-              <li><a href="booking">Book Tickets</a></li>
-              <li><a href="rentals">Rentals</a></li>
-              <li><a href="support">Support</a></li>
-              <li><a href="login">Login</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-    </body>
-    </html>
-  </header>
-<!------FORM--------->
-<style>
-    .search-form {
-        display: flex;
-        margin-top: 120px;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        border-radius: 40px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        width: 85%;
-        margin-left: 100px;
-        background-color: #0367a6;
-        color: #fff;
-      }
-  
-      .search-form label {
-        font-weight: bold;
-        margin-right: 20px;
-      }
-  
-      .search-form input,
-      .search-form select {
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
+
+  <head>
+    <style>
+      /* Reset CSS */
+      * {
         box-sizing: border-box;
-        width: 200px;
-      }
-  
-      .search-form button {
-        background-color: #fff;
-        color: #0367a6;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
+        margin: 0;
+        padding: 0;
       }
 
-    @media (max-width: 768px) {
-        .search-form {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-  
-        .search-form label {
-          margin-bottom: 10px;
-        }
-  
-        h2 {
-          color:#fff
-        }
-  
-        .search-form input,
-        .search-form select {
-          width: 100%;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        /* Adjusted to display logo on the left and nav on the right */
+        align-items: center;
+      }
+
+      .header {
+        background-color: #002038;
+        color: #fff;
+        padding: 20px 0;
+      }
+
+      .logo a {
+        color: #fff;
+        font-size: 24px;
+        text-decoration: none;
+      }
+
+      .main-nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .main-nav ul li {
+        margin-left: 20px;
+      }
+
+      .main-nav ul li:first-child {
+        margin-left: 0;
+        /* Remove margin for the first child (logo) */
+      }
+
+      .main-nav ul li a {
+        color: #fff;
+        text-decoration: none;
       }
     </style>
-  <section class="search-form">
+  </head>
+
+<body>
+
+  <header class="header">
     <div class="container">
-      <div class="form-border">
-        <h2>Search for buses</h2>
-        <form method="POST" action="{% url 'search_buses' %}">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button type="submit">Search Buses</button>
-        </form>
-        {% if available_buses %}
-        <div>
-          <h3>Available Buses:</h3>
-          <ul>
-            {% for bus in available_buses %}
-            <li>
-              <a href="{% url 'bus_details' bus.num_plate %}">
-                {{ bus.departure_city }} to {{ bus.destination_city }} - {{ bus.departure_date }}
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endif %}
-      </div>
+      <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="register">Register</a></li>
+          <li><a href="booking">Book Tickets</a></li>
+          <li><a href="rentals">Rentals</a></li>
+          <li><a href="support">Support</a></li>
+          <li><a href="login">Login</a></li>
+        </ul>
+      </nav>
     </div>
-  </section>
-<!------About---------->
+  </header>
+</body>
+
+</html>
+</header>
 <style>
+  h2{
+    color: #0367a6;
+  }
+
+  .search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 85%;
+    background-color: #f4f4f4;
+  }
+
+  .search-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .search-form input[type="text"],
+  .search-form input[type="date"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .search-form button {
+    background-color: #0367a6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .search-form button:hover {
+    background-color: #024b72;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+</style>
+</head>
+
+<body>
+  <section class="search-form">
+    <h2>Search for buses</h2>
+    <form id="searchForm" method="POST" action="{% url 'search_buses' %}">
+
+      {% csrf_token %}
+
+      <label for="departureCity">Departure City:</label>
+      <input type="text" id="departureCity" name="departureCity" placeholder="Enter departure city" required>
+      <div class="error-message" id="departureCityError"></div>
+
+      <label for="destinationCity">Destination City:</label>
+      <input type="text" id="destinationCity" name="destinationCity" placeholder="Enter destination city" required>
+      <div class="error-message" id="destinationCityError"></div>
+
+      <label for="departureDate">Departure Date:</label>
+      <input type="date" id="departureDate" name="departureDate" required>
+      <div class="error-message" id="departureDateError"></div>
+
+      <button type="submit">Search Buses</button>
+      
+    </form>
+  </section>
+
+  <script>
+    const form = document.getElementById('searchForm');
+
+    form.addEventListener('submit', function (event) {
+      let isValid = true;
+
+      const departureCity = document.getElementById('departureCity');
+      const destinationCity = document.getElementById('destinationCity');
+      const departureDate = document.getElementById('departureDate');
+      const departureCityError = document.getElementById('departureCityError');
+      const destinationCityError = document.getElementById('destinationCityError');
+      const departureDateError = document.getElementById('departureDateError');
+
+      departureCityError.textContent = '';
+      destinationCityError.textContent = '';
+      departureDateError.textContent = '';
+
+      if (!departureCity.value.trim()) {
+        departureCityError.textContent = 'Please enter departure city';
+        isValid = false;
+      }
+
+      if (!destinationCity.value.trim()) {
+        destinationCityError.textContent = 'Please enter destination city';
+        isValid = false;
+      }
+
+      if (!departureDate.value) {
+        departureDateError.textContent = 'Please select departure date';
+        isValid = false;
+      }
+
+      if (!isValid) {
+        event.preventDefault();
+      }
+    });
+  </script>
+  <!------About---------->
+  <style>
     h2 {
-        color:#fff;
-        margin-top : 100px;
-      }
-  
-      p {
-        color: #0367a6;
-        font-size: larger;
-        margin-top: 20px;
-        margin-bottom: 30px;
-        margin-left: 120px;
-      }
-  
-      .book-img {
-        width: 20%;
-        float: right;
-        margin-left: 20px;
-        margin-top: 20px;
-      }
-  
-      .book-about {
-        display: flex;
-        flex-direction: row-reverse;
-      }
-  
-</style>  
-<section>
+      color: #fff;
+      margin-top: 100px;
+    }
+
+    p {
+      color: #0367a6;
+      font-size: larger;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      margin-left: 120px;
+    }
+
+    .book-img {
+      width: 20%;
+      float: right;
+      margin-left: 20px;
+      margin-top: 20px;
+    }
+
+    .book-about {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+  </style>
+  <section>
     <div class="container">
       <h2>Book your tickets now!!</h2>
       <div class="book-about">
@@ -215,111 +248,111 @@
   </section>
 
   <!-----Footer------->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
     body {
-        margin: 0;
-        overflow-x: hidden;
+      margin: 0;
+      overflow-x: hidden;
     }
 
     .footer {
-        background: #000;
-        padding: 30px 0px;
-        font-family: 'Play', sans-serif;
-        text-align: center;
+      background: #000;
+      padding: 30px 0px;
+      font-family: 'Play', sans-serif;
+      text-align: center;
     }
 
     .footer .row {
-        width: 100%;
-        margin: 1% 0%;
-        padding: 0.6% 0%;
-        color: gray;
-        font-size: 0.8em;
-        display: flex;
-        justify-content: center;
-        /* Center the icons horizontally */
-        align-items: center;
-        /* Center the icons vertically */
+      width: 100%;
+      margin: 1% 0%;
+      padding: 0.6% 0%;
+      color: gray;
+      font-size: 0.8em;
+      display: flex;
+      justify-content: center;
+      /* Center the icons horizontally */
+      align-items: center;
+      /* Center the icons vertically */
     }
 
     .footer .row a {
-        text-decoration: none;
-        color: gray;
-        transition: 0.5s;
-        margin: 0 15px;
-        /* Adjusted margin for spacing between icons */
+      text-decoration: none;
+      color: gray;
+      transition: 0.5s;
+      margin: 0 15px;
+      /* Adjusted margin for spacing between icons */
     }
 
     .footer .row a:hover {
-        color: #fff;
+      color: #fff;
     }
 
     .footer .row ul {
-        width: 100%;
+      width: 100%;
     }
 
     .footer .row ul li {
-        display: inline-block;
-        margin: 0px 30px;
+      display: inline-block;
+      margin: 0px 30px;
     }
 
     .footer .row a i {
-        font-size: 2em;
-        margin: 0% 1%;
+      font-size: 2em;
+      margin: 0% 1%;
     }
 
     @media (max-width: 720px) {
-        .footer {
-            text-align: left;
-            padding: 5%;
-        }
+      .footer {
+        text-align: left;
+        padding: 5%;
+      }
 
-        .footer .row {
-            flex-direction: column;
-            /* Stack icons vertically on small screens */
-            align-items: flex-start;
-        }
+      .footer .row {
+        flex-direction: column;
+        /* Stack icons vertically on small screens */
+        align-items: flex-start;
+      }
 
-        .footer .column a {
-            margin: 10px 0;
-            width:100px;
-        }
+      .footer .column a {
+        margin: 10px 0;
+        width: 100px;
+      }
 
-        .footer .column a i {
-            margin: 0% 3%;
-            align-items: flex-start;
-        }
+      .footer .column a i {
+        margin: 0% 3%;
+        align-items: flex-start;
+      }
     }
-</style>
-</head>
+  </style>
+  </head>
 
-<body>
-<footer>
-    <div class="footer">
+  <body>
+    <footer>
+      <div class="footer">
         <div class="column">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-youtube"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
         </div>
 
         <div class="row">
-            <ul>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Career</a></li>
-            </ul>
+          <ul>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Our Services</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
         </div>
 
         <div class="row">
-            INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
+          INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
         </div>
-    </div>
-</footer>
-</body>
+      </div>
+    </footer>
+  </body>
 </body>
 
 </html>
