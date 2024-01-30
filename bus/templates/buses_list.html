@@ -68,6 +68,25 @@
             text-align: center;
             color: #777;
         }
+
+        .book-button {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .book-button a {
+            display: inline-block;
+            background-color: #0367a6;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .book-button a:hover {
+            background-color: #024b72;
+        }
     </style>
 </head>
 <body>
@@ -81,7 +100,13 @@
                             <p><strong>Departure City:</strong> {{ bus.departure_city }}</p>
                             <p><strong>Destination City:</strong> {{ bus.destination_city }}</p>
                             <p><strong>Departure Date:</strong> {{ bus.departure_date }}</p>
+                            {% if bus.image %}
+                                <img src="{{ bus.image.url }}" alt="Bus Image" style="max-width: 200px;">
+                            {% endif %}
                             <!-- Add more bus details as needed -->
+                        </div>
+                        <div class="book-button">
+                            <a href="{% url 'book_ticket' bus.num_plate %}">Book Now</a>
                         </div>
                     </li>
                 {% endfor %}
