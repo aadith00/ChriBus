@@ -199,7 +199,7 @@
                     <li><a href="register">REGISTER</a></li>
                     <li><a href="booking">BOOK TICKETS</a></li>
                     <li><a href="rentals">RENTALS</a></li>
-                    \<li><a href="login">RENT-OUT</a></li>
+                    <li><a href="login">RENT-OUT</a></li>
                     <li><a href="support">SUPPORT</a></li>
                     <li><a href="login">LOGIN</a></li>
                 </ul>
@@ -216,7 +216,7 @@
         <table>
             <tr>
                 <th>Register Number</th>
-                <td>{{ user.usernmae }}</td>
+                <td>{{ user.username }}</td>
             </tr>
             <tr>
                 <th>Departure City</th>
@@ -232,10 +232,10 @@
             </tr>
             <!-- Add more details about the bus as needed -->
         </table>
-        <p style="text-align: center; margin-top: 30px; font-size: 18px; color: #888;">Thank you for choosing us for your journey! Have a pleasant trip.</p>
+        <br>
         <!--------Number of seats available----------->
         <div>
-            <h5>NUMBER OF SEATS AVAILABLE: </h5>
+            <h5>NUMBER OF SEATS AVAILABLE: {{ bus.total_seats }} </h5>
         </div>
         <!-- Book Now button -->
         <div>
