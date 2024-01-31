@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .models import Bus, Booking
-from .forms import BookingForm
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Bus
 from datetime import datetime
 
 
@@ -19,8 +18,11 @@ def search_buses(request):
         available_buses = Bus.objects.filter(departure_city=departure_city, destination_city=destination_city, departure_date=departure_date)
 
         return render(request, 'buses_list.html', {'available_buses': available_buses})
+    
+    else:
+        return render(request, 'no_buses.html')
 
-    return render(request, 'booking.html')  
+    # return render(request, 'booking.html')  
 
 
 def bus_details(request, num_plate):
@@ -41,6 +43,8 @@ def bus_details(request, num_plate):
 #     else:
 #         form = BookingForm()
 #     return render(request, 'book_ticket.html', {'form': form, 'bus': bus})
+
+
 
 
 

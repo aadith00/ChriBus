@@ -88,7 +88,7 @@
 </header>
 <style>
   h2{
-    color: #0367a6;
+    color: #000000;
   }
 
   .search-form {
@@ -144,7 +144,7 @@
   <section class="search-form">
     <h2>Search for buses</h2>
 
-    <form id="searchForm" method="POST" action="">
+    <form id="searchForm" method="POST" action="{% url 'search-buses' %}">
 
       {% csrf_token %}
 
