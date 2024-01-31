@@ -87,31 +87,34 @@
 </section>
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
     <section>
-        <!------Form------->
+        <!------Form------>
         <!DOCTYPE html>
         <html lang="en">
+        
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Vehicle Rental Form</title>
             <style>
-        
                 .container {
                     display: flex;
                     justify-content: space-between;
                     max-width: 1200px;
                     margin: 0 auto;
                     padding: 20px;
-        
                 }
         
                 form {
-                    background-color: #a7d6ff;
+                    background-color: #ffffff;
                     padding: 20px;
                     border-radius: 8px;
                     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
                     width: 40%;
                     margin-right: 20px;
+                    transition: box-shadow 0.3s ease;
+                }
+        
+                form:hover {
+                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
                 }
         
                 label {
@@ -119,13 +122,22 @@
                     margin-bottom: 8px;
                 }
         
-                input, select {
+                input,
+                select {
                     width: calc(100% - 16px);
                     padding: 8px;
                     margin-bottom: 16px;
                     box-sizing: border-box;
                     border: 1px solid #ccc;
                     border-radius: 4px;
+                    transition: border-color 0.3s ease;
+                }
+        
+                input:hover,
+                input:focus,
+                select:hover,
+                select:focus {
+                    border-color: #4caf50;
                 }
         
                 button {
@@ -135,6 +147,7 @@
                     border: none;
                     border-radius: 4px;
                     cursor: pointer;
+                    transition: background-color 0.3s ease;
                 }
         
                 button:hover {
@@ -143,50 +156,101 @@
         
                 .rent_img {
                     width: 40%;
-                    margin-top:40px;
+                    margin-top: 40px;
                     margin-bottom: 40px;
                     border-radius: 80px;
+                    transition: transform 0.3s ease;
+                }
+        
+                .rent_img:hover {
+                    transform: scale(1.1);
                 }
             </style>
         </head>
+        
         <body>
         
-        <div class="container">
-            <form action="submit_form" method="post">
-                    {% csrf_token  %}
-                <h2>Vehicle Rental Form</h2>
+            <div class="container">
+                <form action="submit_form" method="post">
+                    {% csrf_token %}
+                    <h2>Vehicle Rental Form</h2>
         
-                <label for="ownerName">Owner's Name:</label>
-                <input type="text" id="ownerName" name="ownerName" required>
+                    <label for="ownerName">Owner's Name:</label>
+                    <input type="text" id="ownerName" name="ownerName" required>
         
-                <label for="vehicleType">Vehicle Type:</label>
-                <select id="vehicleType" name="vehicleType" required>
-                    <option value="car">Car</option>
-                    <option value="bike">Bike</option>
-                    <!-- Add more options as needed -->
-                </select>
+                    <label for="vehicleType">Vehicle Type:</label>
+                    <select id="vehicleType" name="vehicleType" required>
+                        <option value="car">Car</option>
+                        <option value="bike">Bike</option>
+                        <!-- Add more options as needed -->
+                    </select>
         
-                <label for="vehicleModel">Vehicle Model:</label>
-                <input type="text" id="vehicleModel" name="vehicleModel" required>
+                    <label for="vehicleModel">Vehicle Model:</label>
+                    <input type="text" id="vehicleModel" name="vehicleModel" required>
         
-                <label for="rentalPrice">Rental Price per day:</label>
-                <input type="number" id="rentalPrice" name="rentalPrice" required>
+                    <label for="rentalPrice">Rental Price per day:</label>
+                    <input type="number" id="rentalPrice" name="rentalPrice" required>
         
-                <!-- Label for the file input -->
-                <label for="imageUpload">Select an image:</label>
-            
-                <!-- Input field for file upload -->
-                <input type="file" name="imageUpload" id="imageUpload" accept="image/*">
+                    <!-- Label for the file input -->
+                    <label for="imageUpload">Select an image:</label>
         
-                <button type="submit" value="upload">Upload</button>
-            </form>
+                    <!-- Input field for file upload -->
+                    <input type="file" name="imageUpload" id="imageUpload" accept="image/*">
         
-            <img class="rent_img" src="http://1.bp.blogspot.com/-36_4mOSiZ5w/VnfelAx8mII/AAAAAAAAABc/xsmNetTD60s/s1600/car%2Brentals%2Bhire.jpg" alt="guy-rents">
-        </div>
+                    <button type="submit" value="upload">Upload</button>
+                </form>
+        
+                <img class="rent_img" src="http://1.bp.blogspot.com/-36_4mOSiZ5w/VnfelAx8mII/AAAAAAAAABc/xsmNetTD60s/s1600/car%2Brentals%2Bhire.jpg"
+                    alt="guy-rents">
+            </div>
         
         </body>
+        
         </html>
         
+        <!----------Rent-out-------------->
+        <section style="display: flex; align-items: center;">
+      <style>
+        .rentals {
+          color: #000000;
+          margin-top: 10px;
+          margin-right: 100px;
+          /* Adjust the margin to your preference */
+          width: 55%;
+          /* Adjust the width of the paragraph */
+        }
+
+        .paragraph {
+          color: #000000;
+          font-size: larger;
+          margin-bottom: 150px;
+        }
+
+        .rental-img {
+          margin-left:50px;
+          width : 50%;
+          margin-bottom: 20px;
+        }
+        .heading1{
+          margin-bottom: 150px;
+          width:60%;
+          margin-top:160px;
+        }
+      </style>
+
+      <div class="rental-img">
+        <img class="rental-img"src="https://www.freeiconspng.com/uploads/rent-a-car-icon-png-14.png"
+          alt="car">
+      </div>
+
+      <div class="rentals">
+        <h1 class="heading1">RENT-OUT</h1>
+        <p class="paragraph">Now we can do more than just book bus tickets, Rent out some of your friends' vehicles
+          through our Chribus app. Through our web application, you guys can also rent vehicles and also rent out
+          vehicles if you have a vehicle for a reasonable cost. Through this manner, you can also earn a decent amount
+          of money.</p>
+      </div>
+    </section>
 
             <!-- Footer -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -199,6 +263,7 @@
             body {
                 margin: 0;
                 overflow-x: hidden;
+                background-color: #fdffe1;
             }
 
             .footer {

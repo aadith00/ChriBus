@@ -87,25 +87,44 @@
 </html>
 </header>
 <style>
-  h2{
+  h2 {
     color: #000000;
+    text-align: center;
+    margin-top: 20px;
   }
 
   .search-form {
+    display: grid;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     margin-top: 40px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 85%;
-    background-color: #f4f4f4;
+    background-color: #0367a6;
+    margin-left: 100px;
+    transition: background-color 0.3s ease; /* Add transition effect on background-color */
+  }
+
+  .search-form:hover {
+    background-color: #932d5d; /* Change background color on hover */
+  }
+
+  #searchform {
+    margin-left: 200px;
+  }
+
+  #form-label {
+    width: 400px;
+    display: flex;
   }
 
   .search-form label {
     font-weight: bold;
     margin-bottom: 5px;
+    margin-right: 600px;
   }
 
   .search-form input[type="text"],
@@ -119,7 +138,7 @@
   }
 
   .search-form button {
-    background-color: #0367a6;
+    background-color: #e90000;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -129,7 +148,7 @@
   }
 
   .search-form button:hover {
-    background-color: #024b72;
+    background-color: #000000;
   }
 
   .error-message {
@@ -137,32 +156,47 @@
     font-size: 0.9em;
     margin-top: 5px;
   }
+
+  input {
+    width: 50%;
+  }
+
+  .search-png {
+    width: 200px;
+    transition: transform 0.3s ease; /* Add transition effect on transform */
+  }
+
+  .search-png:hover {
+    transform: scale(1.1); /* Increase size on hover */
+    margin-right: 100px;;
+  }
 </style>
+
 </head>
 
 <body>
+  <h2>SEARCH FOR BUSES</h2>
   <section class="search-form">
-    <h2>Search for buses</h2>
 
     <form id="searchForm" method="POST" action="{% url 'search-buses' %}">
 
       {% csrf_token %}
 
       <label for="departureCity">Departure City:</label>
-      <input type="text" id="departureCity" name="departureCity" placeholder="Enter departure city" required>
+      <input type="text" id="form-label" name="departureCity" placeholder="Enter departure city" required>
       <div class="error-message" id="departureCityError"></div>
 
       <label for="destinationCity">Destination City:</label>
-      <input type="text" id="destinationCity" name="destinationCity" placeholder="Enter destination city" required>
+      <input type="text" id="form-label" name="destinationCity" placeholder="Enter destination city" required>
       <div class="error-message" id="destinationCityError"></div>
 
       <label for="departureDate">Departure Date:</label>
-      <input type="date" id="departureDate" name="departureDate" required>
+      <input type="date" id="form-label" name="departureDate" required>
       <div class="error-message" id="departureDateError"></div>
 
       <button type="submit">Search Buses</button>
-      
     </form>
+    <img class="search-png"src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/38265/searching-private-investigator-clipart-md.png" alt="investigator">
   </section>
 
   <script>
@@ -204,11 +238,6 @@
   </script>
   <!------About---------->
   <style>
-    h2 {
-      color: #fff;
-      margin-top: 100px;
-    }
-
     p {
       color: #0367a6;
       font-size: larger;
@@ -226,12 +255,14 @@
 
     .book-about {
       display: flex;
+      margin-top: 20px;
       flex-direction: row-reverse;
+      margin-bottom: 20px;
     }
   </style>
   <section>
-    <div class="container">
-      <h2>Book your tickets now!!</h2>
+    <h2>Book your tickets now!!</h2>
+    <div class="about-section">
       <div class="book-about">
         <div>
           <p>
