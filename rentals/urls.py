@@ -3,6 +3,6 @@ from .views import index, upload, contact
 
 urlpatterns = [
     path('',index),
-    path('upload',upload),
-    path('support',contact),
+    path('upload/',upload),
+    path('support/',contact),
 ]
