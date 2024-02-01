@@ -6,17 +6,18 @@ class Bus(models.Model):
     departure_city = models.CharField(max_length=100, default=None)
     destination_city = models.CharField(max_length=100, default=None)
     departure_date = models.DateField(default=None)
-    image = models.ImageField(upload_to='pics', default=None)
+    image = models.ImageField(upload_to='bus_pics', default=None)
     total_seats = models.IntegerField()
     booked_seats = models.IntegerField()
     driver_id = models.CharField(unique=True,max_length=50)
+    driver_image = models.ImageField(upload_to='driver_pics', default=None)
 
     created_at = models.DateTimeField(auto_now_add=True)  ## gives the time and date of the first instance this was created
     updated_at = models.DateTimeField(auto_now=True)      ## gives the time and date of the last modification made into this
 
 
     def __str__(self):
-        return f"{self.departure_city} to {self.destination_city}"
+        return f"{self.departure_city} to {self.destination_city} - {self.departure_date}"
 
     class Meta:
         verbose_name = 'Bus'

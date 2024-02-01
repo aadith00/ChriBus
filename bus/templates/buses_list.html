@@ -1,192 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Available Buses</title>
-    
+
     <head>
         <style>
             /* Reset CSS */
             * {
-              box-sizing: border-box;
-              margin: 0;
-              padding: 0;
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
             }
-        
+
             .navbar {
-              max-width: 1200px;
-              margin: 0 auto;
-              padding: 0 20px;
-              display: flex;
-              justify-content: space-between; /* Adjusted to display logo on the left and nav on the right */
-              align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                justify-content: space-between;
+                /* Adjusted to display logo on the left and nav on the right */
+                align-items: center;
             }
-        
+
             .header {
-              background-color: #002038;
-              color: #fff;
-              padding: 20px 0;
+                background-color: #002038;
+                color: #fff;
+                padding: 20px 0;
             }
-        
+
             .logo a {
-              color: #fff;
-              font-size: 24px;
-              text-decoration: none;
+                color: #fff;
+                font-size: 24px;
+                text-decoration: none;
             }
-        
+
             .main-nav ul {
-              list-style: none;
-              display: flex;
-              align-items: center;
+                list-style: none;
+                display: flex;
+                align-items: center;
             }
-        
+
             .main-nav ul li {
-              margin-left: 20px;
+                margin-left: 20px;
             }
-        
+
             .main-nav ul li:first-child {
-              margin-left: 0; /* Remove margin for the first child (logo) */
+                margin-left: 0;
+                /* Remove margin for the first child (logo) */
             }
-        
+
             .main-nav ul li a {
-              color: #fff;
-              text-decoration: none;
-              transition: color 0.3s; /* Adding a smooth transition for color change */
+                color: #fff;
+                text-decoration: none;
+                transition: color 0.3s;
+                /* Adding a smooth transition for color change */
             }
-        
+
             .main-nav ul li a:hover {
-              color: #ffcc00; /* Change the color on hover */
+                color: #ffcc00;
+                /* Change the color on hover */
             }
-          </style>
-        </head>
-        
-      </head>
-      
-      <body>
-      
-        <header class="header">
-          <div class="navbar">
+        </style>
+    </head>
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="navbar">
             <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
             <nav class="main-nav">
-              <ul>
-                <li><a href="register">REGISTER</a></li>
-                <li><a href="booking">BOOK TICKETS</a></li>
-                <li><a href="rentals">RENTALS</a></li>
-                <li><a href="login">RENT-OUT</a></li>
-                <li><a href="support">SUPPORT</a></li>
-                <li><a href="login">LOGIN</a></li>
-              </ul>
+                <ul>
+                    <li><a href="register">REGISTER</a></li>
+                    <li><a href="booking">BOOK TICKETS</a></li>
+                    <li><a href="rentals">RENTALS</a></li>
+                    <li><a href="login">RENT-OUT</a></li>
+                    <li><a href="support">SUPPORT</a></li>
+                    <li><a href="login">LOGIN</a></li>
+                </ul>
             </nav>
-          </div>
-        </header>
-      </body>
-      </html>
+        </div>
     </header>
-    
-  <!---------List of buses------------>
-  <style>
+</body>
 
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #b4eaff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+</html>
+</header>
 
-        .container:hover {
-            transform: translateY(-5px);
-        }
+<!---------List of buses------------>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
 
-        h1 {
-            color: #333;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
 
-        .list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-        .list2 {
-            background-color: #f9f9f9;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
-        }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
 
-        .list2:hover {
-            transform: translateY(-5px);
-        }
+    .bus-card {
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-        .list2:last-child {
-            margin-bottom: 0;
-        }
+    .bus-card:hover {
+        transform: translateY(-5px);
+    }
 
-        .bus-details {
-            font-size: 16px;
-            color: #444;
-        }
+    .bus-details {
+        padding: 20px;
+        flex: 1;
+    }
 
-        .bus-details strong {
-            color: #0367a6;
-        }
+    .bus-details p {
+        margin: 8px 0;
+        color: #555;
+    }
 
-        .no-buses {
-            text-align: center;
-            color: #777;
-        }
+    .bus-details strong {
+        color: #0367a6;
+    }
 
-        .book-button {
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-        }
+    .images-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex: 1;
+    }
 
-        .book-button a {
-            display: inline-block;
-            background-color: #0367a6;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
+    .bus-image,
+    .driver-image {
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .book-button a:hover {
-            background-color: #024b72;
-        }
-    </style>
+    .image-caption {
+        text-align: center;
+        margin-top: 5px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .book-button {
+        text-align: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .book-button a {
+        display: inline-block;
+        background-color: #0367a6;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .book-button a:hover {
+        background-color: #024b72;
+    }
+</style>
 </head>
+
 <body>
     <div class="container">
         <h1>Available Buses</h1>
-        <ul class="list">
+        <ul>
             {% if available_buses %}
-                {% for bus in available_buses %}
-                    <li class="list2">
-                        <div class="bus-details">
-                            <p ><strong>Departure City:</strong> {{ bus.departure_city }}</p>
-                            <p><strong>Destination City:</strong> {{ bus.destination_city }}</p>
-                            <p><strong>Departure Date:</strong> {{ bus.departure_date }}</p>
-                            {% if bus.image %}
-                                <img src="{{ bus.image.url }}" alt="Bus Image" style="max-width: 200px;">
-                            {% endif %}
-                            <!-- Add more bus details as needed -->
-                        </div>
-                        <div class="book-button">
-                            <a href="{% url 'bus_details' bus.num_plate %}">Book Now</a>
-                        </div>
-                    </li>
-                {% endfor %}
+            {% for bus in available_buses %}
+            <li class="bus-card">
+                <div class="bus-details">
+                    <p><strong>Departure City:</strong> {{ bus.departure_city }}</p>
+                    <p><strong>Destination City:</strong> {{ bus.destination_city }}</p>
+                    <p><strong>Departure Date:</strong> {{ bus.departure_date }}</p>
+                </div>
+                <div class="images-container">
+                    {% if bus.image %}
+                    <div>
+                        <img src="{{ bus.image.url }}" alt="Bus Image" class="bus-image">
+                        <p class="image-caption">{{ bus.num_plate }}</p>
+                    </div>
+                    {% endif %}
+                    <!-- Add more bus details as needed -->
+                    {% if bus.driver_image %}
+                    <div>
+                        <img src="{{ bus.driver_image.url }}" alt="Driver Image" class="driver-image">
+                        <p class="image-caption">Driver for the bus</p>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="book-button">
+                    <a href="{% url 'bus_details' bus.num_plate %}">Book Now</a>
+                </div>
+            </li>
+            {% endfor %}
             {% else %}
-                <li class="no-buses">No buses available for the selected criteria.</li>
+            <li class="no-buses">No buses available for the selected criteria.</li>
             {% endif %}
         </ul>
     </div>
@@ -198,217 +239,227 @@
             line-height: 1.6;
             margin: 20px;
         }
-        .policies{
+
+        .policies {
             margin-left: 100px;
             margin-top: 100px;
         }
+
         h5 {
             margin-top: 20px;
         }
-        
+
         p {
             margin-bottom: 20px;
         }
 
-        .rules{
-            display:flex;
+        .rules {
+            display: flex;
         }
-        .policy-png{
-            margin-top:250px;
-            margin-bottom:350px;
+
+        .policy-png {
+            margin-top: 250px;
+            margin-bottom: 350px;
         }
     </style>
-</head>
-<body>
-    
-    <h1>BOOKING POLICIES</h1>
-    <div class="rules">
-    <div class="policies">
-    <h3>Booking Policies</h3>
+    </head>
 
-    <p>
-        <b>1. Reservation and Confirmation:</b><br>
-        - All bookings are subject to seat availability.<br>
-        - Reservation is confirmed only upon successful payment.
-    </p>
+    <body>
 
-    <p>
-        <b>2. Cancellation and Refunds:</b><br>
-        - Cancellation requests must be submitted within a specified timeframe.<br>
-    </p>
+        <h1>BOOKING POLICIES</h1>
+        <div class="rules">
+            <div class="policies">
+                <h3>Booking Policies</h3>
 
-    <h3>User Conduct</h3>
+                <p>
+                    <b>1. Reservation and Confirmation:</b><br>
+                    - All bookings are subject to seat availability.<br>
+                    - Reservation is confirmed only upon successful payment.
+                </p>
 
-    <p>
-        <b>3. Behavioral Expectations:</b><br>
-        - Passengers are expected to behave respectfully and courteously towards staff and co-passengers.<br>
-        - Any disruptive behavior may result in removal from the bus without refund.
-    </p>
+                <p>
+                    <b>2. Cancellation and Refunds:</b><br>
+                    - Cancellation requests must be submitted within a specified timeframe.<br>
+                </p>
 
-    <p>
-        <b>4. Ticket Transfer:</b><br>
-        - Tickets are non-transferable unless specified otherwise.<br>
-        - Transferring tickets without proper authorization may lead to cancellation.
-    </p>
+                <h3>User Conduct</h3>
 
-    <h3>Safety and Security</h3>
+                <p>
+                    <b>3. Behavioral Expectations:</b><br>
+                    - Passengers are expected to behave respectfully and courteously towards staff and
+                    co-passengers.<br>
+                    - Any disruptive behavior may result in removal from the bus without refund.
+                </p>
 
-    <p>
-        <b>5. Baggage Policy:</b><br>
-        - Passengers are allowed a certain limit of baggage.<br>
-        - Excess baggage may incur additional charges.
-    </p>
+                <p>
+                    <b>4. Ticket Transfer:</b><br>
+                    - Tickets are non-transferable unless specified otherwise.<br>
+                    - Transferring tickets without proper authorization may lead to cancellation.
+                </p>
 
-    <p>
-        <b>6. Security Measures:</b><br>
-        - Passengers may be subject to security checks for the safety of all travelers.<br>
-        - Cooperation with security personnel is mandatory.
-    </p>
+                <h3>Safety and Security</h3>
 
-    <h3>Changes and Amendments</h3>
+                <p>
+                    <b>5. Baggage Policy:</b><br>
+                    - Passengers are allowed a certain limit of baggage.<br>
+                    - Excess baggage may incur additional charges.
+                </p>
 
-    <p>
-        <b>7. Schedule Changes:</b><br>
-        - Bus schedules may be subject to change due to unforeseen circumstances.<br>
-        - Passengers will be notified of any schedule amendments in advance.
-    </p>
+                <p>
+                    <b>6. Security Measures:</b><br>
+                    - Passengers may be subject to security checks for the safety of all travelers.<br>
+                    - Cooperation with security personnel is mandatory.
+                </p>
 
-    <h3>Communication and Support</h3>
+                <h3>Changes and Amendments</h3>
 
-    <p>
-        <b>8. Customer Support:</b><br>
-        - Users can reach out to our customer support for assistance and queries.<br>
-        - Contact details are available on our website and booking platform.
-    </p>
+                <p>
+                    <b>7. Schedule Changes:</b><br>
+                    - Bus schedules may be subject to change due to unforeseen circumstances.<br>
+                    - Passengers will be notified of any schedule amendments in advance.
+                </p>
 
-    <h3>General Policies</h3>
+                <h3>Communication and Support</h3>
 
-    <p>
-        <b>9. Governing Laws:</b><br>
-        - The terms and policies are governed by local laws and regulations.<br>
-        - Any disputes will be resolved in accordance with applicable laws.
-    </p>
+                <p>
+                    <b>8. Customer Support:</b><br>
+                    - Users can reach out to our customer support for assistance and queries.<br>
+                    - Contact details are available on our website and booking platform.
+                </p>
 
-    <h3>Conclusion</h3>
+                <h3>General Policies</h3>
 
-    <p>
-        By using our bus booking web application, you acknowledge and agree to these policies. Failure to comply with these terms may result in account suspension or legal action. If you have any questions or concerns, please contact our customer support. Safe travels!
-    </p>
-</div>
-<img class="policy-png" src="https://cinephototools.co.za/wp-content/uploads/2021/04/privacyPolicyGraphic-1.png" alt="noimg">
-</div>
-</body>
-</html>
+                <p>
+                    <b>9. Governing Laws:</b><br>
+                    - The terms and policies are governed by local laws and regulations.<br>
+                    - Any disputes will be resolved in accordance with applicable laws.
+                </p>
 
-<!-- Footer -->
-                <link rel="preconnect" href="https://fonts.gstatic.com">
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <h3>Conclusion</h3>
+
+                <p>
+                    By using our bus booking web application, you acknowledge and agree to these policies. Failure to
+                    comply with these terms may result in account suspension or legal action. If you have any questions
+                    or concerns, please contact our customer support. Safe travels!
+                </p>
+            </div>
+            <img class="policy-png"
+                src="https://cinephototools.co.za/wp-content/uploads/2021/04/privacyPolicyGraphic-1.png" alt="noimg">
+        </div>
+    </body>
+
+    </html>
+
+    <!-- Footer -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <footer>
+            <style>
+                body {
+                    margin: 0;
+                    overflow-x: hidden;
+                }
+
+                .footer {
+                    background: #000;
+                    padding: 30px 0px;
+                    font-family: 'Play', sans-serif;
+                    text-align: center;
+                    margin-top: 50px;
+                }
+
+                .footer .row {
+                    width: 100%;
+                    margin: 1% 0%;
+                    padding: 0.6% 0%;
+                    color: gray;
+                    font-size: 0.8em;
+                    display: flex;
+                    justify-content: center;
+                    /* Center the icons horizontally */
+                    align-items: center;
+                    /* Center the icons vertically */
+                }
+
+                .footer .row a {
+                    text-decoration: none;
+                    color: gray;
+                    transition: 0.5s;
+                    margin: 0 15px;
+                    /* Adjusted margin for spacing between icons */
+                }
+
+                .footer .row a:hover {
+                    color: #fff;
+                }
+
+                .footer .row ul {
+                    width: 100%;
+                }
+
+                .footer .row ul li {
+                    display: inline-block;
+                    margin: 0px 30px;
+                }
+
+                .footer .row a i {
+                    font-size: 2em;
+                    margin: 0% 1%;
+                }
+
+                @media (max-width: 720px) {
+                    .footer {
+                        text-align: left;
+                        padding: 5%;
+                    }
+
+                    .footer .row {
+                        flex-direction: column;
+                        /* Stack icons vertically on small screens */
+                        align-items: flex-start;
+                    }
+
+                    .footer .row a {
+                        margin: 10px 0;
+                    }
+
+                    .footer .row a i {
+                        margin: 0% 3%;
+                    }
+                }
+            </style>
             </head>
-            
+
             <body>
                 <footer>
-                    <style>
-                        body {
-                            margin: 0;
-                            overflow-x: hidden;
-                        }
-            
-                        .footer {
-                            background: #000;
-                            padding: 30px 0px;
-                            font-family: 'Play', sans-serif;
-                            text-align: center;
-                            margin-top: 50px;
-                        }
-            
-                        .footer .row {
-                            width: 100%;
-                            margin: 1% 0%;
-                            padding: 0.6% 0%;
-                            color: gray;
-                            font-size: 0.8em;
-                            display: flex;
-                            justify-content: center;
-                            /* Center the icons horizontally */
-                            align-items: center;
-                            /* Center the icons vertically */
-                        }
-            
-                        .footer .row a {
-                            text-decoration: none;
-                            color: gray;
-                            transition: 0.5s;
-                            margin: 0 15px;
-                            /* Adjusted margin for spacing between icons */
-                        }
-            
-                        .footer .row a:hover {
-                            color: #fff;
-                        }
-            
-                        .footer .row ul {
-                            width: 100%;
-                        }
-            
-                        .footer .row ul li {
-                            display: inline-block;
-                            margin: 0px 30px;
-                        }
-            
-                        .footer .row a i {
-                            font-size: 2em;
-                            margin: 0% 1%;
-                        }
-            
-                        @media (max-width: 720px) {
-                            .footer {
-                                text-align: left;
-                                padding: 5%;
-                            }
-            
-                            .footer .row {
-                                flex-direction: column;
-                                /* Stack icons vertically on small screens */
-                                align-items: flex-start;
-                            }
-            
-                            .footer .row a {
-                                margin: 10px 0;
-                            }
-            
-                            .footer .row a i {
-                                margin: 0% 3%;
-                            }
-                        }
-                    </style>
-                    </head>
-            
-                    <body>
-                        <footer>
-                            <div class="footer">
-                                <div class="row">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                    <a href="#"><i class="fa fa-youtube"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                </div>
-            
-            
-                                <div class="row">
-                                    <ul>
-                                        <li><a href="#">Contact us</a></li>
-                                        <li><a href="#">Our Services</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms & Conditions</a></li>
-                                        <li><a href="#">Career</a></li>
-                                    </ul>
-                                </div>
-            
-                                <div class="row">
-                                    INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
-                                </div>
-                            </div>
-                        </footer>
-                        </body>
-</body>
-</html>
+                    <div class="footer">
+                        <div class="row">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-youtube"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </div>
+
+
+                        <div class="row">
+                            <ul>
+                                <li><a href="#">Contact us</a></li>
+                                <li><a href="#">Our Services</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms & Conditions</a></li>
+                                <li><a href="#">Career</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="row">
+                            INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
+                        </div>
+                    </div>
+                </footer>
+            </body>
+    </body>
+
+    </html>
