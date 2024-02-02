@@ -118,10 +118,10 @@
                 <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="register">REGISTER</a></li>
+                        <li><a href="home">HOME</a></li>
                         <li><a href="booking">BOOK TICKETS</a></li>
                         <li><a href="rentals">RENTALS</a></li>
-                        <li><a href="login">RENT-OUT</a></li>
+                        <li><a href="upload">RENT-OUT</a></li>
                         <li><a href="support">SUPPORT</a></li>
                         <li><a href="login">LOGIN</a></li>
                     </ul>
@@ -369,6 +369,11 @@
             font-size: 0.875em;
         }
     }
+    #form_button:hover {
+        background: #474544;
+        color: #F2F3EB;
+        transform: scale(1.05); /* Increase size on hover */
+    }
 </style>
 
 <div id="container">
@@ -418,20 +423,51 @@
 <style>
     h1 {
         text-align: center;
+        transition: transform 0.3s ease-in-out;
     }
 
     h5 {
         margin-left: 20px;
+        transition: transform 0.3s ease-in-out;
     }
 
     p {
         margin-left: 40px;
         margin-bottom: 20px;
+        transition: transform 0.3s ease-in-out;
     }
 
     .conditions {
         margin-left: 40px;
         margin-top: 100px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .conditions p:first-child {
+        animation: fadeIn 1s ease-in-out forwards 0.5s;
+    }
+
+    .terms:hover h1,
+    .terms:hover h5,
+    .terms:hover p {
+        transform: scale(1.05);
+    }
+
+    a {
+        color: #0367a6;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+    }
+
+    a:hover {
+        color: #ff4500;
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
     }
 </style>
 

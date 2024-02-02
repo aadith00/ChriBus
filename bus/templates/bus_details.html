@@ -248,7 +248,7 @@
             transition: 0.3s ease all;
             z-index: 1;
             margin-top: 20px;
-            background-color: #FF0072;
+            background-color: #007a68;
             color: white;
         }
     </style>
@@ -301,47 +301,77 @@
         <div>
             <h5>NUMBER OF SEATS AVAILABLE: {{ bus.total_seats }} </h5>
         </div>
+
+
         <!-- Book Now button -->
+<style>
+    #ticketContainer {
+        text-align: center;
+        padding: 20px;
+        background-color: #f0f0f0;
+    }
+    
+    h2 {
+        color: #333;
+    }
+    
+    hr {
+        border: 1px solid #333;
+        margin: 10px 0;
+    }
+    
+    .ticket-details {
+        margin: 10px 0;
+        font-size: 18px;
+    }
+    
+</style>
+
         <div>
-            <center><button id="generateTicketBtn">BOOK NOW</button></center>
-        </div>
+    <center><button id="generateTicketBtn">BOOK NOW</button></center>
+</div>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const generateTicketBtn = document.getElementById('generateTicketBtn');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const generateTicketBtn = document.getElementById('generateTicketBtn');
 
-                generateTicketBtn.addEventListener('click', generateTicketPDF);
+        generateTicketBtn.addEventListener('click', generateTicketPDF);
 
-                function generateTicketPDF() {
-                    const ticketDetails = {
-                        Reg_No: "{{ request.user.username }}",
-                        DepartureCity: "{{ bus.departure_city }}",
-                        Destination: "{{ bus.destination_city }}",
-                        Departure_date: "{{ bus.departure_date }}"
-                    };
+        function generateTicketPDF() {
+            const ticketDetails = {
+                Reg_No: "{{ request.user.username }}",
+                DepartureCity: "{{ bus.departure_city }}",
+                Destination: "{{ bus.destination_city }}",
+                Departure_date: "{{ bus.departure_date }}"
+            };
 
-                    const content = `
-                        <div id="ticketContainer">
-                            <p class="ticket-heading">Your Ticket</p>
-                            <p class="ticket-details"><strong>Register Number:</strong> ${ticketDetails.Reg_No}</p>
-                            <p class="ticket-details"><strong>Departure City:</strong> ${ticketDetails.DepartureCity}</p>
-                            <p class="ticket-details"><strong>Destination:</strong> ${ticketDetails.Destination}</p>
-                            <p class="ticket-details"><strong>Departure Date:</strong> ${ticketDetails.Departure_date}</p>
-                        </div>
-                    `;
+            const content = `
+                <div id="ticketContainer" style="text-align: center; padding: 20px; background-color: #f0f0f0;">
+                    <h2 style="color: #333;">Your Ticket</h2>
+                    <hr style="border: 1px solid #333; margin: 10px 0;">
 
-                    const pdfOptions = {
-                        margin: 10,
-                        filename: 'ticket.pdf',
-                        image: { type: 'jpeg', quality: 0.98 },
-                        html2canvas: { scale: 2 },
-                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-                    };
+                    <div style="margin: 10px 0;">
+                        <p style="font-size: 18px;"><strong>Register Number:</strong> ${ticketDetails.Reg_No}</p>
+                        <p style="font-size: 18px;"><strong>Departure City:</strong> ${ticketDetails.DepartureCity}</p>
+                        <p style="font-size: 18px;"><strong>Destination:</strong> ${ticketDetails.Destination}</p>
+                        <p style="font-size: 18px;"><strong>Departure Date:</strong> ${ticketDetails.Departure_date}</p>
+                    </div>
+                </div>
+            `;
 
-                    html2pdf().from(content).set(pdfOptions).save();
-                }
-            });
-        </script>
+            const pdfOptions = {
+                margin: 10,
+                filename: 'ticket.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().from(content).set(pdfOptions).save();
+        }
+    });
+</script>
+
 
         <!-- <script>
             const generateTicketBtn = document.getElementById('generateTicketBtn');

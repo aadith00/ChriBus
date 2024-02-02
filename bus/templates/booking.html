@@ -73,7 +73,7 @@
       <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
       <nav class="main-nav">
         <ul>
-          <li><a href="register">REGISTER</a></li>
+          <li><a href="register">HOME</a></li>
           <li><a href="booking">BOOK TICKETS</a></li>
           <li><a href="rentals">RENTALS</a></li>
           <li><a href="login">RENT-OUT</a></li>
@@ -245,22 +245,33 @@
       margin-top: 20px;
       margin-bottom: 30px;
       margin-left: 120px;
+      transition: color 0.3s ease-in-out;
     }
-
+  
     .book-img {
       width: 20%;
       float: right;
       margin-left: 20px;
       margin-top: 20px;
+      transition: transform 0.3s ease-in-out;
     }
-
+  
     .book-about {
       display: flex;
       margin-top: 20px;
       flex-direction: row-reverse;
       margin-bottom: 20px;
     }
+  
+    .book-about:hover p {
+      color: #ff4500; /* Change color on hover */
+    }
+  
+    .book-about:hover .book-img {
+      transform: scale(1.1); /* Increase size on hover */
+    }
   </style>
+  
   <section>
     <h2>Book your tickets now!!</h2>
     <div class="about-section">
@@ -279,7 +290,7 @@
       </div>
     </div>
   </section>
-
+  
   <!-----Footer------->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
