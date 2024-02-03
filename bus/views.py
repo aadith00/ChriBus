@@ -45,6 +45,3 @@ def bus_details(request, num_plate):
 #     return render(request, 'book_ticket.html', {'form': form, 'bus': bus})
 
 
-
-
-
