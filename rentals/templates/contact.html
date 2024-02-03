@@ -136,15 +136,15 @@
                 <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
                 <nav class="main-nav">
                     <ul>
-                        <li><a href="home">HOME</a></li>
-                        <li><a href="booking">BOOK TICKETS</a></li>
-                        <li><a href="rentals">RENTALS</a>
+                        <li><a href="{% url 'home' %}">HOME</a></li>
+                        <li><a href="{% url 'booking' %}">BOOK TICKETS</a></li>
+                        <li><a href="{% url 'rentals' %}">RENTALS</a>
                          <div class="dropdown">
                                 <a href="upload">RENT-OUT</a>
                               </div></li>
             
-                        <li><a href="support">SUPPORT</a></li>
-                        <li><a href="login">LOGIN</a></li>
+                        <li><a href="{% url 'contact' %}">SUPPORT</a></li>
+                        <li><a href="{% url 'user-login' %}">LOGIN</a></li>
                     </ul>
                 </nav>
             </div>
