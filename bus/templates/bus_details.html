@@ -349,13 +349,18 @@
 </style>
 
         <div>
-    <center><button id="generateTicketBtn">BOOK NOW</button></center>
+    {% if user.is_authenticated %}
+        <center><button id="generateTicketBtn">BOOK NOW</button></center>
+    {% else %}
+        <p>Please log in to book a ticket.</p>
+        <a href="login">Login Now</a>
+    {% endif %}
 </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const generateTicketBtn = document.getElementById('generateTicketBtn');
-
+        
         generateTicketBtn.addEventListener('click', generateTicketPDF);
 
         function generateTicketPDF() {
