@@ -115,3 +115,6 @@ def user_logout(request):
     logout(request)
     return redirect('/register')
 
+
+def contact(request):
+    return render(request, 'contact.html')
