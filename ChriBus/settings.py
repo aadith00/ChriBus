@@ -24,8 +24,8 @@ INSTALLED_APPS = [
     'admin_soft',
     'djangobower',
 
+    'admin_tools_stats',
     'django_nvd3',
-
     'admin_tools',
     'admin_tools.theming',
     'admin_tools.menu',
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'base',
     'bus',
     'rentals',
+
 ]
 
 MIDDLEWARE = [
@@ -90,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Chribus',
         'USER': 'postgres',
-        'PASSWORD': 'Christuniversity@2023',
+        'PASSWORD': '1234',
         'HOST': 'localhost'
     }
 }
@@ -143,7 +144,7 @@ STATICFILES_FINDERS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'register'
+LOGOUT_REDIRECT_URL = '/'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
