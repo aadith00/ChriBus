@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'admin_soft',
     'djangobower',
 
-    'admin_tools_stats',
+    #'admin_tools_stats',
     'django_nvd3',
     'admin_tools',
     'admin_tools.theming',
@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Chribus',
         'USER': 'postgres',
-        'PASSWORD': '1234',
+        'PASSWORD': 'Christuniversity@2023',
         'HOST': 'localhost'
     }
 }
