@@ -5,7 +5,7 @@ from bus.views import booking
 
 urlpatterns = [
     path('', index, name='index'),
-    path('upload', upload, name='upload'),
+    path('upload/', upload, name='upload'),
     path('support/', contact, name='contact'),
     path('home', home),
     path('booking',booking),
