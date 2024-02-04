@@ -21,7 +21,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    'admin_soft',
+    # 'admin_soft',
     'djangobower',
 
     #'admin_tools_stats',
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'base',
     'bus',
     'rentals',
+    'newadmin',
 
 ]
 
@@ -133,10 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_FINDERS = (
-    'djangobower.finders.BowerFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
-)
+STATIC_DIR = (os.path.join(BASE_DIR, "newadmin/static"))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
