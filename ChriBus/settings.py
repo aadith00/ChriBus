@@ -21,15 +21,15 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    # 'admin_soft',
-    'djangobower',
+    # # 'admin_soft',
+    # 'djangobower',
 
-    #'admin_tools_stats',
-    'django_nvd3',
-    'admin_tools',
-    'admin_tools.theming',
-    'admin_tools.menu',
-    'admin_tools.dashboard',
+    # 'admin_tools_stats',
+    # 'django_nvd3',
+    # 'admin_tools',
+    # 'admin_tools.theming',
+    # 'admin_tools.menu',
+    # 'admin_tools.dashboard',    
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -92,7 +92,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Chribus',
         'USER': 'postgres',
-        'PASSWORD': 'Christuniversity@2023',
+        'PASSWORD': '1234',
         'HOST': 'localhost'
     }
 }
@@ -134,7 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_DIR = (os.path.join(BASE_DIR, "newadmin/static"))
+STATIC_DIR = (os.path.join(BASE_DIR, "newadmin/static"), )
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
