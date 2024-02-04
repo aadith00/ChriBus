@@ -37,3 +37,15 @@ def contact(request):
 
 def register(request):
     return render(request,'register.html')
+
+def bullet(request):
+    return render(request,'bullet.html')
+
+def toyota(request):
+    return render(request,'toyota.html')
+
+def bikerental(request):
+    return render(request,'bikerental.html')
+
+def rent_details(request):
+    return render(request,'rent-details.html')

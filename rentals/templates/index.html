@@ -183,8 +183,9 @@
             }
 
             .btn-primary{
-                background-color: #002937;
+                background-color: #020341;
                 border-radius: 80px;
+                padding: 10px;
                 width:100px;
             }
 
@@ -258,9 +259,23 @@
                     <input type="text" class="form-control" id="location" name="location" placeholder="City, Country">
                 </div>
             </div>
-            <button type="button" class="btn-primary" onclick="searchVehicles()">Search</button>
+            <a href="#" class="btn-primary" onclick="redirectBasedOnSelection()">Search</a>
         </form>
     </div>
+    
+    <script>
+        function redirectBasedOnSelection() {
+            var selectedVehicleType = document.getElementById("vehicleType").value;
+            
+            // Redirect based on the selected vehicle type
+            if (selectedVehicleType === "car") {
+                window.location.href = "rent-details"; // Replace "carpage" with the actual URL for cars page
+            } else if (selectedVehicleType === "bike") {
+                window.location.href = "bikerental"; // Replace "bikepage" with the actual URL for bike page
+            }
+        }
+    </script>
+    
 
     <!-- Featured Vehicles Section -->
     <div class="container featured-vehicles">
