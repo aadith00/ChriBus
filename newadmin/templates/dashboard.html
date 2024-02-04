@@ -1,17 +1,50 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
 {% block content %}
 
-    <div class="d-flex">
+<div class="d-flex">
 
-        {% include 'layouts/sidebar.html' %}
-        <div class="w-100">
-            {% include 'layouts/header.html' %}
-            <div class="my-3 mx-3">
-                <h1>Dashboard</h1>
+    {% include 'layouts/sidebar.html' %}
+    <div class="w-100">
+        {% include 'layouts/header.html' %}
+        <div class="my-3 mx-3">
+            <h1>Dashboard</h1>
+            <div class="d-flex">
+
+                <div class="col-3 card mx-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Total Users</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <div>
+                            <canvas id="total-users"></canvas>
+                        </div>
+                        <h1 class="card-text text-end"></h1>
+                    </div>
+                </div>
+
+                <div class="col-3 card mx-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Total Bookings</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <div>
+                            <canvas id="total-bookings"></canvas>
+                        </div>
+                        <h1 class="card-text text-end"></h1>
+                    </div>
+                </div>
+
             </div>
-        </div>
 
+
+        </div>
     </div>
 
+</div>
+
 {% endblock content %}
+
+{% block scripts %}
+<script src="{% static '/assets/js/index.js' %}"></script>
+{% endblock scripts %}
