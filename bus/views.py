@@ -30,6 +30,7 @@ def bus_details(request, num_plate):
     return render(request, 'bus_details.html', {'bus':bus})
 
 
+
 # def book_ticket(request, num_plate):
 #     bus = Bus.objects.get(id=num_plate)
 #     if request.method == 'POST':
@@ -43,8 +44,5 @@ def bus_details(request, num_plate):
 #     else:
 #         form = BookingForm()
 #     return render(request, 'book_ticket.html', {'form': form, 'bus': bus})
-
-
-
 
 

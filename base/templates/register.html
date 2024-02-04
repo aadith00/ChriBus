@@ -67,6 +67,25 @@
         .main-nav ul li a:hover {
           color: #ffcc00; /* Change the color on hover */
         }
+            /* Dropdown Styles */
+            .main-nav ul li .dropdown {
+              display: none;
+              position: absolute;
+              background-color: #002038;
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+              z-index: 1;
+            }
+        
+            .main-nav ul li:hover .dropdown {
+              display: block;
+            }
+        
+            .main-nav ul li .dropdown a {
+              display: block;
+              color: #fff;
+              padding: 12px 16px;
+              text-decoration: none;
+            }        
       </style>
     </head>
     
@@ -79,12 +98,14 @@
         <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
         <nav class="main-nav">
           <ul>
-            <li><a href="register">REGISTER</a></li>
+            <li><a href="home">HOME</a></li>
             <li><a href="booking">BOOK TICKETS</a></li>
-            <li><a href="rentals">RENTALS</a></li>
-            <li><a href="login">RENT-OUT</a></li>
+            <li><a href="rentals">RENTALS</a>
+              <div class="dropdown">
+                <a href="upload">RENT-OUT</a>
+              </div></li>
             <li><a href="support">SUPPORT</a></li>
-            <li><a href="login">LOGIN</a></li>
+            <li><a href="register">LOGIN</a></li>
           </ul>
         </nav>
       </div>

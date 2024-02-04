@@ -21,11 +21,11 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
 
-    'admin_soft',
+    # 'admin_soft',
     'djangobower',
 
+    #'admin_tools_stats',
     'django_nvd3',
-
     'admin_tools',
     'admin_tools.theming',
     'admin_tools.menu',
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'base',
     'bus',
     'rentals',
+    'newadmin',
+
 ]
 
 MIDDLEWARE = [
@@ -132,10 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_FINDERS = (
-    'djangobower.finders.BowerFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder'
-)
+STATIC_DIR = (os.path.join(BASE_DIR, "newadmin/static"))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -143,7 +142,7 @@ STATICFILES_FINDERS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'register'
+LOGOUT_REDIRECT_URL = '/'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

@@ -8,13 +8,14 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
 
-    #path('admin_tools/', include('admin_tools.urls')),
+    # path('admin_tools/', include('admin_tools.urls')),
     # path('admin_tools_stats/', include('admin_tools_stats.urls')),
 
     path('', include('base.urls')),
     path('bus/', include('bus.urls')),
     path('rentals/', include('rentals.urls')),
-    path('admin_soft/', include('admin_soft.urls')),
+    path('newadmin/', include('newadmin.urls')),
+    # path('admin_soft/', include('admin_soft.urls')),
 
 ]
 

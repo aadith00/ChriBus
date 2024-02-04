@@ -59,6 +59,24 @@
     .main-nav ul li a:hover {
       color: #ffcc00; /* Change the color on hover */
     }
+    .main-nav ul li .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #002038;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .main-nav ul li:hover .dropdown {
+      display: block;
+    }
+
+    .main-nav ul li .dropdown a {
+      display: block;
+      color: #fff;
+      padding: 12px 16px;
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -71,10 +89,12 @@
     <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
     <nav class="main-nav">
       <ul>
-        <li><a href="register">REGISTER</a></li>
+        <li><a href="home">HOME</a></li>
         <li><a href="booking">BOOK TICKETS</a></li>
-        <li><a href="rentals">RENTALS</a></li>
-        <li><a href="login">RENT-OUT</a></li>
+        <li><a href="rentals">RENTALS</a>
+          <div class="dropdown">
+            <a href="upload">RENT-OUT</a>
+          </div></li>
         <li><a href="support">SUPPORT</a></li>
         <li><a href="login">LOGIN</a></li>
       </ul>
@@ -88,12 +108,7 @@
     <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
     <section>
         <!------Form------>
-        <!DOCTYPE html>
-        <html lang="en">
-        
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
             <style>
                 .container {
                     display: flex;
@@ -209,49 +224,9 @@
         </html>
         
         <!----------Rent-out-------------->
-        <section style="display: flex; align-items: center;">
-      <style>
-        .rentals {
-          color: #000000;
-          margin-top: 10px;
-          margin-right: 100px;
-          /* Adjust the margin to your preference */
-          width: 55%;
-          /* Adjust the width of the paragraph */
-        }
+     
 
-        .paragraph {
-          color: #000000;
-          font-size: larger;
-          margin-bottom: 150px;
-        }
-
-        .rental-img {
-          margin-left:50px;
-          width : 50%;
-          margin-bottom: 20px;
-        }
-        .heading1{
-          margin-bottom: 150px;
-          width:60%;
-          margin-top:160px;
-        }
-      </style>
-
-      <div class="rental-img">
-        <img class="rental-img"src="https://www.freeiconspng.com/uploads/rent-a-car-icon-png-14.png"
-          alt="car">
-      </div>
-
-      <div class="rentals">
-        <h1 class="heading1">RENT-OUT</h1>
-        <p class="paragraph">Now we can do more than just book bus tickets, Rent out some of your friends' vehicles
-          through our Chribus app. Through our web application, you guys can also rent vehicles and also rent out
-          vehicles if you have a vehicle for a reasonable cost. Through this manner, you can also earn a decent amount
-          of money.</p>
-      </div>
-    </section>
-
+      
             <!-- Footer -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -348,16 +323,16 @@
 
                     <div class="row">
                         <ul>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Career</a></li>
+                          <li><a href="support">Contact us</a></li>
+                          <li><a href="home">Our Services</a></li>
+                          <li><a href="rentals">Rentals</a></li>
+                          <li><a href="upload">Rent-Out</a></li>
+                          <li><a href="login">Login</a></li>
                         </ul>
                     </div>
 
                     <div class="row">
-                        INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
+                      Copyright © 2024 CHRIBUS - All rights reserved 
                     </div>
                 </div>
             </footer>

@@ -173,6 +173,25 @@
         .main-nav ul li a:hover {
           color: #ffcc00; /* Change the color on hover */
         }
+         /* Dropdown Styles */
+        .main-nav ul li .dropdown {
+                      display: none;
+                      position: absolute;
+                      background-color: #002038;
+                      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                      z-index: 1;
+                    }
+                
+        .main-nav ul li:hover .dropdown {
+                      display: block;
+                    }
+                
+        .main-nav ul li .dropdown a {
+                      display: block;
+                      color: #fff;
+                      padding: 12px 16px;
+                      text-decoration: none;
+                    }
     </style>
     </head>
     
@@ -188,8 +207,10 @@
 
               <li><a href="#">Hello, {{ user.username }}</a></li>
               <li><a href="booking">BOOK TICKETS</a></li>
-              <li><a href="rentals">RENTALS</a></li>
-              <li><a href="login">RENT-OUT</a></li>
+              <li><a href="rentals">RENTALS</a>
+              <div class="dropdown">
+                <a href="upload">RENT-OUT</a>
+              </div></li>
               <li><a href="support">SUPPORT</a></li>
               <li><a href="logout">LOGOUT</a></li>
 
@@ -197,8 +218,10 @@
 
               <li><a href="home">HOME</a></li>
               <li><a href="booking">BOOK TICKETS</a></li>
-              <li><a href="rentals">RENTALS</a></li>
-              <li><a href="login">RENT-OUT</a></li>
+              <li><a href="rentals">RENTALS</a>
+              <div class="dropdown">
+                <a href="upload">RENT-OUT</a>
+              </div></li>
               <li><a href="support">SUPPORT</a></li>
               <li><a href="login">ACCOUNT</a></li>
 
@@ -281,53 +304,55 @@
     </footer>
   </section>
 
-  
 
 
-    <!-----RENTALS------->
+<!-----RENTALS------->
 
+<section style="display: flex; align-items: center;">
 
-    <section style="display: flex; align-items: center;">
-      <style>
-        .rentals {
-          color: #000000;
-          margin-top: 50px;
-          margin-right: 100px;
-          /* Adjust the margin to your preference */
-          width: 55%;
-          /* Adjust the width of the paragraph */
-        }
+  <style>
+    .rentals {
+      color: #000000;
+      margin-top: 50px;
+      margin-right: 100px;
+      margin-left: 100px;
+      /* Adjust the margin to your preference */
+      width: 55%;
+      /* Adjust the width of the paragraph */
+    }
 
-        .paragraph {
-          color: #000000;
-          font-size: larger;
-          margin-bottom: 100px;
-        }
+    .paragraph {
+      color: #000000;
+      font-size: larger;
+      margin-bottom: 100px;
+    }
 
-        .rental-img {
-          margin-top: 0;
-          width: 40%;
-          margin-bottom: 50px;
-        }
+    .rental-img {
+      margin-top: 0;
+      width: 40%;
+      margin-bottom: 50px;
+    }
 
-        .heading1{
-          margin-bottom: 150px;
-        }
-      </style>
+    .heading1{
+      margin-bottom: 150px;
+    }
+  </style>
 
-      <div class="rental-img">
-        <img src="https://cdn4.iconfinder.com/data/icons/traveling-liconica-color/128/rent-car-service-vehicle-512.png"
-          alt="car">
-      </div>
+  <div class="rentals">
+    <h1 class="heading1">RENTAL</h1>
+    <p class="paragraph">Now we can do more than just book bus tickets, Rent out some of your friends' vehicles
+      through our Chribus app. Through our web application, you guys can also rent vehicles and also rent out
+      vehicles if you have a vehicle for a reasonable cost. Through this manner, you can also earn a decent amount
+      of money.</p>
+  </div>
 
-      <div class="rentals">
-        <h1 class="heading1">RENTAL</h1>
-        <p class="paragraph">Now we can do more than just book bus tickets, Rent out some of your friends' vehicles
-          through our Chribus app. Through our web application, you guys can also rent vehicles and also rent out
-          vehicles if you have a vehicle for a reasonable cost. Through this manner, you can also earn a decent amount
-          of money.</p>
-      </div>
-    </section>
+  <div class="rental-img">
+    <img src="https://cdn4.iconfinder.com/data/icons/traveling-liconica-color/128/rent-car-service-vehicle-512.png"
+      alt="car">
+  </div>
+
+</section>
+
 
   
 <!------Services------->
@@ -402,7 +427,7 @@
           <h3>VEHICLE OWNER</h3>
           <div class="feature-content">
             <p>If you are a vehicle owner and you want to make some money, you can rent out vehicles through our web application.</p><br>
-            <a href="rentals">RENT-OUT</a>
+            <a href="upload">RENT-OUT</a>
           </div>
         </div>
       </div>
@@ -496,19 +521,19 @@
 <footer>
     <div class="footer">
         <div class="column">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-youtube"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-facebook" style="text-decoration: none; color: gray; transition: 0.5s; margin: 0 15px; font-size: 2em;"></i></a>
+            <a href="#"><i class="fa fa-instagram" style="text-decoration: none; color: gray; transition: 0.5s; margin: 0 15px; font-size: 2em;"></i></a>
+            <a href="#"><i class="fa fa-youtube" style="text-decoration: none; color: gray; transition: 0.5s; margin: 0 15px; font-size: 2em;"></i></a>
+            <a href="#"><i class="fa fa-twitter" style="text-decoration: none; color: gray; transition: 0.5s; margin: 0 15px; font-size: 2em;"></i></a>
         </div>
 
         <div class="row">
             <ul>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Career</a></li>
+                <li><a href="support">Contact us</a></li>
+                <li><a href="home">Our Services</a></li>
+                <li><a href="rentals">Rentals</a></li>
+                <li><a href="upload">Rent-Out</a></li>
+                <li><a href="login">Login</a></li>
             </ul>
         </div>
 
