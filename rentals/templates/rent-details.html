@@ -105,6 +105,125 @@
       </html>
     </header>
 <!----------Rental details-------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car and Bike Rental List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .vehicle-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .vehicle-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 450px;
+        }
+
+        .vehicle-image {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .vehicle-title {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .vehicle-details {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .button .button{
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1;
+            text-transform: capitalize;
+            display: inline-block;
+            padding: 14px 30px;
+            line-height:1;
+            margin:10px 10px;
+            color:#002038;
+            border-radius: 50px;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Car  Rental</h1>
+    </header>
+
+    <div class="vehicle-container">
+        <div class="vehicle-card">
+            <img src="https://images.hindustantimes.com/auto/img/2022/04/16/1600x900/toyota-crown_1650081701941_1650081711884.jpg" alt="Car 1" class="vehicle-image">
+            <div class="vehicle-title">Toyota Camry</div>
+            <div class="vehicle-details">Type: Sedan</div>
+            <div class="vehicle-details">Price: $50/day</div>
+            <div class="button">
+                <a= href="#"class="button">click here</a>
+            </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="https://www.marutisuzuki.com/price-list/-/media/8F5B6751C40A4578A171147C11752CAC.ashx" alt="Car 1" class="vehicle-image">
+          <div class="vehicle-title">Swift</div>
+          <div class="vehicle-details">Type: Dezire</div>
+          <div class="vehicle-details">Price: $50/day</div>
+          <div class="button">
+            <a= href="#"class="button">click here</a>
+        </div>
+      </div>
+
+        <div class="vehicle-card">
+          <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Scorpio-Classic/10764/1690268502010/front-left-side-47.jpg?impolicy=resize&imwidth=420"alt="car 2"class ="vechile-image">
+          <div class="vehicle-title">Mahindra</div>
+          <div class="vehicle-details">Type: XUV700</div>
+          <div class="vehicle-details">Price: $50/day</div>
+          <div class="button">
+            <a= href="#"class="button">click here</a>
+        </div>
+      </div>
+         
+
+        <!-- Add more vehicles as needed -->
+
+    </div>
+
+    <script>
+        // You can add JavaScript functionality here if needed
+    </script>
+
+</body>
+</html>
+
+
+
 
 
 
@@ -204,11 +323,11 @@
 
                     <div class="row">
                         <ul>
-                            <li><a href="#">Contact us</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Career</a></li>
+                          <li><a href="support">Contact us</a></li>
+                          <li><a href="home">Our Services</a></li>
+                          <li><a href="rentals">Rentals</a></li>
+                          <li><a href="upload">Rent-Out</a></li>
+                          <li><a href="login">Login</a></li>
                         </ul>
                     </div>
 

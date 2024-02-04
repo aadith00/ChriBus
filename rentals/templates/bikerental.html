@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Details</title>
+    
+    <head>
+        <style>
+            /* Reset CSS */
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+            }
+        
+            .navbar {
+              max-width: 1200px;
+              margin: 0 auto;
+              padding: 0 20px;
+              display: flex;
+              justify-content: space-between; /* Adjusted to display logo on the left and nav on the right */
+              align-items: center;
+            }
+        
+            .header {
+              background-color: #002038;
+              color: #fff;
+              padding: 20px 0;
+            }
+        
+            .logo a {
+              color: #fff;
+              font-size: 24px;
+              text-decoration: none;
+            }
+        
+            .main-nav ul {
+              list-style: none;
+              display: flex;
+              align-items: center;
+            }
+        
+            .main-nav ul li {
+              margin-left: 20px;
+            }
+        
+            .main-nav ul li:first-child {
+              margin-left: 0; /* Remove margin for the first child (logo) */
+            }
+        
+            .main-nav ul li a {
+              color: #fff;
+              text-decoration: none;
+              transition: color 0.3s; /* Adding a smooth transition for color change */
+            }
+        
+            .main-nav ul li a:hover {
+              color: #ffcc00; /* Change the color on hover */
+            }
+          </style>
+        </head>
+        
+      </head>
+      
+      <body>
+      
+        <header class="header">
+          <div class="navbar">
+            <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
+            <nav class="main-nav">
+              <ul>
+                <li><a href="register">REGISTER</a></li>
+                <li><a href="booking">BOOK TICKETS</a></li>
+                <li><a href="rentals">RENTALS</a></li>
+                <li><a href="login">RENT-OUT</a></li>
+                <li><a href="support">SUPPORT</a></li>
+                <li><a href="login">LOGIN</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      </body>
+      </html>
+    </header>
+<!----------Rental details-------------->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car and Bike Rental List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .vehicle-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        .vehicle-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 450px;
+        }
+
+        .vehicle-image {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .vehicle-title {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .vehicle-details {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .button .button{
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1;
+            text-transform: capitalize;
+            display: inline-block;
+            padding: 14px 30px;
+            line-height:1;
+            margin:10px 10px;
+            color:#002038;
+            border-radius: 50px;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bike  Rental</h1>
+    </header>
+
+    <div class="vehicle-container">
+        <div class="vehicle-card">
+            <img src="https://imgd.aeplcdn.com/476x268/bw/models/royalenfield-bullet500.jpg?20190901162750" alt="bike 1" class="vehicle-image">
+
+            <div class="vehicle-title">royalenfield-bullet500</div>
+            <div class="vehicle-details">Type: Bullet</div>
+            <div class="vehicle-details">Price: $50/day</div>
+            <div class="button">
+                <a= href="#"class="button">click here</a>
+            </div>
+        </div>
+        <div class="vehicle-card">
+          <img src="https://www.financialexpress.com/wp-content/uploads/2023/08/Hero-Karizma-XMR-review.jpg?w=1024" alt="bike 1" class="vehicle-image">
+          <div class="vehicle-title">Karizma</div>
+          <div class="vehicle-details">Type: XMR</div>
+          <div class="vehicle-details">Price: $50/day</div>
+          <div class="button">
+            <a= href="#"class="button">click here</a>
+        </div>
+      </div>
+
+        <div class="vehicle-card">
+          <img src="data:image/jpeg;base64,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"alt="car 2"class ="vechile-image">
+          <div class="vehicle-title">Hayabusa</div>
+          <div class="vehicle-details">Type: xmr</div>
+          <div class="vehicle-details">Price: $50/day</div>
+          <div class="button">
+            <a= href="#"class="button">click here</a>
+        </div>
+      </div>
+         
+
+        <!-- Add more vehicles as needed -->
+
+    </div>
+
+    <script>
+        // You can add JavaScript functionality here if needed
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+    <!-- Footer -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <footer>
+        <style>
+            body {
+                margin: 0;
+                overflow-x: hidden;
+            }
+
+            .footer {
+                background: #000;
+                padding: 30px 0px;
+                font-family: 'Play', sans-serif;
+                text-align: center;
+                margin-top: 50px;
+            }
+
+            .footer .row {
+                width: 100%;
+                margin: 1% 0%;
+                padding: 0.6% 0%;
+                color: gray;
+                font-size: 0.8em;
+                display: flex;
+                justify-content: center;
+                /* Center the icons horizontally */
+                align-items: center;
+                /* Center the icons vertically */
+            }
+
+            .footer .row a {
+                text-decoration: none;
+                color: gray;
+                transition: 0.5s;
+                margin: 0 15px;
+                /* Adjusted margin for spacing between icons */
+            }
+
+            .footer .row a:hover {
+                color: #fff;
+            }
+
+            .footer .row ul {
+                width: 100%;
+            }
+
+            .footer .row ul li {
+                display: inline-block;
+                margin: 0px 30px;
+            }
+
+            .footer .row a i {
+                font-size: 2em;
+                margin: 0% 1%;
+            }
+
+            @media (max-width: 720px) {
+                .footer {
+                    text-align: left;
+                    padding: 5%;
+                }
+
+                .footer .row {
+                    flex-direction: column;
+                    /* Stack icons vertically on small screens */
+                    align-items: flex-start;
+                }
+
+                .footer .row a {
+                    margin: 10px 0;
+                }
+
+                .footer .row a i {
+                    margin: 0% 3%;
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <footer>
+                <div class="footer">
+                    <div class="row">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+
+
+                    <div class="row">
+                        <ul>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Career</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        INFERNO Copyright © 2021 Inferno - All rights reserved || Designed By: Mahesh
+                    </div>
+                </div>
+            </footer>
+            </body>
