@@ -13,7 +13,7 @@ urlpatterns = [
     path('home', home, name='home'),
     path('logout', user_logout, name='user-logout'),
     path('booking', booking),
-    path('support', contact),
+    path('support/', contact),
     path('rentals', rentals)
 
 ]
