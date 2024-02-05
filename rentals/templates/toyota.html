@@ -17,37 +17,56 @@
             background-color: #002038;
             color: #fff;
             padding: 1em;
-            text-align: center;
+            text-align: left;
         }
 
         .car-details-container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: left;
+            
+         .owner-details{
+            width: 70%;
+            max-width: 800px;
+            margin-top: 20px;
         }
+    }
 
         .car-details-image {
-            width: 100%;
+            width: 60%;
             max-height: 400px;
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 20px;
+            margin-left: 200px;
         }
 
         .car-title {
-            font-size: 28px;
+            font-size: 40px;
             font-weight: bold;
             margin-bottom: 10px;
+            margin-left: 200px;
         }
 
         .car-details {
             font-size: 16px;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-top: 10px;
+            
+        }
+
+        
+
+        .owner-details p {
+            margin: 5px 0;
         }
 
         .back-button {
             margin-top: 20px;
+            margin-left: 120px;
         }
 
         .back-button a {
@@ -64,6 +83,11 @@
         .back-button a:hover {
             background-color: #fff;
             color: #002038;
+            margin-left: 200px;
+
+        }
+        h1{
+            margin-left: 500px;
         }
     </style>
 </head>
@@ -72,10 +96,11 @@
     <header>
         <h1>Car Rental</h1>
     </header>
-
+    <img src="https://images.hindustantimes.com/auto/img/2022/04/16/1600x900/toyota-crown_1650081701941_1650081711884.jpg" alt="Car Image" class="car-details-image">
+    <div class="car-title">Toyota Camry</div>
     <div class="car-details-container">
-        <img src="https://images.hindustantimes.com/auto/img/2022/04/16/1600x900/toyota-crown_1650081701941_1650081711884.jpg" alt="Car Image" class="car-details-image">
-        <div class="car-title">Toyota Camry</div>
+        
+        
         <div class="car-details">
             <p><strong>Type:</strong> Sedan</p>
             <p><strong>Price:</strong> $50/day</p>
@@ -86,14 +111,24 @@
             <p><strong>Features:</strong> Bluetooth, GPS, Leather Seats, Sunroof</p>
             <!-- Add more details about the selected car here -->
         </div>
-        <div class="back-button">
-            <a href="rentals" class="back-button">Back to Rental List</a>
+
+        <!-- Owner details appear in the next row -->
+        <div class="owner-details">
+            <h2>Owner Details</h2>
+            <p><strong>Name:</strong> Vikash K</p>
+            <p><strong>Contact:</strong> 9234588760</p>
+            <p><strong>Location:</strong> Pune,Mahrashtra</p>
+            <p><strong>Email.id:</strong>vikash@chrirstuniversity.in</strong></p>
+            <!-- Add more owner details as needed -->
         </div>
     </div>
-
+    <div class="back-button">
+        <a href="rentals" class="back-button">Back to Rental List</a>
+</div>
     <script>
         // You can add JavaScript functionality here if needed
     </script>
 
 </body>
 </html>
+
