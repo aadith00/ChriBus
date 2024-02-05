@@ -1,7 +1,3 @@
-<!-------Contact.html-------->
-
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -199,6 +195,7 @@
         max-width: 768px;
         margin: 60px auto;
         position: relative;
+        padding:20px;
     }
 
     form {
@@ -395,6 +392,9 @@
         color: #F2F3EB;
         transform: scale(1.05); /* Increase size on hover */
     }
+    #contact_form{
+        margin-bottom: 0px ;
+    }
 </style>
 
 <div id="container">
@@ -411,35 +411,50 @@
             </path>
         </svg>
     </div>
-    <form action="#" method="post" id="contact_form">
+    <form action="{% url 'contact_form' %}" method="post" id="contact_form">
+        {% csrf_token %}
         <div class="name">
             <label for="name"></label>
-            <input type="text" placeholder="ENTER YOUT NAME" name="name" id="name_input" required>
+            <input type="text" placeholder="ENTER YOUR NAME" name="name" id="name_input" required>
         </div>
         <div class="email">
             <label for="email"></label>
             <input type="email" placeholder="ENTER YOUR EMAIL" name="email" id="email_input" required>
         </div>
         <div class="telephone">
-            <label for="name"></label>
+            <label for="telephone"></label>
             <input type="text" placeholder="ENTER YOUR PHONE NUMBER" name="telephone" id="telephone_input" required>
         </div>
         <div class="subject">
             <label for="subject"></label>
-            <select placeholder="Subject line" name="subject" id="subject_input" required>
-                <option disabled hidden selected>Subject line</option>
-            </select>
+            <input type="text" placeholder="Subject line" name="subject" id="subject_input" required>
         </div>
         <div class="message">
             <label for="message"></label>
-            <textarea name="message" placeholder="ENTER YOUR QUERY OR MESSAGE" id="message_input" cols="30" rows="5"
-                required></textarea>
+            <textarea name="message" placeholder="ENTER YOUR QUERY OR MESSAGE" id="message_input" cols="30" rows="5" required></textarea>
         </div>
         <div class="submit">
-            <input type="submit" value="SEND MESSAGE" id="form_button" />
+            <input type="submit" value="SEND MESSAGE" id="form_button">
         </div>
     </form><!-- // End form -->
-</div><!-- // End #container -->
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get the form element
+        var contactForm = document.getElementById('contact_form');
+
+        // Attach an event listener to the form
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent the default form submission
+
+            // You can add additional validation here if needed
+
+            // Display a success message
+            alert('Your message has been sent successfully!');  // Replace with your preferred way of displaying messages
+        });
+    });
+</script><!-- // End #container -->
 <!---------Terms and Conditions------------>
 <style>
     h1 {

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, upload, contact, bullet, toyota ,bikerental,rent_details,submit_form
+from .views import index, upload, contact, bullet, toyota ,bikerental,rent_details,submit_form,contact_form
 from base.views import home,user_login,rentals
 from bus.views import booking
 
@@ -16,5 +16,6 @@ urlpatterns = [
     path('bullet',bullet,name='bullet'),
     path('toyota',toyota,name='toyota'),
     path('submit_form', submit_form, name='submit_form'),
+    path('contact/', contact_form, name='contact_form'),
     # path('success_page',success_page,name='success_page'),
 ]

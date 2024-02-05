@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import rent,VehicleRental
+from .models import rent,VehicleRental,ContactMessage
 from django.contrib.auth.models import User,auth
 
 def index(request):
@@ -72,5 +72,29 @@ def submit_form(request):
         return render(request, 'success.html')  # Redirect to a success page or any other page
     return render(request, 'upload.html')  # Replace 'your_template.html' with your actual template file
 
-# def success_page(request):
-#     return render(request, 'success.html')
+
+
+
+def contact_form(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        telephone = request.POST['telephone']
+        subject = request.POST['subject']
+        message = request.POST['message']
+
+        # Create and save the message in the database
+        ContactMessage.objects.create(
+            name=name,
+            email=email,
+            telephone=telephone,
+            subject=subject,
+            message=message
+        )
+
+        # Add a success message
+        #message.success(request, 'Your message has been sent successfully!')
+
+        return redirect('contact_form')  # Redirect to the same form page
+    return render(request, 'contact.html')  # Replace 'your_template.html' with your actual template name
+
