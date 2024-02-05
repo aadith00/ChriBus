@@ -29,6 +29,12 @@ class Booking(models.Model):
     num_plate = models.ForeignKey(Bus, on_delete=models.CASCADE)
     seat_num = models.CharField(max_length=10, default=None)
 
+    def save(self, *args, **kwargs):
+        # Reduce the total seats when a booking is saved
+        self.num_plate.booked_seats += 1
+        self.num_plate.save()
+        super().save(*args, **kwargs)
+
 
 # class Passenger(models.Model):
 #     register_number = models.CharField(max_length=20)
