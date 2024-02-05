@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import rent
+from .models import rent,VehicleRental
 from django.contrib.auth.models import User,auth
 
 def index(request):
@@ -49,3 +49,28 @@ def bikerental(request):
 
 def rent_details(request):
     return render(request,'rent-details.html')
+
+
+def submit_form(request):
+    if request.method == 'POST':
+        owner_name = request.POST.get('ownerName')
+        vehicle_type = request.POST.get('vehicleType')
+        vehicle_model = request.POST.get('vehicleModel')
+        rental_price = request.POST.get('rentalPrice')
+        image_upload = request.FILES.get('imageUpload')
+
+        # Save data to the database
+        rental = VehicleRental.objects.create(
+            ownerName=owner_name,
+            vehicleType=vehicle_type,
+            vehicleModel=vehicle_model,
+            rentalPrice=rental_price,
+            imageUpload=image_upload
+        )
+        rental.save()
+
+        return render(request, 'success.html')  # Redirect to a success page or any other page
+    return render(request, 'upload.html')  # Replace 'your_template.html' with your actual template file
+
+# def success_page(request):
+#     return render(request, 'success.html')

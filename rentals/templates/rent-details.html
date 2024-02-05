@@ -108,9 +108,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car and Bike Rental List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -140,6 +137,11 @@
             margin: 10px;
             padding: 20px;
             width: 450px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .vehicle-card:hover {
+            transform: scale(1.05);
         }
 
         .vehicle-image {
@@ -159,25 +161,69 @@
             margin-top: 10px;
             font-size: 14px;
         }
-        .button .button{
+
+        .button {
             font-weight: 600;
             font-size: 14px;
             letter-spacing: 1;
-            text-transform: capitalize;
+            text-transform: uppercase;
             display: inline-block;
-            padding: 14px 30px;
-            line-height:1;
-            margin:10px 10px;
-            color:#002038;
+            padding: 4px 7px;
+            line-height: 1;
+            margin: 10px 10px;
+            color: #ffffff;
+            background-color: #000000;
+            border: none;
             border-radius: 50px;
-            border: 2px solid blue;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:before,
+        .button:after {
+            content: '';
+            position: absolute;
+            background: rgba(6, 70, 207, 0.4);
+            z-index: -1;
+            transition: transform 0.4s ease-out;
+        }
+
+        .button:before {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+
+        .button:after {
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        .button:hover {
+            background-color: #297fb8;
+        }
+
+        .button:hover:before,
+        .button:hover:after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Car  Rental</h1>
+        <h1>Car Rental</h1>
     </header>
 
     <div class="vehicle-container">
@@ -187,29 +233,29 @@
             <div class="vehicle-details">Type: Sedan</div>
             <div class="vehicle-details">Price: $50/day</div>
             <div class="button">
-                <a href="toyota"class="button">click here</a>
+                <a href="toyota" class="button">Click here</a>
             </div>
         </div>
-        <div class="vehicle-card">
-          <img src="https://www.marutisuzuki.com/price-list/-/media/8F5B6751C40A4578A171147C11752CAC.ashx" alt="Car 1" class="vehicle-image">
-          <div class="vehicle-title">Swift</div>
-          <div class="vehicle-details">Type: Dezire</div>
-          <div class="vehicle-details">Price: $50/day</div>
-          <div class="button">
-            <a href="#"class="button">click here</a>
-        </div>
-      </div>
 
         <div class="vehicle-card">
-          <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Scorpio-Classic/10764/1690268502010/front-left-side-47.jpg?impolicy=resize&imwidth=420"alt="car 2"class ="vechile-image">
-          <div class="vehicle-title">Mahindra</div>
-          <div class="vehicle-details">Type: XUV700</div>
-          <div class="vehicle-details">Price: $50/day</div>
-          <div class="button">
-            <a href="#"class="button">click here</a>
+            <img src="https://www.marutisuzuki.com/price-list/-/media/8F5B6751C40A4578A171147C11752CAC.ashx" alt="Car 2" class="vehicle-image">
+            <div class="vehicle-title">Swift</div>
+            <div class="vehicle-details">Type: Dezire</div>
+            <div class="vehicle-details">Price: $50/day</div>
+            <div class="button">
+                <a href="#" class="button">Click here</a>
+            </div>
         </div>
-      </div>
-         
+
+        <div class="vehicle-card">
+            <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Mahindra/Scorpio-Classic/10764/1690268502010/front-left-side-47.jpg?impolicy=resize&imwidth=420" alt="Car 3" class="vehicle-image">
+            <div class="vehicle-title">Mahindra</div>
+            <div class="vehicle-details">Type: XUV700</div>
+            <div class="vehicle-details">Price: $50/day</div>
+            <div class="button">
+                <a href="#" class="button">Click here</a>
+            </div>
+        </div>
 
         <!-- Add more vehicles as needed -->
 
@@ -221,6 +267,9 @@
 
 </body>
 </html>
+
+
+
 
 
 

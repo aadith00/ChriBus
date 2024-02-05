@@ -186,7 +186,7 @@
         <body>
         
             <div class="container">
-                <form action="submit_form" method="post">
+              <form action="{% url 'submit_form' %}" method="post">
                     {% csrf_token %}
                     <h2>Vehicle Rental Form</h2>
         
@@ -212,7 +212,7 @@
                     <!-- Input field for file upload -->
                     <input type="file" name="imageUpload" id="imageUpload" accept="image/*">
         
-                    <button type="submit" value="upload">Upload</button>
+                    <button href="success" type="submit" value="upload">Upload</button>
                 </form>
         
                 <img class="rent_img" src="http://1.bp.blogspot.com/-36_4mOSiZ5w/VnfelAx8mII/AAAAAAAAABc/xsmNetTD60s/s1600/car%2Brentals%2Bhire.jpg"
