@@ -30,14 +30,8 @@ class Bus(models.Model):
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     num_plate = models.ForeignKey(Bus, on_delete=models.CASCADE)
-    ticket_number = models.CharField(max_length=10, default=None)
+    ticket_number = models.CharField(max_length=50, default=None)
     journey_date = models.DateField(default=None)
-
-    def save(self, *args, **kwargs):
-        # Reduce the total seats when a booking is saved
-        self.num_plate.booked_seats += 1
-        self.num_plate.save()
-        super().save(*args, **kwargs)
 
 
 # class Passenger(models.Model):
