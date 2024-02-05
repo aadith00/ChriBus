@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import dashboard, tables
+from .views import dashboard
 
 urlpatterns = [
 
     path('dashboard', dashboard, name='dashboard'),
-    path('datatables', tables, name='table'),
+    # path('charts', bus_chart, name='bus-chart'),
+
 
 ]

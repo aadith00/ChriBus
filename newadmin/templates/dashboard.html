@@ -1,11 +1,116 @@
 {% extends 'layouts/base.html' %}
 
+{% load static %}
+
+{% block stylesheets %}
+<!-- Charts JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock stylesheets %}
+
 {% block content %}
 
-    <div>
-        {% include 'layouts/sidebar.html' %}
+<div class="d-flex">
+
+    {% include 'layouts/sidebar.html' %}
+    <div class="w-100">
         {% include 'layouts/header.html' %}
-        <h1>Dashboard</h1>
+        <div class="my-3 mx-3">
+            <h1>Dashboard</h1>
+            <div class="d-flex">
+
+                <div class="col-3 card mx-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Total Users</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <div>
+                            <canvas id="userCountChart"></canvas>
+                        </div>
+                        <h1 class="card-text text-end">{{ user_count }}</h1>
+                    </div>
+                </div>
+
+                <div class="col-3 card mx-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Seats Remaining</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <div>
+                            <canvas id="seatchart"></canvas>
+                        </div>
+                        <h1 class="card-text text-end"></h1>
+                    </div>
+                </div>
+
+
+
+        </div>
     </div>
 
+</div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var remseats = document.getElementById('seatchart').getContext('2d');
+
+        new Chart(remseats, {
+            type: 'bar',
+            data: {
+                labels: {{ labels | safe }},
+        datasets: [{
+            label: '# of Available Seats',
+            data: {{ data_values | safe }},
+        borderWidth: 1,
+            }]
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var userCountChart = document.getElementById('userCountChart').getContext('2d');
+
+    new Chart(userCountChart, {
+        type: 'bar',
+        data: {
+            labels: ['Total Users'],
+            datasets: [{
+                label: '# of Users',
+                data: [{{ user_count }}],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
+
+
+//     document.addEventListener('DOMContentLoaded', function () {
+//         var totaluserchart = document.getElementById('userchart').getContext('2d');
+
+//         new Chart(totaluserchart, {
+//             type: 'bar',
+//             data: {
+//                 labels: {{ labels | safe }},
+//         datasets: [{
+//             label: 'No. of users',
+//             data: {{ user_values | safe }},
+//         borderWidth: 1,
+//             }]
+//         }
+//     });
+// });
+
+</script>
+
 {% endblock content %}
+
+{% block scripts %}
+<script src="{% static '/assets/js/index.js' %}"></script>
+{% endblock scripts %}
