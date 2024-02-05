@@ -63,6 +63,10 @@
         color: #fff;
         text-decoration: none;
       }
+      .main-nav ul li a:hover {
+        color: #ffcc00;
+        /* Change the color on hover */
+    }
       .main-nav ul li .dropdown {
         display: none;
         position: absolute;
@@ -88,17 +92,33 @@
 
   <header class="header">
     <div class="container">
-      <h1 class="logo"><a href="#" class="logo">CHRIBUS</a></h1>
+      <h1 class="logo"><a href="#" class="logo">ChristVista</a></h1>
       <nav class="main-nav">
         <ul>
+
+          {% if user.is_authenticated %}
+
+          <li><a href="#">Hello, {{ user.username }}</a></li>
+          <li><a href="booking">BOOK TICKETS</a></li>
+          <li><a href="rentals">RENTALS</a>
+          <div class="dropdown">
+            <a href="upload">RENT-OUT</a>
+          </div></li>
+          <li><a href="support">SUPPORT</a></li>
+          <li><a href="logout">LOGOUT</a></li>
+
+          {% else %}
+
           <li><a href="home">HOME</a></li>
           <li><a href="booking">BOOK TICKETS</a></li>
           <li><a href="rentals">RENTALS</a>
-            <div class="dropdown">
-              <a href="upload">RENT-OUT</a>
-            </div></li>
+          <div class="dropdown">
+            <a href="upload">RENT-OUT</a>
+          </div></li>
           <li><a href="support">SUPPORT</a></li>
-          <li><a href="login">LOGIN</a></li>
+          <li><a href="login">ACCOUNT</a></li>
+
+          {% endif %}
         </ul>
       </nav>
     </div>
@@ -124,13 +144,13 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     width: 85%;
-    background-color: #0367a6;
+    background-color:#0367a6;
     margin-left: 100px;
     transition: background-color 0.3s ease; /* Add transition effect on background-color */
   }
 
   .search-form:hover {
-    background-color: #fafec7; /* Change background color on hover */
+    background-color:  rgba(136, 118, 200, 0.751); /* Change background color on hover */
   }
 
   #searchform {
@@ -283,14 +303,7 @@
       flex-direction: row-reverse;
       margin-bottom: 20px;
     }
-  
-    .book-about:hover p {
-      color: #ff4500; /* Change color on hover */
-    }
-  
-    .book-about:hover .book-img {
-      transform: scale(1.1); /* Increase size on hover */
-    }
+
   </style>
   
   <section>
