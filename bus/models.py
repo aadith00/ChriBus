@@ -12,6 +12,9 @@ class Bus(models.Model):
     driver_id = models.CharField(unique=True,max_length=50)
     driver_image = models.ImageField(upload_to='driver_pics', default=None)
 
+    def calculate_available_seats(self):
+        return self.total_seats - self.booked_seats
+
     created_at = models.DateTimeField(auto_now_add=True)  ## gives the time and date of the first instance this was created
     updated_at = models.DateTimeField(auto_now=True)      ## gives the time and date of the last modification made into this
 
@@ -27,7 +30,14 @@ class Bus(models.Model):
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     num_plate = models.ForeignKey(Bus, on_delete=models.CASCADE)
-    seat_num = models.CharField(max_length=10, default=None)
+    ticket_number = models.CharField(max_length=10, default=None)
+    journey_date = models.DateField(default=None)
+
+    def save(self, *args, **kwargs):
+        # Reduce the total seats when a booking is saved
+        self.num_plate.booked_seats += 1
+        self.num_plate.save()
+        super().save(*args, **kwargs)
 
 
 # class Passenger(models.Model):

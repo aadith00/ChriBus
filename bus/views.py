@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Bus
+from .models import Bus, Booking
 from datetime import datetime
 
 
@@ -27,22 +27,36 @@ def search_buses(request):
 
 def bus_details(request, num_plate):
     bus = get_object_or_404(Bus, pk=num_plate)
+    bus.available_seats = bus.calculate_available_seats()
+
     return render(request, 'bus_details.html', {'bus':bus})
 
 
+def book_ticket(request, num_plate):
+    if request.method == 'POST':
+        ticket_num = request.POST.get('ticket_number')
+        booking_date = request.POST.get('booking_date')
 
-# def book_ticket(request, num_plate):
-#     bus = Bus.objects.get(id=num_plate)
-#     if request.method == 'POST':
-#         form = BookingForm(request.POST)
-#         if form.is_valid():
-#             booking = form.save(commit=False)
-#             booking.bus = bus
-#             booking.user = request.user
-#             booking.save()
-#             return redirect('booking_success')
-#     else:
-#         form = BookingForm()
-#     return render(request, 'book_ticket.html', {'form': form, 'bus': bus})
+        # Retrieve the bus instance
+        bus = Bus.objects.get(pk=num_plate)
+        bus.booked_seats += 1
+        bus.save()
+
+        # Check if there are available seats
+        booking = Booking(
+            user=request.user,
+            num_plate=bus,
+            ticket_number = ticket_num,
+            journey_date = booking_date
+        )
+
+        if not booking.journey_date:
+            booking.journey_date = datetime.now().date()
+
+        booking.save()
+
+        return render(request, 'book_success.html')
+    else:
+        return render(request, 'book_failure.html')  # Handle case when no available seats
 
 
