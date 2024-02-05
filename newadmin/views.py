@@ -1,14 +1,33 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 from bus.models import Bus, Booking
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    bus_data = Bus.objects.all()
 
-def tables(request):
-    return render(request, 'datatables.html')
+    user_count = User.objects.all().count()
+    labels = [bus.num_plate for bus in bus_data]
+    data_values = [bus.total_seats-bus.booked_seats for bus in bus_data]
+    
+    context = {
+        'labels' : labels,
+        'data_values' : data_values,
+        'user_count': user_count,
+    }
 
-def bus_chart(request):
-    data = Bus.objects.all()
-    data_for_chart = [{'x': entry.field1, 'y': entry.field2} for entry in data]
+    return render(request, 'dashboard.html', context)
 
-    return render(request, 'dashboard.html', {'data_for_chart':data_for_chart})
+# def bus_chart(request):
+#     bus_data = Bus.objects.all()
+
+#     user_count = User.objects.all().count()
+#     labels = [bus.num_plate for bus in bus_data]
+#     data_values = [bus.total_seats-bus.booked_seats for bus in bus_data]
+    
+#     context = {
+#         'labels' : labels,
+#         'data_values' : data_values,
+#         'user_count': user_count,
+#     }
+
+#     return render(request, 'dashboard.html', context)
