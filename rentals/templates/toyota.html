@@ -41,14 +41,14 @@
             object-fit: cover;
             border-radius: 8px;
             margin-bottom: 20px;
-            margin-left: 200px;
+            margin-top: 30px;
         }
 
         .car-title {
             font-size: 40px;
             font-weight: bold;
             margin-bottom: 10px;
-            margin-left: 200px;
+            margin-left: 300px;
         }
 
         .car-details {
@@ -58,15 +58,18 @@
             
         }
 
-        
+        .owner-details{
+            margin-left: 300px;
+        }
 
         .owner-details p {
             margin: 5px 0;
+
         }
 
         .back-button {
             margin-top: 20px;
-            margin-left: 120px;
+            margin-left: 140px;
         }
 
         .back-button a {
@@ -77,26 +80,16 @@
             padding: 10px 20px;
             background-color: #002038;
             border-radius: 8px;
-            transition: background-color 0.3s, color 0.3s;
         }
-
-        .back-button a:hover {
-            background-color: #fff;
-            color: #002038;
-            margin-left: 200px;
-
-        }
-        h1{
-            margin-left: 500px;
-        }
+    
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Car Rental</h1>
+        ,<center><h1>Car Rental</h1></center>
     </header>
-    <img src="https://images.hindustantimes.com/auto/img/2022/04/16/1600x900/toyota-crown_1650081701941_1650081711884.jpg" alt="Car Image" class="car-details-image">
+    <center><img src="https://images.hindustantimes.com/auto/img/2022/04/16/1600x900/toyota-crown_1650081701941_1650081711884.jpg" alt="Car Image" class="car-details-image"></center>
     <div class="car-title">Toyota Camry</div>
     <div class="car-details-container">
         
@@ -129,6 +122,119 @@
         // You can add JavaScript functionality here if needed
     </script>
 
-</body>
-</html>
+<!-- Footer -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
+<body>
+    <footer>
+        <style>
+            body {
+                margin: 0;
+                overflow-x: hidden;
+            }
+
+            .footer {
+                background: #000;
+                padding: 30px 0px;
+                font-family: 'Play', sans-serif;
+                text-align: center;
+                margin-top:10px;
+            }
+
+            .footer .row {
+                width: 100%;
+                margin: 1% 0%;
+                padding: 0.6% 0%;
+                color: gray;
+                font-size: 0.8em;
+                display: flex;
+                justify-content: center;
+                /* Center the icons horizontally */
+                align-items: center;
+                /* Center the icons vertically */
+            }
+
+            .footer .row a {
+                text-decoration: none;
+                color: gray;
+                transition: 0.5s;
+                margin: 0 15px;
+                /* Adjusted margin for spacing between icons */
+            }
+
+            .footer .row a:hover {
+                color: #fff;
+            }
+
+            .footer .row ul {
+                width: 100%;
+            }
+
+            .footer .row ul li {
+                display: inline-block;
+                margin: 0px 30px;
+            }
+
+            .footer .row a i {
+                font-size: 2em;
+                margin: 0% 1%;
+            }
+
+            @media (max-width: 720px) {
+                .footer {
+                    text-align: left;
+                    padding: 5%;
+                }
+
+                .footer .row {
+                    flex-direction: column;
+                    /* Stack icons vertically on small screens */
+                    align-items: flex-start;
+                }
+
+                .footer .row a {
+                    margin: 10px 0;
+                }
+
+                .footer .row a i {
+                    margin: 0% 3%;
+                }
+            }
+        </style>
+        </head>
+
+        <body>
+            <footer>
+                <div class="footer">
+                    <div class="row">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </div>
+
+
+                    <div class="row">
+                        <ul>
+                            <li><a href="support">Contact us</a></li>
+                            <li><a href="home">Our Services</a></li>
+                            <li><a href="rentals">Rentals</a></li>
+                            <li><a href="upload">Rent-Out</a></li>
+                            <li><a href="login">Login</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        Copyright © 2024 CHRIBUS - All rights reserved 
+                    </div>
+                </div>
+            </footer>
+
+
+
+
+        </body>
+
+        </html>
