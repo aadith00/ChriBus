@@ -1,0 +1,63 @@
+<div>
+    {% if user.is_authenticated %}
+    <form method="post" action="{% url 'book-ticket' bus.num_plate bus.tick_num  %}">
+        {% csrf_token %}
+        <input type="hidden" name="tick-num" value="{{ bus.tick_num }}">
+        <input type="hidden" name="departure_date" value="{{ bus.departure_date }}">
+        <center>
+            <button type="submit" id="generateTicketPDF">BOOK NOW</button>
+        </center>
+    </form>
+    {% else %}
+    <p>Please log in to book a ticket.</p>
+    <a href="{% url 'user_login' %}">Login Now</a>
+    {% endif %}
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!-- Book Now button -->
+<div>
+    <center><button id="generateTicketBtn">BOOK NOW</button></center>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const generateTicketBtn = document.getElementById('generateTicketBtn');
+
+        generateTicketBtn.addEventListener('click', generateTicketPDF);
+
+        function generateTicketPDF() {
+            const ticketDetails = {
+                Reg_No: "{{ request.user.username }}",
+                DepartureCity: "{{ bus.departure_city }}",
+                Destination: "{{ bus.destination_city }}",
+                Departure_date: "{{ bus.departure_date }}"
+            };
+
+            const content = `
+                <div id="ticketContainer">
+                    <h2>Your Ticket</h2>
+                    <hr>
+
+                    <div class="ticket-details">
+                        <p><strong>Register Number:</strong> ${ticketDetails.Reg_No}</p>
+                        <p><strong>Departure City:</strong> ${ticketDetails.DepartureCity}</p>
+                        <p><strong>Destination:</strong> ${ticketDetails.Destination}</p>
+                        <p><strong>Departure Date:</strong> ${ticketDetails.Departure_date}</p>
+                    </div>
+                </div>
+            `;
+
+            const pdfOptions = {
+                margin: 10,
+                filename: 'ticket.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().from(content).set(pdfOptions).save();
+        }
+    });
+</script>
