@@ -117,4 +117,7 @@ def user_logout(request):
     logout(request)
     return redirect('/register')
 
+def out(request):
+    return render(request, 'upload.html')
+
 

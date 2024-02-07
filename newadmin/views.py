@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from bus.models import Bus, Booking
+from django.contrib.auth import authenticate, login, logout
 
 def index(request):
     return render(request, 'adminlogin.html')
@@ -36,3 +37,26 @@ def get_model_data(request):
     return JsonResponse({
         "data": data
     })
+
+
+def admin_login(request):
+    if request.method == 'POST':
+        admin_username = request.POST.get('adminuser')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=admin_username, password=password)
+
+        if user is not None and user.is_staff:
+            login(request, user)
+            return render(request, 'dashboard.html')
+        else:
+            error_message = "Invalid admin credentials. Please try again."
+            return render(request, 'login.html', {'error_message': error_message})
+
+
+    return render(request, 'login.html')
+
+
+def admin_logout(request):
+    logout(request)
+    return redirect('/newadmin')
