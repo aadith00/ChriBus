@@ -11,7 +11,7 @@ urlpatterns = [
     path('upload', upload, name='upload'),
     path('register',user_login, name='user_login'),
 
-    path('bus/book/<str:num_plate>/', book_ticket, name='book-ticket'),
+    path('bus/book/<str:num_plate>/<str:tick_num>/', book_ticket, name='book-ticket'),
     path('bus/<str:num_plate>/', bus_details, name='bus_details'),
 
     # path('search_results', search_bus)

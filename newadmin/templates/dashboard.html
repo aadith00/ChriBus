@@ -5,6 +5,11 @@
 {% block stylesheets %}
 <!-- Charts JS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Simple Datatables -->
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+
 {% endblock stylesheets %}
 
 {% block content %}
@@ -20,12 +25,12 @@
 
                 <div class="col-3 card mx-3">
                     <div class="card-body">
-                        <h5 class="card-title text-primary">Total Users</h5>
+                        <h5 class="card-title text-primary">Total Buses</h5>
                         <h6 class="card-subtitle mb-2 text-muted"></h6>
                         <div>
-                            <canvas id="userCountChart"></canvas>
+                            <canvas id="busCountChart"></canvas>
                         </div>
-                        <h1 class="card-text text-end">{{ user_count }}</h1>
+                        <h1 class="card-text text-end">{{ bus_count }}</h1>
                     </div>
                 </div>
 
@@ -40,77 +45,168 @@
                     </div>
                 </div>
 
+                <div class="col-3 card mx-3">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Total Bookings</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"></h6>
+                        <div>
+                            <canvas id="bookingchart"></canvas>
+                        </div>
+                        <h1 class="card-text text-end">{{ booking_count }}</h1>
+                    </div>
+                </div>
+            </div>
 
+            <div>
+                <div class="mx-3 my-5">
+                    <h3 class="text-center">User Count</h3>
+                    <div class=" bg-opacity-15 px-5 py-3 rounded">
+                        <canvas id="user-count"></canvas>
+                    </div>
+                </div>
 
+                <div class="d-flex">
+                    <div class="card mx-3 p-3">
+                        <h6 class="text-center"></h6>
+                        <canvas></canvas>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <h3>Booked Tickets</h3>
+                        <table id="datatable"></table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-</div>
+    <script>
 
-<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var remseats = document.getElementById('seatchart').getContext('2d');
 
-    document.addEventListener('DOMContentLoaded', function () {
-        var remseats = document.getElementById('seatchart').getContext('2d');
-
-        new Chart(remseats, {
-            type: 'bar',
-            data: {
-                labels: {{ labels | safe }},
-        datasets: [{
-            label: '# of Available Seats',
-            data: {{ data_values | safe }},
-        borderWidth: 1,
+            new Chart(remseats, {
+                type: 'bar',
+                data: {
+                    labels: {{ labels | safe }},
+            datasets: [{
+                label: '# of Available Seats',
+                data: {{ data_values | safe }},
+            borderWidth: 1,
             }]
         }
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    var userCountChart = document.getElementById('userCountChart').getContext('2d');
 
-    new Chart(userCountChart, {
-        type: 'bar',
-        data: {
-            labels: ['Total Users'],
-            datasets: [{
-                label: '# of Users',
-                data: [{{ user_count }}],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1,
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        document.addEventListener('DOMContentLoaded', function () {
+            var userCountChart = document.getElementById('busCountChart').getContext('2d');
+
+            new Chart(userCountChart, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Buses'],
+                    datasets: [{
+                        label: '# of Buses',
+                        data: [{{ bus_count }}],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                }]
+            },
+                options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
                 }
             }
-        }
     });
 });
 
 
-//     document.addEventListener('DOMContentLoaded', function () {
-//         var totaluserchart = document.getElementById('userchart').getContext('2d');
+        document.addEventListener('DOMContentLoaded', function () {
+            var bookingCountChart = document.getElementById('bookingchart').getContext('2d');
 
-//         new Chart(totaluserchart, {
-//             type: 'bar',
-//             data: {
-//                 labels: {{ labels | safe }},
-//         datasets: [{
-//             label: 'No. of users',
-//             data: {{ user_values | safe }},
-//         borderWidth: 1,
-//             }]
-//         }
-//     });
-// });
+            new Chart(bookingCountChart, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Bookings'],
+                    datasets: [{
+                        label: '# of Bookings',
+                        data: [{{ booking_count }}],
+                    backgroundColor: 'rgba(70, 192, 192, 0.2)',
+                    borderColor: 'rgba(70, 192, 192, 1)',
+                    borderWidth: 1,
+                }]
+            },
+                options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+    });
+});
 
-</script>
 
-{% endblock content %}
+        document.addEventListener('DOMContentLoaded', function () {
+            var userCountChart = document.getElementById('user-count').getContext('2d');
 
-{% block scripts %}
-<script src="{% static '/assets/js/index.js' %}"></script>
-{% endblock scripts %}
+            new Chart(userCountChart, {
+                type: 'scatter',
+                data: {
+                    labels: ['Total Users'],
+                    datasets: [{
+                        label: '# of Users',
+                        data: [{{ user_count }}],
+                    backgroundColor: 'rgba(70, 192, 192, 0.2)',
+                    borderColor: 'rgba(70, 192, 192, 1)',
+                    borderWidth: 1,
+                }]
+            },
+                options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+    });
+});
+
+
+        const dataTable = new simpleDatatables.DataTable('#datatable', {
+            searchable: true,
+            fixedHeaight: true,
+            data: {
+                headings: ['Users', 'Bus ID', 'Ticket Number', 'Journey Date'],
+                data: []
+            }
+        })
+
+        fetch('http://127.0.0.1:8000/newadmin/api/model-data/')
+            .then(response => response.json())
+            .then(data => {
+                dataTable.rows.add(data.modelData)
+                const modelData = data;
+                dataTable.update({
+                    data: {
+                        headings: ['Users', 'Bus ID', 'Ticket Number', 'Journey Date'],
+                        data: modelData
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+
+
+    </script>
+
+    {% endblock content %}
+
+    {% block scripts %}
+    <script src="{% static '/assets/js/index.js' %}"></script>
+    {% endblock scripts %}

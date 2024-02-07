@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import random
 
 class Bus(models.Model):
     num_plate = models.CharField(primary_key=True,unique=True,max_length=50)  ## Primary Key
@@ -14,6 +15,15 @@ class Bus(models.Model):
 
     def calculate_available_seats(self):
         return self.total_seats - self.booked_seats
+    
+    def generate_random_ticket(self):
+        self.tickets_sold = []
+        ticket_number = random.randint(10000, 99999)
+        while ticket_number in self.tickets_sold:
+            ticket_number = random.randint(10000, 99999)
+        ticket_number_act = "TICKET- " + str(ticket_number)
+        self.tickets_sold.append(ticket_number)
+        return ticket_number_act
 
     created_at = models.DateTimeField(auto_now_add=True)  ## gives the time and date of the first instance this was created
     updated_at = models.DateTimeField(auto_now=True)      ## gives the time and date of the last modification made into this

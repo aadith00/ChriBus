@@ -90,8 +90,7 @@
                 <nav class="main-nav">
                     <ul>
                         {% if user.is_authenticated %}
-                        <li><a href="#">Hello, {{ user.username }}</a></li>
-                        <li><a href="booking">BOOK TICKETS</a></li>
+                        <li><a href="home">Hello, {{ user.username }}</a></li>
                         <li><a href="rentals">RENTALS</a>
                             <div class="dropdown">
                                 <a href="upload">RENT-OUT</a>
@@ -101,7 +100,6 @@
                         <li><a href="logout">LOGOUT</a></li>
                         {% else %}
                         <li><a href="home">HOME</a></li>
-                        <li><a href="booking">BOOK TICKETS</a></li>
                         <li><a href="rentals">RENTALS</a>
                             <div class="dropdown">
                                 <a href="upload">RENT-OUT</a>
