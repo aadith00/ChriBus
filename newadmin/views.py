@@ -2,8 +2,6 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.contrib.auth.models import User
 from bus.models import Bus, Booking
-from django.core.serializers import serialize
-from django.forms.models import model_to_dict
 
 def index(request):
     return render(request, 'adminlogin.html')
@@ -29,16 +27,11 @@ def dashboard(request):
 
 
 def get_model_data(request):
-    tickets = Booking.objects.all()
+    tickets = Booking.objects.all()[:50]
     data = []
 
     for item in tickets:
-        # Convert User object to dictionary
-        user_dict = model_to_dict(item.user)
-        # Extract necessary fields from the user dictionary
-        username = user_dict.get('username', '')
-        
-        data.append([username, item.num_plate, item.ticket_number, item.journey_date])
+        data.append([str(item.user.username), str(item.num_plate), str(item.ticket_number), str(item.journey_date)])
         
     return JsonResponse({
         "data": data

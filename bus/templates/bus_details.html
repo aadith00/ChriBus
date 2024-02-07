@@ -279,16 +279,32 @@
             <h1 class="logo"><a href="#" class="logo">ChristVista</a></h1>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="register">REGISTER</a></li>
+
+                    {% if user.is_authenticated %}
+
+                    <li><a href="#">Hello, {{ user.username }}</a></li>
                     <li><a href="booking">BOOK TICKETS</a></li>
                     <li><a href="rentals">RENTALS</a>
                         <div class="dropdown">
                             <a href="upload">RENT-OUT</a>
                         </div>
                     </li>
-
                     <li><a href="support">SUPPORT</a></li>
-                    <li><a href="login">LOGIN</a></li>
+                    <li><a href="logout">LOGOUT</a></li>
+
+                    {% else %}
+
+                    <li><a href="home">HOME</a></li>
+                    <li><a href="booking">BOOK TICKETS</a></li>
+                    <li><a href="rentals">RENTALS</a>
+                        <div class="dropdown">
+                            <a href="upload">RENT-OUT</a>
+                        </div>
+                    </li>
+                    <li><a href="support">SUPPORT</a></li>
+                    <li><a href="login">ACCOUNT</a></li>
+
+                    {% endif %}
                 </ul>
             </nav>
         </div>
@@ -532,7 +548,7 @@
             </div>
 
             <div class="row">
-                Copyright © 2024 CHRIBUS - All rights reserved
+                Copyright © 2024 CHRISTVISTA - All rights reserved
             </div>
         </div>
     </footer>

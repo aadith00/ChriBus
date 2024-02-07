@@ -179,24 +179,19 @@
 
         const dataTable = new simpleDatatables.DataTable('#datatable', {
             searchable: true,
-            fixedHeaight: true,
+            fixedHeight: true,
             data: {
                 headings: ['Users', 'Bus ID', 'Ticket Number', 'Journey Date'],
                 data: []
             }
-        })
+        });
 
         fetch('http://127.0.0.1:8000/newadmin/api/model-data/')
             .then(response => response.json())
             .then(data => {
-                const modelData = data;
-                dataTable.update({
-                    data: {
-                        headings: ['Users', 'Bus ID', 'Ticket Number', 'Journey Date'],
-                        data: modelData
-                    }
-                });
+                dataTable.insert(data.data);
             })
+
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
