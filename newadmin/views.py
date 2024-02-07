@@ -27,6 +27,12 @@ def dashboard(request):
 
 
 def get_model_data(request):
-    model_data = Booking.objects.values_list('user', 'num_plate', 'journey_date')
-    return JsonResponse(list(model_data), safe=False)
+    tickets = Booking.objects.all()
+    data = []
 
+    for item in tickets:
+        data.append([item.user, item.num_plate, item.ticket_number, item.journey_date])
+        
+    return JsonResponse({
+        "data": data
+    })

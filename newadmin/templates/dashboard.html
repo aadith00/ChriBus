@@ -155,7 +155,7 @@
             var userCountChart = document.getElementById('user-count').getContext('2d');
 
             new Chart(userCountChart, {
-                type: 'scatter',
+                type: 'bar',
                 data: {
                     labels: ['Total Users'],
                     datasets: [{
@@ -189,7 +189,6 @@
         fetch('http://127.0.0.1:8000/newadmin/api/model-data/')
             .then(response => response.json())
             .then(data => {
-                dataTable.rows.add(data.modelData)
                 const modelData = data;
                 dataTable.update({
                     data: {
