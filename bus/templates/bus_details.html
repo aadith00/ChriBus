@@ -375,7 +375,7 @@
 
         <div>
             {% if user.is_authenticated %}
-            <form method="post" action="{% url 'book-ticket' bus.num_plate bus.tick_num %}">
+            <form method="post" action="{% url 'book-ticket' bus.num_plate bus.tick_num bus.departure_date %}">
                 {% csrf_token %}
                 <input type="hidden" name="tick-num" value="{{ bus.tick_num }}">
                 <input type="hidden" name="departure_date" value="{{ bus.departure_date }}">

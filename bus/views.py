@@ -84,12 +84,13 @@ def generate_ticket_pdf(ticket_number, bus_number, journey_date, register_number
 
     return pdf_content
 
-def book_ticket(request, num_plate, tick_num):
+def book_ticket(request, num_plate, tick_num, depar_date):
     if request.method == 'POST':
-        # Check if the user has already booked a ticket for today
-        existing_booking = Booking.objects.filter(user=request.user, journey_date=request.booking_date).exists()
+
+        existing_booking = Booking.objects.filter(user=request.user, journey_date=depar_date).exists()
         if existing_booking:
-            return render(request, 'already_booked.html')  # Render a page indicating that the user has already booked a ticket for today
+            return render(request, 'already_booked.html')
+        
         else:
             # Retrieve the bus instance
             bus = Bus.objects.get(pk=num_plate)
