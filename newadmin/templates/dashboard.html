@@ -13,7 +13,13 @@
 {% endblock stylesheets %}
 
 {% block content %}
-
+<html>
+    <body>
+        <style>
+            body{
+                background-color:bisque;
+            }
+        </style>
 <div class="d-flex">
 
     {% include 'layouts/sidebar.html' %}
@@ -198,6 +204,9 @@
 
 
     </script>
+    </div>
+    </body>
+    </html>
 
     {% endblock content %}
 

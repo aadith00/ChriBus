@@ -5,7 +5,7 @@ import io
 from django.http import HttpResponse
 from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle, Image
 from reportlab.lib.styles import getSampleStyleSheet
 
 

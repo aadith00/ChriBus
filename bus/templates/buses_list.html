@@ -90,23 +90,23 @@
                 <nav class="main-nav">
                     <ul>
                         {% if user.is_authenticated %}
-                        <li><a href="home">Hello, {{ user.username }}</a></li>
-                        <li><a href="rentals">RENTALS</a>
+                        <li><a href="{% url 'home' %}">Hello, {{ user.username }}</a></li>
+                        <li><a href="{% url 'booking' %}">RENTALS</a>
                             <div class="dropdown">
-                                <a href="upload">RENT-OUT</a>
+                                <a href="{% url 'upload' %}">RENT-OUT</a>
                             </div>
                         </li>
-                        <li><a href="support">SUPPORT</a></li>
-                        <li><a href="logout">LOGOUT</a></li>
+                        <li><a href="{% url 'contact' %}">SUPPORT</a></li>
+                        <li><a href="{% url 'logout' %}">LOGOUT</a></li>
                         {% else %}
-                        <li><a href="home">HOME</a></li>
-                        <li><a href="rentals">RENTALS</a>
+                        <li><a href="{% url 'home' %}">HOME</a></li>
+                        <li><a href="{% url 'booking' %}">RENTALS</a>
                             <div class="dropdown">
-                                <a href="upload">RENT-OUT</a>
+                                <a href="{% url 'upload' %}">RENT-OUT</a>
                             </div>
                         </li>
-                        <li><a href="support">SUPPORT</a></li>
-                        <li><a href="login">ACCOUNT</a></li>
+                        <li><a href="{% url 'contact' %}">SUPPORT</a></li>
+                        <li><a href="{% url 'logout' %}">ACCOUNT</a></li>
                         {% endif %}
                     </ul>
                 </nav>
