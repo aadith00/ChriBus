@@ -9,7 +9,6 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Table, TableStyle
 from reportlab.lib.styles import getSampleStyleSheet
 
 
-
 def booking(request):
     return render(request, 'booking.html')
 
@@ -28,8 +27,6 @@ def search_buses(request):
     
     else:
         return render(request, 'no_buses.html')
-
-    # return render(request, 'booking.html')  
 
 
 def bus_details(request, num_plate):
@@ -58,7 +55,6 @@ def generate_ticket_pdf(ticket_number, bus_number, journey_date, register_number
         ['Bus Number:', bus_number],
         ['Journey Date:', str(journey_date)],
         ['Register Number:', register_number],
-        # Add more ticket information as needed
     ]
 
     # Create a table to hold ticket information
@@ -110,7 +106,7 @@ def book_ticket(request, num_plate, tick_num, depar_date):
             booking.save()
 
             # Generate ticket PDF
-            pdf_content = generate_ticket_pdf(tick_num, num_plate, booking.journey_date, booking.user.register_number)
+            pdf_content = generate_ticket_pdf(tick_num, num_plate, booking.journey_date, booking.user)
 
             # Prepare HTTP response with PDF content for download
             response = HttpResponse(pdf_content, content_type='application/pdf')
